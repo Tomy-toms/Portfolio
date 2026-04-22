@@ -1,15 +1,16 @@
 {
   "Metadata": {
-    "title": "Thomas Barthelemy — Portfolio",
-    "description": "Développeur web full-stack — je conçois des expériences web rapides, accessibles et soignées avec Next.js, TypeScript et Node.",
-    "ogAlt": "Thomas Barthelemy — Portfolio"
+    "title": "Thomas Barthelemy — Création de sites web pour entreprises",
+    "description": "Je crée des sites web rapides, visibles sur Google et pensés pour convertir. Livrés en 2 à 4 semaines, sans jargon technique. Basé à Paris.",
+    "ogAlt": "Thomas Barthelemy — Création de sites web pour entreprises"
   },
   "Nav": {
     "home": "Accueil",
     "about": "À propos",
-    "work": "Projets",
-    "skills": "Compétences",
-    "journey": "Parcours",
+    "services": "Services",
+    "work": "Réalisations",
+    "method": "Méthode",
+    "faq": "FAQ",
     "contact": "Contact",
     "cta": "Travaillons ensemble",
     "openMenu": "Ouvrir le menu",
@@ -17,76 +18,227 @@
   },
   "Hero": {
     "availability": "Disponible pour de nouveaux projets — 2026",
-    "titleLine1": "Des expériences web",
-    "titleLine2": "pensées par le design",
-    "titleLine3": "qui arrivent en prod.",
-    "intro": "Je suis <b>{name}</b>, un {role} qui conçoit des produits performants avec Next.js, TypeScript et une attention obsessionnelle aux détails.",
-    "role": "développeur web full-stack",
-    "ctaWork": "Voir mes projets",
-    "ctaContact": "Me contacter",
-    "location": "Paris, France",
-    "timezone": "GMT+1",
-    "remote": "Télétravail possible",
+    "titleLine1": "Des sites web qui",
+    "titleLine2": "travaillent pour",
+    "titleLine3": "votre entreprise.",
+    "intro": "Je crée des sites <b>rapides</b>, <b>visibles sur Google</b> et pensés pour convertir vos visiteurs en clients. Livrés en 2 à 4 semaines, sans jargon technique.",
+    "ctaWork": "Voir mes réalisations",
+    "ctaContact": "Demander un devis",
+    "trust1": "Basé à Paris",
+    "trust2": "Disponible partout en France",
+    "trust3": "Réponse sous 24 h",
     "githubAria": "GitHub",
     "linkedinAria": "LinkedIn"
   },
-  "About": {
-    "eyebrow": "01 — À propos",
-    "titleA": "Un développeur avec ",
-    "titleAccent": "l'œil d'un designer",
-    "titleB": ".",
-    "bio": "Je suis un développeur full-stack passionné par le design — je livre des applications en production avec Next.js, TypeScript et Node. La performance, le mouvement et des interfaces qui semblent vivantes, c'est ce qui me fait vibrer.",
-    "paragraph2": "J'accompagne fondateurs, agences et équipes produit pour transformer des idées ambitieuses en applications web rapides, accessibles et belles. Un score Lighthouse de 96 me tient autant à cœur qu'un bouton qui réagit parfaitement au clic.",
-    "stats": {
-      "years": { "value": "7+", "label": "Années de code" },
-      "projects": { "value": "40+", "label": "Projets livrés" },
-      "clients": { "value": "20+", "label": "Clients satisfaits" },
-      "awards": { "value": "3", "label": "Nominations Awwwards" }
-    },
-    "focusEyebrow": "Focus actuel —",
-    "focus": "Sites marketing cinématiques, dashboards boostés à l'IA et outils pour développeurs. J'explore en ce moment les shaders WebGPU et les primitives de collaboration temps-réel."
+  "Services": {
+    "eyebrow": "01 — Ce que je fais",
+    "titleA": "Trois façons de ",
+    "titleAccent": "faire grandir",
+    "titleB": " votre activité en ligne.",
+    "intro": "Chaque projet est unique. Voici les trois formats que je propose le plus souvent — on adapte ensuite à votre besoin réel.",
+    "items": [
+      {
+        "badge": "Le plus demandé",
+        "title": "Site Vitrine",
+        "description": "Pour présenter votre activité, capter des demandes de devis et gagner en crédibilité auprès de vos prospects.",
+        "features": [
+          "4 à 8 pages sur mesure",
+          "Design moderne, adapté mobile",
+          "Optimisation SEO locale (Google)",
+          "Formulaire de contact sécurisé",
+          "Livraison en 2 à 3 semaines"
+        ],
+        "for": "Idéal pour : artisans, professions libérales, TPE"
+      },
+      {
+        "badge": "",
+        "title": "Refonte complète",
+        "description": "Votre site actuel ne vous ressemble plus, est trop lent ou ne convertit pas ? On repart sur des bases solides.",
+        "features": [
+          "Audit de l'existant offert",
+          "Nouveau design + migration du contenu",
+          "Performance & SEO améliorés",
+          "Formation à la mise à jour",
+          "Livraison en 3 à 5 semaines"
+        ],
+        "for": "Idéal pour : PME avec site daté ou peu performant"
+      },
+      {
+        "badge": "Sur mesure",
+        "title": "E-commerce & outils métier",
+        "description": "Boutique en ligne, espace client, prise de rendez-vous, outil interne… On construit ce qui manque à votre activité.",
+        "features": [
+          "Cahier des charges co-construit",
+          "Stripe, prise de RDV, espace client",
+          "Interface d'administration simple",
+          "Hébergement sécurisé",
+          "Livraison en 4 à 8 semaines"
+        ],
+        "for": "Idéal pour : commerces, praticiens, PME en croissance"
+      }
+    ],
+    "includes": "Inclus dans chaque projet",
+    "includesList": [
+      "Hébergement la première année",
+      "Nom de domaine",
+      "Certificat SSL (https)",
+      "Référencement Google initial",
+      "Formation à la mise à jour",
+      "Un mois de support offert"
+    ]
+  },
+  "WhyWebsite": {
+    "eyebrow": "02 — Pourquoi c'est décisif",
+    "titleA": "Votre site est souvent le ",
+    "titleAccent": "premier contact",
+    "titleB": " avec vos futurs clients.",
+    "intro": "En 2026, on ne choisit plus une entreprise sans passer par son site. Voici ce que disent les chiffres.",
+    "stats": [
+      {
+        "value": "75 %",
+        "label": "des visiteurs jugent la crédibilité d'une entreprise sur son site",
+        "source": "Étude Stanford"
+      },
+      {
+        "value": "53 %",
+        "label": "quittent un site qui met plus de 3 secondes à charger",
+        "source": "Google"
+      },
+      {
+        "value": "61 %",
+        "label": "des recherches locales mènent à un appel ou une visite en boutique",
+        "source": "Google"
+      },
+      {
+        "value": "88 %",
+        "label": "ne reviennent jamais après une mauvaise expérience mobile",
+        "source": "Forbes"
+      }
+    ]
   },
   "Projects": {
-    "eyebrow": "02 — Sélection",
-    "titleA": "Quelques projets dont je suis ",
-    "titleAccent": "fier",
-    "titleB": ".",
-    "empty": "Aucun projet pour l'instant. Ajoutez-en depuis le tableau de bord admin.",
+    "eyebrow": "03 — Réalisations",
+    "titleA": "Quelques projets et ",
+    "titleAccent": "leurs résultats",
+    "titleB": " concrets.",
+    "empty": "Aucun projet pour l'instant. Les réalisations seront publiées très prochainement.",
     "all": "Tous",
-    "featured": "Mis en avant",
+    "featured": "À la une",
     "sourceAria": "{title} — code source sur GitHub"
   },
+  "Method": {
+    "eyebrow": "04 — Comment on travaille",
+    "titleA": "Une méthode ",
+    "titleAccent": "simple",
+    "titleB": ", sans mauvaise surprise.",
+    "intro": "Pas de jargon, pas de surprise, pas d'engagement avant le devis. Voici comment ça se passe du premier contact à la mise en ligne.",
+    "steps": [
+      {
+        "number": "01",
+        "title": "On discute",
+        "duration": "30 min · offert",
+        "description": "On fait connaissance. Vous me parlez de votre métier, de vos objectifs, de vos contraintes. Je vous dis ce qui est réaliste et ce qui ne l'est pas."
+      },
+      {
+        "number": "02",
+        "title": "Je conçois",
+        "duration": "3 à 5 jours",
+        "description": "Je vous envoie une proposition claire : arborescence, maquette, délai, tarif ferme. Vous validez, on lance. Sinon, vous ne me devez rien."
+      },
+      {
+        "number": "03",
+        "title": "Je développe",
+        "duration": "1 à 5 semaines",
+        "description": "Vous suivez l'avancement en direct avec un lien privé. On ajuste au fil de l'eau. Pas de surprise à la livraison."
+      },
+      {
+        "number": "04",
+        "title": "On lance",
+        "duration": "1 jour",
+        "description": "Je mets le site en ligne, je vous forme à la mise à jour du contenu, et je vous accompagne pendant 1 mois offert pour les ajustements."
+      }
+    ]
+  },
+  "Pricing": {
+    "eyebrow": "05 — Combien ça coûte ?",
+    "titleA": "La vraie réponse : ",
+    "titleAccent": "ça dépend",
+    "titleB": ".",
+    "paragraph1": "Un site vitrine pour un cabinet de trois personnes n'a pas les mêmes besoins qu'une boutique en ligne pour une marque qui lance son activité.",
+    "paragraph2": "C'est pourquoi je commence toujours par un appel de découverte offert de 30 minutes — je comprends votre métier, vos objectifs, vos contraintes. Ensuite seulement, je vous envoie un devis ferme et détaillé, sans surprise.",
+    "promise": "Pas de facturation cachée. Pas de mauvaise surprise. Pas d'engagement avant le devis signé.",
+    "cta": "Réserver mon appel découverte"
+  },
+  "Testimonials": {
+    "eyebrow": "06 — Ils m'ont fait confiance",
+    "titleA": "Ce qu'en disent ",
+    "titleAccent": "mes clients",
+    "titleB": ".",
+    "items": [
+      {
+        "quote": "Thomas a compris exactement ce dont on avait besoin. En trois semaines, on avait un site qui nous ressemble enfin, et on voit déjà les premières demandes de devis arriver.",
+        "name": "Marie Dubois",
+        "role": "Gérante, Le Moulin Doré"
+      },
+      {
+        "quote": "Une approche humaine et professionnelle, loin du jargon habituel. Notre cabinet a désormais un outil de prise de rendez-vous qui fonctionne, et nos patients adorent.",
+        "name": "Dr. Antoine Martin",
+        "role": "Kinésithérapeute, Cabinet Martin"
+      },
+      {
+        "quote": "On avait un vieux site qui ne convertissait pas. Après la refonte, on est passés de 2 à 12 demandes de devis par mois. Le ROI a été atteint en deux mois.",
+        "name": "Pierre Lefèvre",
+        "role": "Dirigeant, Atelier Lumière"
+      }
+    ]
+  },
+  "About": {
+    "eyebrow": "07 — À propos",
+    "titleA": "Je suis ",
+    "titleAccent": "Thomas",
+    "titleB": ", et j'aime faire du web qui sert à quelque chose.",
+    "bio": "Développeur web indépendant basé à Paris, je travaille main dans la main avec des artisans, des PME et des professions libérales pour leur donner la présence en ligne qu'ils méritent. Mon credo : un beau site, oui — mais surtout un site qui ramène des clients.",
+    "paragraph2": "Je ne sous-traite pas. Vous avez un interlocuteur unique de A à Z, qui répond en moins de 24 h, qui parle français (pas javaScript), et qui ne vous facturera pas trois allers-retours pour changer une couleur.",
+    "stats": {
+      "years": { "value": "7+", "label": "Années d'expérience" },
+      "projects": { "value": "40+", "label": "Projets livrés" },
+      "clients": { "value": "20+", "label": "Clients satisfaits" },
+      "response": { "value": "< 24 h", "label": "Temps de réponse" }
+    },
+    "focusEyebrow": "Focus actuel —",
+    "focus": "Sites vitrines pour artisans et professions libérales, refontes pour PME, outils de prise de rendez-vous et boutiques en ligne sur-mesure."
+  },
   "Skills": {
-    "eyebrow": "03 — Boîte à outils",
-    "titleA": "La ",
-    "titleAccent": "stack",
-    "titleB": " que j'utilise.",
-    "intro": "Dix ans d'avis distillés en outils qui me permettent de livrer vite sans rien lâcher sur la qualité.",
+    "eyebrow": "08 — Stack technique",
+    "titleA": "Les outils que ",
+    "titleAccent": "j'utilise",
+    "titleB": ".",
+    "intro": "Pour les curieux ou les équipes techniques : voici les technologies sur lesquelles je m'appuie pour livrer des sites rapides, sécurisés et maintenables.",
     "groups": {
       "Language": "Langage",
       "Framework": "Framework",
       "Backend": "Backend",
-      "Data": "Données",
-      "UI": "UI",
-      "Motion": "Motion",
-      "DevOps": "DevOps",
+      "Data": "Base de données",
+      "UI": "Interface",
+      "Motion": "Animation",
+      "DevOps": "Déploiement",
       "Design": "Design"
     }
   },
   "Experience": {
-    "eyebrow": "04 — Parcours",
-    "titleA": "Ma ",
-    "titleAccent": "timeline professionnelle",
-    "titleB": " en bref.",
+    "eyebrow": "09 — Parcours",
+    "titleA": "Quelques ",
+    "titleAccent": "étapes",
+    "titleB": " de mon parcours.",
     "items": [
       {
-        "role": "Ingénieur Full-Stack Senior",
-        "company": "Lumen Studio",
+        "role": "Développeur web indépendant",
+        "company": "Thomas Barthelemy",
         "period": "2023 — Aujourd'hui",
-        "location": "Télétravail",
+        "location": "Paris · Télétravail",
         "points": [
-          "Refonte des sites marketing et applicatifs en Next.js 14 avec un gain de 40 % sur le LCP.",
-          "Mise en place d'un design system adopté par 5 squads produit."
+          "Création de sites vitrines et boutiques en ligne pour artisans, professions libérales et PME.",
+          "Accompagnement complet : écoute, design, développement, SEO, formation, suivi."
         ]
       },
       {
@@ -95,8 +247,8 @@
         "period": "2021 — 2023",
         "location": "Paris, FR",
         "points": [
-          "Propriétaire du tunnel de paiement (Stripe + Node), 8 M€/an traités.",
-          "Accompagnement de 3 juniors et introduction du contract-testing."
+          "Propriétaire du tunnel de paiement e-commerce, 8 M€/an traités.",
+          "Accompagnement de 3 juniors et introduction de bonnes pratiques qualité."
         ]
       },
       {
@@ -106,35 +258,65 @@
         "location": "Paris, FR",
         "points": [
           "Plus de 20 sites livrés pour agences et startups.",
-          "Intégrations CMS sur-mesure et parcours e-commerce."
+          "Intégrations CMS sur-mesure et premiers parcours e-commerce."
         ]
       }
     ]
   },
+  "Faq": {
+    "eyebrow": "10 — Vos questions",
+    "titleA": "Les questions que ",
+    "titleAccent": "l'on me pose",
+    "titleB": " souvent.",
+    "items": [
+      {
+        "q": "Combien coûte un site web ?",
+        "a": "Un site vitrine bien conçu démarre en général autour de 1 500 €, une refonte complète autour de 3 000 €, un e-commerce autour de 5 000 €. Mais c'est volontairement indicatif : le vrai prix dépend de votre besoin. On en parle lors de l'appel découverte, je vous envoie un devis ferme ensuite."
+      },
+      {
+        "q": "Combien de temps faut-il pour livrer un site ?",
+        "a": "Comptez 2 à 3 semaines pour un site vitrine, 3 à 5 semaines pour une refonte, 4 à 8 semaines pour un projet e-commerce ou sur-mesure. Je vous donne une date ferme de livraison lors du devis."
+      },
+      {
+        "q": "Pourrai-je modifier mon site moi-même ?",
+        "a": "Oui. Vous aurez un accès simple pour modifier vos textes, images, tarifs, horaires, projets, sans connaissance technique. Une formation de 30 minutes est incluse à la livraison."
+      },
+      {
+        "q": "Que se passe-t-il après la livraison ?",
+        "a": "Vous bénéficiez d'un mois de support offert pour les petits ajustements. Ensuite, je reste disponible pour les évolutions (nouveau contenu, nouvelle fonctionnalité, ajout de pages) sur devis ou par forfait mensuel de maintenance."
+      },
+      {
+        "q": "Pourquoi vous et pas une agence ?",
+        "a": "Parce que vous aurez un interlocuteur unique, qui répond vite, qui ne sous-traite rien et qui ne vous fera pas payer trois niveaux de marge. Une agence reste une bonne option pour les très gros projets ; pour le reste, vous gagnez en clarté et en réactivité."
+      }
+    ]
+  },
   "Contact": {
-    "eyebrow": "05 — Contact",
+    "eyebrow": "11 — Contact",
     "titleA": "Un projet en ",
     "titleAccent": "tête",
     "titleB": " ?",
-    "description": "Parlez-moi de ce que vous construisez. Je réponds en moins de 24 h les jours ouvrés.",
+    "description": "Parlez-moi de votre activité, de ce que vous voulez améliorer, de vos délais. Je réponds en moins de 24 h les jours ouvrés.",
     "alsoOn": "Aussi sur",
     "name": "Nom",
-    "namePlaceholder": "Ada Lovelace",
+    "namePlaceholder": "Marie Dubois",
     "email": "Email",
-    "emailPlaceholder": "vous@entreprise.com",
-    "message": "Message",
-    "messagePlaceholder": "Parlez-moi de votre projet, objectifs, deadlines…",
+    "emailPlaceholder": "vous@entreprise.fr",
+    "message": "Votre projet",
+    "messagePlaceholder": "Décrivez-moi votre activité, votre objectif, vos délais…",
     "protected": "Protégé par honeypot + rate-limit. Zéro spam, promis.",
     "send": "Envoyer le message",
     "sending": "Envoi",
     "sent": "Envoyé !",
-    "success": "Merci — votre message est bien arrivé. Je reviens vers vous très vite.",
+    "success": "Merci — votre message est bien arrivé. Je reviens vers vous sous 24 h les jours ouvrés.",
     "errorFallback": "Un problème est survenu. Réessayez plus tard."
   },
   "Footer": {
-    "rights": "© {year} {name}.",
-    "crafted": "Construit avec Next.js, Tailwind et Framer Motion.",
-    "admin": "Admin"
+    "rights": "© {year} {name}. Tous droits réservés.",
+    "crafted": "Construit avec soin. Next.js, Tailwind, Framer Motion.",
+    "admin": "Admin",
+    "legal": "Mentions légales",
+    "privacy": "Confidentialité"
   },
   "LanguageSwitcher": {
     "label": "Langue",
@@ -143,5 +325,77 @@
     "en": "English",
     "frShort": "FR",
     "enShort": "EN"
+  },
+  "Legal": {
+    "title": "Mentions légales",
+    "lastUpdate": "Dernière mise à jour : {date}",
+    "editor": {
+      "title": "Éditeur du site",
+      "body": "Le présent site est édité par :\n\n**Thomas Barthelemy**\n[Adresse postale — À COMPLÉTER]\nParis, France\n\nTéléphone : [À COMPLÉTER]\nEmail : {email}\n\nStatut : [Auto-entrepreneur / Micro-entreprise / EURL — À COMPLÉTER]\nSIRET : [À COMPLÉTER]\n\nDirecteur de la publication : Thomas Barthelemy"
+    },
+    "hosting": {
+      "title": "Hébergement",
+      "body": "Le site est hébergé par :\n\n**Vercel Inc.**\n440 N Barranca Ave #4133\nCovina, CA 91723\nÉtats-Unis\nhttps://vercel.com\n\nLa base de données est hébergée par :\n\n**Supabase Inc.**\n970 Toa Payoh North #07-04\nSingapour 318992\nhttps://supabase.com"
+    },
+    "ip": {
+      "title": "Propriété intellectuelle",
+      "body": "L'ensemble du contenu du site (textes, images, logos, code source, charte graphique) est la propriété exclusive de Thomas Barthelemy, sauf mention contraire. Toute reproduction, distribution, modification ou utilisation, même partielle, est interdite sans autorisation écrite préalable."
+    },
+    "liability": {
+      "title": "Responsabilité",
+      "body": "Les informations présentes sur ce site sont fournies à titre indicatif. Bien que je m'efforce d'en garantir l'exactitude, je ne peux être tenu responsable d'erreurs, d'omissions, ou de tout préjudice résultant de l'utilisation de ces informations. Les liens externes sont fournis pour votre commodité ; je n'ai aucun contrôle sur leur contenu."
+    },
+    "law": {
+      "title": "Droit applicable",
+      "body": "Les présentes mentions légales sont régies par le droit français. En cas de litige, les tribunaux français seront seuls compétents."
+    },
+    "contact": {
+      "title": "Contact",
+      "body": "Pour toute question, vous pouvez me contacter à l'adresse {email} ou via le formulaire de contact du site."
+    }
+  },
+  "Privacy": {
+    "title": "Politique de confidentialité",
+    "lastUpdate": "Dernière mise à jour : {date}",
+    "intro": {
+      "title": "Introduction",
+      "body": "La présente politique explique comment vos données personnelles sont collectées, utilisées et protégées lorsque vous naviguez sur ce site ou me contactez. Elle est conforme au Règlement Général sur la Protection des Données (RGPD) et à la loi française Informatique et Libertés."
+    },
+    "controller": {
+      "title": "Responsable du traitement",
+      "body": "Le responsable du traitement est :\n\n**Thomas Barthelemy**\n[Adresse postale — À COMPLÉTER]\nEmail : {email}"
+    },
+    "data": {
+      "title": "Données collectées",
+      "body": "Lorsque vous utilisez le formulaire de contact, je collecte uniquement :\n\n- Votre **nom**\n- Votre **adresse email**\n- Le **contenu du message** que vous envoyez\n\nAucune autre donnée n'est collectée à votre insu. Ce site n'utilise **aucun outil de traçage publicitaire** (pas de Google Analytics, pas de pixel Facebook, pas de bannière de cookies publicitaires)."
+    },
+    "purpose": {
+      "title": "Finalité du traitement",
+      "body": "Vos données sont utilisées exclusivement pour :\n\n- Répondre à votre demande de contact\n- Établir un devis si nécessaire\n- Conserver un historique de nos échanges pour le suivi du projet\n\nVos données ne sont **jamais revendues, louées ou transmises** à des tiers à des fins commerciales."
+    },
+    "legalBasis": {
+      "title": "Base légale",
+      "body": "Le traitement repose sur votre **consentement** (envoi volontaire du formulaire) et sur l'**intérêt légitime** à répondre à votre demande commerciale."
+    },
+    "retention": {
+      "title": "Durée de conservation",
+      "body": "Vos données sont conservées pendant **3 ans** à compter de notre dernier échange, conformément aux recommandations de la CNIL pour la prospection commerciale. Passé ce délai, elles sont supprimées automatiquement."
+    },
+    "recipients": {
+      "title": "Destinataires",
+      "body": "Vos données sont accessibles uniquement à moi-même (Thomas Barthelemy). Elles sont stockées sur les serveurs de Supabase (voir Mentions légales) et peuvent transiter par Vercel pour l'hébergement. Aucun autre tiers n'y a accès."
+    },
+    "rights": {
+      "title": "Vos droits (RGPD)",
+      "body": "Conformément au RGPD, vous disposez à tout moment des droits suivants sur vos données personnelles :\n\n- **Droit d'accès** : obtenir une copie de vos données\n- **Droit de rectification** : corriger une donnée inexacte\n- **Droit à l'effacement** : demander la suppression de vos données\n- **Droit d'opposition** : refuser le traitement\n- **Droit à la portabilité** : récupérer vos données dans un format lisible\n- **Droit de limitation** : restreindre le traitement\n\nPour exercer l'un de ces droits, contactez-moi à {email}. Je vous répondrai sous un délai maximum de 30 jours."
+    },
+    "cookies": {
+      "title": "Cookies",
+      "body": "Ce site utilise uniquement des cookies **strictement nécessaires** à son fonctionnement :\n\n- Un cookie de session pour l'accès à l'administration du site (concerne uniquement moi-même)\n- Un cookie de préférence de langue (FR / EN)\n\nAucun cookie publicitaire, aucun cookie de mesure d'audience, aucun cookie de tiers n'est déposé sur votre navigateur."
+    },
+    "complaint": {
+      "title": "Réclamation",
+      "body": "Si vous estimez que vos droits ne sont pas respectés, vous pouvez introduire une réclamation auprès de la CNIL :\n\n**Commission Nationale de l'Informatique et des Libertés**\n3 Place de Fontenoy, TSA 80715\n75334 PARIS CEDEX 07\nhttps://www.cnil.fr"
+    }
   }
 }

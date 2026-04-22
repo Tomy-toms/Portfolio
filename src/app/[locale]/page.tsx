@@ -1,10 +1,16 @@
 import { setRequestLocale } from "next-intl/server";
 import { Nav } from "@/components/Nav";
 import { Hero } from "@/components/Hero";
-import { About } from "@/components/About";
+import { Services } from "@/components/Services";
+import { WhyWebsite } from "@/components/WhyWebsite";
 import { Projects } from "@/components/Projects";
+import { Method } from "@/components/Method";
+import { Pricing } from "@/components/Pricing";
+import { Testimonials } from "@/components/Testimonials";
+import { About } from "@/components/About";
 import { Skills } from "@/components/Skills";
 import { Experience } from "@/components/Experience";
+import { Faq } from "@/components/Faq";
 import { Contact } from "@/components/Contact";
 import { Footer } from "@/components/Footer";
 import { CustomCursor } from "@/components/CustomCursor";
@@ -43,10 +49,16 @@ export default async function HomePage({ params }: Props) {
       <Nav />
       <main id="top" className="relative">
         <Hero />
-        <About />
+        <Services />
+        <WhyWebsite />
         <Projects projects={projects} />
+        <Method />
+        <Pricing />
+        <Testimonials />
+        <About />
         <Skills />
         <Experience />
+        <Faq />
         <Contact />
       </main>
       <Footer />

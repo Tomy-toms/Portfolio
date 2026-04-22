@@ -51,8 +51,6 @@ export function Hero() {
           className="mt-8 max-w-xl text-lg leading-relaxed text-ink-200"
         >
           {t.rich("intro", {
-            name: site.shortName,
-            role: t("role"),
             b: (chunks) => <span className="text-white">{chunks}</span>,
           })}
         </motion.p>
@@ -63,11 +61,11 @@ export function Hero() {
           transition={{ delay: 0.45, duration: 0.6 }}
           className="mt-10 flex flex-wrap items-center gap-3"
         >
-          <a href="#projects" className="btn-primary">
-            {t("ctaWork")} <ArrowRight className="h-4 w-4" />
+          <a href="#contact" className="btn-primary">
+            {t("ctaContact")} <ArrowRight className="h-4 w-4" />
           </a>
-          <a href="#contact" className="btn-ghost">
-            {t("ctaContact")}
+          <a href="#projects" className="btn-ghost">
+            {t("ctaWork")}
           </a>
           <div className="ml-1 flex items-center gap-1">
             <a
@@ -95,14 +93,14 @@ export function Hero() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.9, duration: 0.6 }}
-          className="mt-16 flex items-center gap-4 text-sm text-ink-300"
+          className="mt-16 flex flex-wrap items-center gap-4 text-sm text-ink-300"
         >
           <MapPin className="h-4 w-4" />
-          <span>{t("location")}</span>
+          <span>{t("trust1")}</span>
           <span className="h-1 w-1 rounded-full bg-ink-500" />
-          <span>{t("timezone")}</span>
+          <span>{t("trust2")}</span>
           <span className="h-1 w-1 rounded-full bg-ink-500" />
-          <span>{t("remote")}</span>
+          <span>{t("trust3")}</span>
         </motion.div>
       </motion.div>
 

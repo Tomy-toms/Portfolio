@@ -9,7 +9,7 @@ const STAT_KEYS = [
   { key: "years", icon: Code2 },
   { key: "projects", icon: Rocket },
   { key: "clients", icon: Users },
-  { key: "awards", icon: Award },
+  { key: "response", icon: Award },
 ] as const;
 
 export function About() {

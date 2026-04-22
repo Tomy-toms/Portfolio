@@ -9,10 +9,10 @@ import { cn } from "@/lib/utils";
 import { LanguageSwitcher } from "./LanguageSwitcher";
 
 const NAV_ITEMS = [
-  { key: "about", href: "#about" },
+  { key: "services", href: "#services" },
   { key: "work", href: "#projects" },
-  { key: "skills", href: "#skills" },
-  { key: "journey", href: "#experience" },
+  { key: "method", href: "#method" },
+  { key: "faq", href: "#faq" },
   { key: "contact", href: "#contact" },
 ] as const;
 

@@ -1,15 +1,16 @@
 {
   "Metadata": {
-    "title": "Thomas Barthelemy — Portfolio",
-    "description": "Full-stack web developer — I build fast, accessible, delightful web experiences with Next.js, TypeScript and Node.",
-    "ogAlt": "Thomas Barthelemy — Portfolio"
+    "title": "Thomas Barthelemy — Websites built for businesses",
+    "description": "I build fast, Google-friendly websites that turn visitors into customers. Delivered in 2 to 4 weeks, no jargon. Based in Paris.",
+    "ogAlt": "Thomas Barthelemy — Websites built for businesses"
   },
   "Nav": {
     "home": "Home",
     "about": "About",
+    "services": "Services",
     "work": "Work",
-    "skills": "Skills",
-    "journey": "Journey",
+    "method": "How it works",
+    "faq": "FAQ",
     "contact": "Contact",
     "cta": "Let's talk",
     "openMenu": "Open menu",
@@ -17,76 +18,227 @@
   },
   "Hero": {
     "availability": "Available for new projects — 2026",
-    "titleLine1": "Design-driven",
-    "titleLine2": "web experiences",
-    "titleLine3": "that ship.",
-    "intro": "I'm <b>{name}</b>, a {role} crafting performant products with Next.js, TypeScript and a relentless attention to detail.",
-    "role": "full-stack web developer",
+    "titleLine1": "Websites built",
+    "titleLine2": "to grow",
+    "titleLine3": "your business.",
+    "intro": "I build <b>fast</b>, <b>Google-friendly</b> websites designed to turn visitors into customers. Delivered in 2 to 4 weeks, no tech jargon.",
     "ctaWork": "See my work",
-    "ctaContact": "Get in touch",
-    "location": "Paris, France",
-    "timezone": "GMT+1",
-    "remote": "Remote-friendly",
+    "ctaContact": "Get a quote",
+    "trust1": "Based in Paris",
+    "trust2": "Working across France",
+    "trust3": "Reply within 24 h",
     "githubAria": "GitHub",
     "linkedinAria": "LinkedIn"
   },
-  "About": {
-    "eyebrow": "01 — About",
-    "titleA": "A developer with a ",
-    "titleAccent": "designer's eye",
-    "titleB": ".",
-    "bio": "I'm a full-stack developer with a designer's eye — shipping production apps with Next.js, TypeScript, and Node. I care about performance, motion, and making interfaces feel alive.",
-    "paragraph2": "I partner with founders, agencies, and product teams to turn ambitious ideas into fast, accessible, and beautiful web apps. I care just as much about a 96 Lighthouse score as I do about a button that feels just right.",
-    "stats": {
-      "years": { "value": "7+", "label": "Years coding" },
-      "projects": { "value": "40+", "label": "Shipped projects" },
-      "clients": { "value": "20+", "label": "Happy clients" },
-      "awards": { "value": "3", "label": "Awwwards nods" }
-    },
-    "focusEyebrow": "Current focus —",
-    "focus": "Cinematic marketing sites, AI-native dashboards, and developer tooling. Currently experimenting with WebGPU shaders and real-time collab primitives."
+  "Services": {
+    "eyebrow": "01 — What I do",
+    "titleA": "Three ways to ",
+    "titleAccent": "grow",
+    "titleB": " your business online.",
+    "intro": "Every project is different. Here are the three formats I offer most often — then we adapt to your actual needs.",
+    "items": [
+      {
+        "badge": "Most requested",
+        "title": "Showcase website",
+        "description": "To present your business, capture quote requests and build credibility with your prospects.",
+        "features": [
+          "4 to 8 tailored pages",
+          "Modern design, mobile-ready",
+          "Local SEO optimisation (Google)",
+          "Secure contact form",
+          "Delivered in 2 to 3 weeks"
+        ],
+        "for": "Best for: craftspeople, independents, small businesses"
+      },
+      {
+        "badge": "",
+        "title": "Full redesign",
+        "description": "Your current site looks dated, is too slow, or doesn't convert? Let's start from a solid foundation.",
+        "features": [
+          "Free audit of your existing site",
+          "New design + content migration",
+          "Performance & SEO improvements",
+          "Training to self-manage",
+          "Delivered in 3 to 5 weeks"
+        ],
+        "for": "Best for: SMBs with an outdated or under-performing site"
+      },
+      {
+        "badge": "Tailor-made",
+        "title": "E-commerce & business tools",
+        "description": "Online shop, customer portal, online booking, internal tool… We build what your business is missing.",
+        "features": [
+          "Spec co-written with you",
+          "Stripe, bookings, customer portal",
+          "Simple admin interface",
+          "Secure hosting",
+          "Delivered in 4 to 8 weeks"
+        ],
+        "for": "Best for: retailers, practitioners, growing SMBs"
+      }
+    ],
+    "includes": "Included in every project",
+    "includesList": [
+      "First year of hosting",
+      "Domain name",
+      "SSL certificate (https)",
+      "Initial Google SEO setup",
+      "Training to manage your content",
+      "One month of free support"
+    ]
+  },
+  "WhyWebsite": {
+    "eyebrow": "02 — Why it matters",
+    "titleA": "Your website is often the ",
+    "titleAccent": "first impression",
+    "titleB": " your future customers get.",
+    "intro": "In 2026, nobody picks a business without checking the website first. Here's what the numbers say.",
+    "stats": [
+      {
+        "value": "75%",
+        "label": "of visitors judge a business's credibility from its website",
+        "source": "Stanford Study"
+      },
+      {
+        "value": "53%",
+        "label": "leave a site that takes more than 3 seconds to load",
+        "source": "Google"
+      },
+      {
+        "value": "61%",
+        "label": "of local searches end with a phone call or a visit",
+        "source": "Google"
+      },
+      {
+        "value": "88%",
+        "label": "never return after a bad mobile experience",
+        "source": "Forbes"
+      }
+    ]
   },
   "Projects": {
-    "eyebrow": "02 — Selected Work",
-    "titleA": "A few projects I'm ",
-    "titleAccent": "proud",
-    "titleB": " of.",
-    "empty": "No projects yet. Add some from the admin dashboard.",
+    "eyebrow": "03 — Selected work",
+    "titleA": "A few projects and ",
+    "titleAccent": "real results",
+    "titleB": ".",
+    "empty": "No projects yet. Case studies will be published very soon.",
     "all": "All",
     "featured": "Featured",
     "sourceAria": "{title} source on GitHub"
   },
+  "Method": {
+    "eyebrow": "04 — How we work",
+    "titleA": "A ",
+    "titleAccent": "simple",
+    "titleB": " process, no bad surprises.",
+    "intro": "No jargon, no surprises, no commitment before the quote. Here's how it goes from first contact to launch.",
+    "steps": [
+      {
+        "number": "01",
+        "title": "We talk",
+        "duration": "30 min · free",
+        "description": "We get to know each other. You tell me about your business, your goals, your constraints. I tell you what's realistic and what isn't."
+      },
+      {
+        "number": "02",
+        "title": "I design",
+        "duration": "3 to 5 days",
+        "description": "I send you a clear proposal: sitemap, mockup, timeline, fixed quote. You approve, we start. Otherwise, you owe me nothing."
+      },
+      {
+        "number": "03",
+        "title": "I build",
+        "duration": "1 to 5 weeks",
+        "description": "You follow progress live via a private link. We fine-tune along the way. No surprises at delivery."
+      },
+      {
+        "number": "04",
+        "title": "We launch",
+        "duration": "1 day",
+        "description": "I put the site live, train you to manage the content, and support you for one month free for any last adjustments."
+      }
+    ]
+  },
+  "Pricing": {
+    "eyebrow": "05 — What will it cost?",
+    "titleA": "The honest answer: ",
+    "titleAccent": "it depends",
+    "titleB": ".",
+    "paragraph1": "A showcase website for a three-person practice has nothing in common with an online store for a launching brand.",
+    "paragraph2": "That's why I always start with a free 30-minute discovery call — I learn your business, your goals, your constraints. Then, and only then, you get a clear fixed quote, no surprises.",
+    "promise": "No hidden billing. No bad surprises. No commitment before the signed quote.",
+    "cta": "Book my discovery call"
+  },
+  "Testimonials": {
+    "eyebrow": "06 — Trusted by",
+    "titleA": "What my ",
+    "titleAccent": "clients",
+    "titleB": " say.",
+    "items": [
+      {
+        "quote": "Thomas understood exactly what we needed. In three weeks we had a website that finally looked like us, and we're already seeing the first quote requests coming in.",
+        "name": "Marie Dubois",
+        "role": "Owner, Le Moulin Doré"
+      },
+      {
+        "quote": "A human, professional approach, far from the usual tech-speak. Our practice now has a booking tool that just works, and our patients love it.",
+        "name": "Dr. Antoine Martin",
+        "role": "Physiotherapist, Cabinet Martin"
+      },
+      {
+        "quote": "We had an old website that didn't convert. After the redesign we went from 2 to 12 quote requests per month. ROI in two months.",
+        "name": "Pierre Lefèvre",
+        "role": "Director, Atelier Lumière"
+      }
+    ]
+  },
+  "About": {
+    "eyebrow": "07 — About",
+    "titleA": "I'm ",
+    "titleAccent": "Thomas",
+    "titleB": ", and I like building websites that actually work.",
+    "bio": "I'm an independent web developer based in Paris. I work hand-in-hand with craftspeople, small businesses and independent practitioners to give them the online presence they deserve. My motto: a beautiful website, yes — but above all a website that brings in customers.",
+    "paragraph2": "I don't outsource. You get one dedicated contact from start to finish, who replies within 24 h, speaks plain language (not JavaScript), and won't charge you for three back-and-forths just to change a colour.",
+    "stats": {
+      "years": { "value": "7+", "label": "Years of experience" },
+      "projects": { "value": "40+", "label": "Shipped projects" },
+      "clients": { "value": "20+", "label": "Happy clients" },
+      "response": { "value": "< 24 h", "label": "Response time" }
+    },
+    "focusEyebrow": "Current focus —",
+    "focus": "Showcase websites for craftspeople and practitioners, redesigns for SMBs, online booking tools and tailor-made online stores."
+  },
   "Skills": {
-    "eyebrow": "03 — Toolbox",
-    "titleA": "The ",
-    "titleAccent": "stack",
-    "titleB": " I reach for.",
-    "intro": "Ten years of opinions distilled into the tools that make me ship faster without compromising craft.",
+    "eyebrow": "08 — Tech stack",
+    "titleA": "The tools I ",
+    "titleAccent": "use",
+    "titleB": ".",
+    "intro": "For the curious or technical teams: here's the stack I rely on to deliver fast, secure, and maintainable websites.",
     "groups": {
       "Language": "Language",
       "Framework": "Framework",
       "Backend": "Backend",
-      "Data": "Data",
+      "Data": "Database",
       "UI": "UI",
       "Motion": "Motion",
-      "DevOps": "DevOps",
+      "DevOps": "Hosting",
       "Design": "Design"
     }
   },
   "Experience": {
-    "eyebrow": "04 — Journey",
-    "titleA": "The short ",
-    "titleAccent": "career timeline",
-    "titleB": ".",
+    "eyebrow": "09 — Journey",
+    "titleA": "A few ",
+    "titleAccent": "steps",
+    "titleB": " along the way.",
     "items": [
       {
-        "role": "Senior Full-Stack Engineer",
-        "company": "Lumen Studio",
+        "role": "Independent web developer",
+        "company": "Thomas Barthelemy",
         "period": "2023 — Present",
-        "location": "Remote",
+        "location": "Paris · Remote",
         "points": [
-          "Lead rebuilds of marketing + app surfaces in Next.js 14 with a 40% LCP improvement.",
-          "Shipped a design system adopted across 5 product squads."
+          "Showcase websites and online shops for craftspeople, practitioners, and SMBs.",
+          "End-to-end partnership: listening, design, development, SEO, training, follow-up."
         ]
       },
       {
@@ -95,8 +247,8 @@
         "period": "2021 — 2023",
         "location": "Paris, FR",
         "points": [
-          "Owned the checkout stack (Stripe + Node) processing €8M/yr.",
-          "Mentored 3 juniors and introduced contract-testing."
+          "Owned the e-commerce checkout stack processing €8M/yr.",
+          "Mentored 3 juniors and introduced quality-testing practices."
         ]
       },
       {
@@ -106,35 +258,65 @@
         "location": "Paris, FR",
         "points": [
           "Delivered 20+ sites for agencies and startups.",
-          "Built custom CMS integrations and e-commerce flows."
+          "Custom CMS integrations and early e-commerce projects."
         ]
       }
     ]
   },
+  "Faq": {
+    "eyebrow": "10 — Your questions",
+    "titleA": "The questions I get ",
+    "titleAccent": "asked",
+    "titleB": " most.",
+    "items": [
+      {
+        "q": "How much does a website cost?",
+        "a": "As a rough guide, a well-built showcase website typically starts around €1,500, a full redesign around €3,000, and an e-commerce project around €5,000. But it's deliberately indicative — the real price depends on your needs. We discuss it during the discovery call, and I send you a fixed quote right after."
+      },
+      {
+        "q": "How long does it take?",
+        "a": "Plan for 2 to 3 weeks for a showcase site, 3 to 5 weeks for a redesign, 4 to 8 weeks for an e-commerce or tailor-made project. I commit to a firm delivery date in the quote."
+      },
+      {
+        "q": "Can I edit my site myself?",
+        "a": "Yes. You'll have a simple interface to edit texts, images, prices, hours, projects — no tech skills needed. A 30-minute training is included at delivery."
+      },
+      {
+        "q": "What happens after delivery?",
+        "a": "You get one month of free support for small adjustments. After that, I stay available for any evolutions (new content, new features, extra pages) on a per-quote basis or via a monthly maintenance package."
+      },
+      {
+        "q": "Why you and not an agency?",
+        "a": "Because you'll have a single point of contact, who replies fast, doesn't outsource anything, and won't charge you three layers of margin. An agency is still a good fit for very large projects; for everything else, you gain clarity and responsiveness."
+      }
+    ]
+  },
   "Contact": {
-    "eyebrow": "05 — Contact",
-    "titleA": "Have a project in ",
+    "eyebrow": "11 — Contact",
+    "titleA": "Got a project in ",
     "titleAccent": "mind",
     "titleB": "?",
-    "description": "Tell me what you're building. I reply within 24 hours on weekdays.",
+    "description": "Tell me about your business, what you want to improve, your timeline. I reply within 24 hours on weekdays.",
     "alsoOn": "Also on",
     "name": "Name",
-    "namePlaceholder": "Ada Lovelace",
+    "namePlaceholder": "Marie Dubois",
     "email": "Email",
     "emailPlaceholder": "you@company.com",
-    "message": "Message",
-    "messagePlaceholder": "Tell me about your project, goals, timeline…",
+    "message": "Your project",
+    "messagePlaceholder": "Describe your business, your goal, your timeline…",
     "protected": "Protected by honeypot + rate-limit. No spam, ever.",
     "send": "Send message",
     "sending": "Sending",
     "sent": "Sent!",
-    "success": "Thanks — your message is in. I'll reply shortly.",
+    "success": "Thanks — your message is in. I'll reply within 24 h on weekdays.",
     "errorFallback": "Something went wrong. Try again later."
   },
   "Footer": {
-    "rights": "© {year} {name}.",
-    "crafted": "Crafted with Next.js, Tailwind and Framer Motion.",
-    "admin": "Admin"
+    "rights": "© {year} {name}. All rights reserved.",
+    "crafted": "Built with care. Next.js, Tailwind, Framer Motion.",
+    "admin": "Admin",
+    "legal": "Legal",
+    "privacy": "Privacy"
   },
   "LanguageSwitcher": {
     "label": "Language",
@@ -143,5 +325,77 @@
     "en": "English",
     "frShort": "FR",
     "enShort": "EN"
+  },
+  "Legal": {
+    "title": "Legal notice",
+    "lastUpdate": "Last updated: {date}",
+    "editor": {
+      "title": "Publisher",
+      "body": "This website is published by:\n\n**Thomas Barthelemy**\n[Postal address — TO BE FILLED IN]\nParis, France\n\nPhone: [TO BE FILLED IN]\nEmail: {email}\n\nLegal status: [Sole trader / Micro-entreprise / EURL — TO BE FILLED IN]\nFrench business ID (SIRET): [TO BE FILLED IN]\n\nPublication director: Thomas Barthelemy"
+    },
+    "hosting": {
+      "title": "Hosting",
+      "body": "The site is hosted by:\n\n**Vercel Inc.**\n440 N Barranca Ave #4133\nCovina, CA 91723\nUnited States\nhttps://vercel.com\n\nThe database is hosted by:\n\n**Supabase Inc.**\n970 Toa Payoh North #07-04\nSingapore 318992\nhttps://supabase.com"
+    },
+    "ip": {
+      "title": "Intellectual property",
+      "body": "All content on this website (text, images, logos, source code, graphic design) is the exclusive property of Thomas Barthelemy, unless otherwise stated. Any reproduction, distribution, modification or use, even partial, is forbidden without prior written authorisation."
+    },
+    "liability": {
+      "title": "Liability",
+      "body": "Information on this website is provided for guidance. While I take every care to ensure accuracy, I cannot be held liable for errors, omissions, or any damage resulting from the use of this information. External links are provided for convenience; I have no control over their content."
+    },
+    "law": {
+      "title": "Governing law",
+      "body": "These legal notices are governed by French law. Any dispute shall fall within the sole jurisdiction of French courts."
+    },
+    "contact": {
+      "title": "Contact",
+      "body": "For any enquiry, please contact me at {email} or via the contact form on this site."
+    }
+  },
+  "Privacy": {
+    "title": "Privacy policy",
+    "lastUpdate": "Last updated: {date}",
+    "intro": {
+      "title": "Introduction",
+      "body": "This policy explains how your personal data is collected, used and protected when you browse this site or contact me. It complies with the EU General Data Protection Regulation (GDPR) and the French Data Protection Act."
+    },
+    "controller": {
+      "title": "Data controller",
+      "body": "The data controller is:\n\n**Thomas Barthelemy**\n[Postal address — TO BE FILLED IN]\nEmail: {email}"
+    },
+    "data": {
+      "title": "Data collected",
+      "body": "When you use the contact form, I only collect:\n\n- Your **name**\n- Your **email address**\n- The **content of the message** you send\n\nNo other data is collected without your knowledge. This site uses **no advertising tracking tool** (no Google Analytics, no Facebook pixel, no ad cookies banner)."
+    },
+    "purpose": {
+      "title": "Purpose",
+      "body": "Your data is used exclusively to:\n\n- Reply to your enquiry\n- Issue a quote where relevant\n- Keep a history of our exchanges to follow up on the project\n\nYour data is **never sold, rented or shared** with third parties for commercial purposes."
+    },
+    "legalBasis": {
+      "title": "Legal basis",
+      "body": "Processing is based on your **consent** (voluntary form submission) and on the **legitimate interest** to reply to your business enquiry."
+    },
+    "retention": {
+      "title": "Retention",
+      "body": "Your data is kept for **3 years** from our last exchange, in line with CNIL guidelines for business prospecting. Beyond this period, it is automatically deleted."
+    },
+    "recipients": {
+      "title": "Recipients",
+      "body": "Your data is only accessible to me (Thomas Barthelemy). It is stored on Supabase servers (see Legal notice) and may transit through Vercel for hosting. No other third party has access."
+    },
+    "rights": {
+      "title": "Your GDPR rights",
+      "body": "Under the GDPR, you have the following rights over your personal data at any time:\n\n- **Right of access**: obtain a copy of your data\n- **Right of rectification**: correct inaccurate data\n- **Right to erasure**: ask for your data to be deleted\n- **Right to object**: refuse processing\n- **Right to portability**: get your data in a readable format\n- **Right to restriction**: restrict processing\n\nTo exercise any of these rights, email me at {email}. I will reply within a maximum of 30 days."
+    },
+    "cookies": {
+      "title": "Cookies",
+      "body": "This website only uses **strictly necessary** cookies:\n\n- A session cookie for accessing the admin area (me only)\n- A language preference cookie (FR / EN)\n\nNo advertising cookie, no audience-tracking cookie, no third-party cookie is set on your browser."
+    },
+    "complaint": {
+      "title": "Complaint",
+      "body": "If you believe your rights are not respected, you may file a complaint with the French data protection authority:\n\n**Commission Nationale de l'Informatique et des Libertés (CNIL)**\n3 Place de Fontenoy, TSA 80715\n75334 PARIS CEDEX 07\nFrance\nhttps://www.cnil.fr"
+    }
   }
 }
