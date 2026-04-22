@@ -1,3 +1,4 @@
+import { setRequestLocale } from "next-intl/server";
 import { Nav } from "@/components/Nav";
 import { Hero } from "@/components/Hero";
 import { About } from "@/components/About";
@@ -26,7 +27,12 @@ async function getProjects() {
   }
 }
 
-export default async function HomePage() {
+type Props = { params: Promise<{ locale: string }> };
+
+export default async function HomePage({ params }: Props) {
+  const { locale } = await params;
+  setRequestLocale(locale);
+
   const projects = await getProjects();
 
   return (

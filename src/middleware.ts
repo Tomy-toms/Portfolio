@@ -1,5 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { jwtVerify } from "jose";
+import createIntlMiddleware from "next-intl/middleware";
+import { routing } from "./i18n/routing";
 
 const AUTH_COOKIE = "portfolio_session";
 
@@ -17,30 +19,37 @@ async function isAuthed(token: string | undefined) {
   }
 }
 
+const intlMiddleware = createIntlMiddleware(routing);
+
 export async function middleware(req: NextRequest) {
   const { pathname } = req.nextUrl;
-  const token = req.cookies.get(AUTH_COOKIE)?.value;
-  const authed = await isAuthed(token);
 
-  if (pathname.startsWith("/admin") && pathname !== "/admin/login") {
-    if (!authed) {
+  if (pathname.startsWith("/admin")) {
+    const token = req.cookies.get(AUTH_COOKIE)?.value;
+    const authed = await isAuthed(token);
+
+    if (pathname !== "/admin/login" && !authed) {
       const url = req.nextUrl.clone();
       url.pathname = "/admin/login";
       url.searchParams.set("from", pathname);
       return NextResponse.redirect(url);
     }
+
+    if (pathname === "/admin/login" && authed) {
+      const url = req.nextUrl.clone();
+      url.pathname = "/admin";
+      url.search = "";
+      return NextResponse.redirect(url);
+    }
+
+    return NextResponse.next();
   }
 
-  if (pathname === "/admin/login" && authed) {
-    const url = req.nextUrl.clone();
-    url.pathname = "/admin";
-    url.search = "";
-    return NextResponse.redirect(url);
-  }
-
-  return NextResponse.next();
+  return intlMiddleware(req);
 }
 
 export const config = {
-  matcher: ["/admin/:path*"],
+  matcher: [
+    "/((?!api|_next|_vercel|.*\\..*).*)",
+  ],
 };

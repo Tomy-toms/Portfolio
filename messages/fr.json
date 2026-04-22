@@ -1,0 +1,147 @@
+{
+  "Metadata": {
+    "title": "Thomas Barthelemy — Portfolio",
+    "description": "Développeur web full-stack — je conçois des expériences web rapides, accessibles et soignées avec Next.js, TypeScript et Node.",
+    "ogAlt": "Thomas Barthelemy — Portfolio"
+  },
+  "Nav": {
+    "home": "Accueil",
+    "about": "À propos",
+    "work": "Projets",
+    "skills": "Compétences",
+    "journey": "Parcours",
+    "contact": "Contact",
+    "cta": "Travaillons ensemble",
+    "openMenu": "Ouvrir le menu",
+    "closeMenu": "Fermer le menu"
+  },
+  "Hero": {
+    "availability": "Disponible pour de nouveaux projets — 2026",
+    "titleLine1": "Des expériences web",
+    "titleLine2": "pensées par le design",
+    "titleLine3": "qui arrivent en prod.",
+    "intro": "Je suis <b>{name}</b>, un {role} qui conçoit des produits performants avec Next.js, TypeScript et une attention obsessionnelle aux détails.",
+    "role": "développeur web full-stack",
+    "ctaWork": "Voir mes projets",
+    "ctaContact": "Me contacter",
+    "location": "Paris, France",
+    "timezone": "GMT+1",
+    "remote": "Télétravail possible",
+    "githubAria": "GitHub",
+    "linkedinAria": "LinkedIn"
+  },
+  "About": {
+    "eyebrow": "01 — À propos",
+    "titleA": "Un développeur avec ",
+    "titleAccent": "l'œil d'un designer",
+    "titleB": ".",
+    "bio": "Je suis un développeur full-stack passionné par le design — je livre des applications en production avec Next.js, TypeScript et Node. La performance, le mouvement et des interfaces qui semblent vivantes, c'est ce qui me fait vibrer.",
+    "paragraph2": "J'accompagne fondateurs, agences et équipes produit pour transformer des idées ambitieuses en applications web rapides, accessibles et belles. Un score Lighthouse de 96 me tient autant à cœur qu'un bouton qui réagit parfaitement au clic.",
+    "stats": {
+      "years": { "value": "7+", "label": "Années de code" },
+      "projects": { "value": "40+", "label": "Projets livrés" },
+      "clients": { "value": "20+", "label": "Clients satisfaits" },
+      "awards": { "value": "3", "label": "Nominations Awwwards" }
+    },
+    "focusEyebrow": "Focus actuel —",
+    "focus": "Sites marketing cinématiques, dashboards boostés à l'IA et outils pour développeurs. J'explore en ce moment les shaders WebGPU et les primitives de collaboration temps-réel."
+  },
+  "Projects": {
+    "eyebrow": "02 — Sélection",
+    "titleA": "Quelques projets dont je suis ",
+    "titleAccent": "fier",
+    "titleB": ".",
+    "empty": "Aucun projet pour l'instant. Ajoutez-en depuis le tableau de bord admin.",
+    "all": "Tous",
+    "featured": "Mis en avant",
+    "sourceAria": "{title} — code source sur GitHub"
+  },
+  "Skills": {
+    "eyebrow": "03 — Boîte à outils",
+    "titleA": "La ",
+    "titleAccent": "stack",
+    "titleB": " que j'utilise.",
+    "intro": "Dix ans d'avis distillés en outils qui me permettent de livrer vite sans rien lâcher sur la qualité.",
+    "groups": {
+      "Language": "Langage",
+      "Framework": "Framework",
+      "Backend": "Backend",
+      "Data": "Données",
+      "UI": "UI",
+      "Motion": "Motion",
+      "DevOps": "DevOps",
+      "Design": "Design"
+    }
+  },
+  "Experience": {
+    "eyebrow": "04 — Parcours",
+    "titleA": "Ma ",
+    "titleAccent": "timeline professionnelle",
+    "titleB": " en bref.",
+    "items": [
+      {
+        "role": "Ingénieur Full-Stack Senior",
+        "company": "Lumen Studio",
+        "period": "2023 — Aujourd'hui",
+        "location": "Télétravail",
+        "points": [
+          "Refonte des sites marketing et applicatifs en Next.js 14 avec un gain de 40 % sur le LCP.",
+          "Mise en place d'un design system adopté par 5 squads produit."
+        ]
+      },
+      {
+        "role": "Ingénieur Produit",
+        "company": "Northwind",
+        "period": "2021 — 2023",
+        "location": "Paris, FR",
+        "points": [
+          "Propriétaire du tunnel de paiement (Stripe + Node), 8 M€/an traités.",
+          "Accompagnement de 3 juniors et introduction du contract-testing."
+        ]
+      },
+      {
+        "role": "Développeur Freelance",
+        "company": "Indépendant",
+        "period": "2019 — 2021",
+        "location": "Paris, FR",
+        "points": [
+          "Plus de 20 sites livrés pour agences et startups.",
+          "Intégrations CMS sur-mesure et parcours e-commerce."
+        ]
+      }
+    ]
+  },
+  "Contact": {
+    "eyebrow": "05 — Contact",
+    "titleA": "Un projet en ",
+    "titleAccent": "tête",
+    "titleB": " ?",
+    "description": "Parlez-moi de ce que vous construisez. Je réponds en moins de 24 h les jours ouvrés.",
+    "alsoOn": "Aussi sur",
+    "name": "Nom",
+    "namePlaceholder": "Ada Lovelace",
+    "email": "Email",
+    "emailPlaceholder": "vous@entreprise.com",
+    "message": "Message",
+    "messagePlaceholder": "Parlez-moi de votre projet, objectifs, deadlines…",
+    "protected": "Protégé par honeypot + rate-limit. Zéro spam, promis.",
+    "send": "Envoyer le message",
+    "sending": "Envoi",
+    "sent": "Envoyé !",
+    "success": "Merci — votre message est bien arrivé. Je reviens vers vous très vite.",
+    "errorFallback": "Un problème est survenu. Réessayez plus tard."
+  },
+  "Footer": {
+    "rights": "© {year} {name}.",
+    "crafted": "Construit avec Next.js, Tailwind et Framer Motion.",
+    "admin": "Admin"
+  },
+  "LanguageSwitcher": {
+    "label": "Langue",
+    "switchTo": "Passer en {language}",
+    "fr": "Français",
+    "en": "English",
+    "frShort": "FR",
+    "enShort": "EN"
+  }
+}

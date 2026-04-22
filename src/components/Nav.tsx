@@ -3,10 +3,21 @@
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, Sparkles } from "lucide-react";
+import { useTranslations } from "next-intl";
 import { site } from "@/lib/site";
 import { cn } from "@/lib/utils";
+import { LanguageSwitcher } from "./LanguageSwitcher";
+
+const NAV_ITEMS = [
+  { key: "about", href: "#about" },
+  { key: "work", href: "#projects" },
+  { key: "skills", href: "#skills" },
+  { key: "journey", href: "#experience" },
+  { key: "contact", href: "#contact" },
+] as const;
 
 export function Nav() {
+  const t = useTranslations("Nav");
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
 
@@ -47,7 +58,7 @@ export function Nav() {
             <a
               href="#top"
               className="group flex items-center gap-2 pl-2"
-              aria-label="Home"
+              aria-label={t("home")}
             >
               <span className="relative inline-flex h-8 w-8 items-center justify-center rounded-full bg-gradient-to-br from-accent to-accent-cyan text-white shadow-glow transition-transform group-hover:rotate-6">
                 <Sparkles className="h-4 w-4" aria-hidden />
@@ -58,30 +69,31 @@ export function Nav() {
             </a>
 
             <ul className="hidden items-center gap-1 md:flex">
-              {site.nav.map((item) => (
+              {NAV_ITEMS.map((item) => (
                 <li key={item.href}>
                   <a
                     href={item.href}
                     className="relative rounded-full px-3.5 py-1.5 text-sm text-ink-200 transition-colors hover:text-white"
                   >
-                    {item.label}
+                    {t(item.key)}
                   </a>
                 </li>
               ))}
             </ul>
 
             <div className="flex items-center gap-2">
+              <LanguageSwitcher />
               <a
                 href="#contact"
                 className="btn-primary hidden md:inline-flex"
               >
-                Let’s talk
+                {t("cta")}
               </a>
               <button
                 type="button"
                 onClick={() => setOpen(true)}
                 className="md:hidden inline-flex h-10 w-10 items-center justify-center rounded-full glass"
-                aria-label="Open menu"
+                aria-label={t("openMenu")}
               >
                 <Menu className="h-5 w-5" />
               </button>
@@ -105,13 +117,13 @@ export function Nav() {
                   type="button"
                   onClick={() => setOpen(false)}
                   className="inline-flex h-10 w-10 items-center justify-center rounded-full glass"
-                  aria-label="Close menu"
+                  aria-label={t("closeMenu")}
                 >
                   <X className="h-5 w-5" />
                 </button>
               </div>
               <ul className="mt-10 flex flex-col gap-2">
-                {site.nav.map((item, i) => (
+                {NAV_ITEMS.map((item, i) => (
                   <motion.li
                     key={item.href}
                     initial={{ opacity: 0, x: -12 }}
@@ -123,18 +135,21 @@ export function Nav() {
                       onClick={() => setOpen(false)}
                       className="block rounded-2xl px-4 py-4 text-2xl font-display text-ink-100 hover:bg-white/5"
                     >
-                      {item.label}
+                      {t(item.key)}
                     </a>
                   </motion.li>
                 ))}
               </ul>
-              <a
-                href="#contact"
-                onClick={() => setOpen(false)}
-                className="btn-primary mt-auto mb-8 w-full justify-center"
-              >
-                Let’s talk
-              </a>
+              <div className="mt-auto mb-8 flex flex-col gap-3">
+                <LanguageSwitcher variant="mobile" />
+                <a
+                  href="#contact"
+                  onClick={() => setOpen(false)}
+                  className="btn-primary w-full justify-center"
+                >
+                  {t("cta")}
+                </a>
+              </div>
             </div>
           </motion.div>
         )}

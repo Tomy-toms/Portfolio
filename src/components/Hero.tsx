@@ -3,9 +3,11 @@
 import { motion, useScroll, useTransform } from "framer-motion";
 import { ArrowRight, Github, Linkedin, MapPin } from "lucide-react";
 import { useRef } from "react";
+import { useTranslations } from "next-intl";
 import { site } from "@/lib/site";
 
 export function Hero() {
+  const t = useTranslations("Hero");
   const ref = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({ target: ref, offset: ["start start", "end start"] });
   const y = useTransform(scrollYProgress, [0, 1], [0, 80]);
@@ -28,7 +30,7 @@ export function Hero() {
             <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-accent-lime opacity-75" />
             <span className="relative inline-flex h-2 w-2 rounded-full bg-accent-lime" />
           </span>
-          Available for new projects — 2026
+          {t("availability")}
         </motion.span>
 
         <motion.h1
@@ -37,9 +39,9 @@ export function Hero() {
           transition={{ delay: 0.15, duration: 0.7 }}
           className="mt-6 font-display text-5xl sm:text-7xl md:text-8xl font-semibold leading-[0.95] tracking-tight"
         >
-          <span className="block text-ink-100">Design-driven</span>
-          <span className="block text-gradient-accent">web experiences</span>
-          <span className="block text-ink-100">that ship.</span>
+          <span className="block text-ink-100">{t("titleLine1")}</span>
+          <span className="block text-gradient-accent">{t("titleLine2")}</span>
+          <span className="block text-ink-100">{t("titleLine3")}</span>
         </motion.h1>
 
         <motion.p
@@ -48,9 +50,11 @@ export function Hero() {
           transition={{ delay: 0.3, duration: 0.6 }}
           className="mt-8 max-w-xl text-lg leading-relaxed text-ink-200"
         >
-          I’m <span className="text-white">{site.shortName}</span>, a{" "}
-          {site.role.toLowerCase()} crafting performant products with Next.js,
-          TypeScript and a relentless attention to detail.
+          {t.rich("intro", {
+            name: site.shortName,
+            role: t("role"),
+            b: (chunks) => <span className="text-white">{chunks}</span>,
+          })}
         </motion.p>
 
         <motion.div
@@ -60,17 +64,17 @@ export function Hero() {
           className="mt-10 flex flex-wrap items-center gap-3"
         >
           <a href="#projects" className="btn-primary">
-            See my work <ArrowRight className="h-4 w-4" />
+            {t("ctaWork")} <ArrowRight className="h-4 w-4" />
           </a>
           <a href="#contact" className="btn-ghost">
-            Get in touch
+            {t("ctaContact")}
           </a>
           <div className="ml-1 flex items-center gap-1">
             <a
               href={site.social.github}
               target="_blank"
               rel="noreferrer"
-              aria-label="GitHub"
+              aria-label={t("githubAria")}
               className="inline-flex h-10 w-10 items-center justify-center rounded-full glass hover:bg-white/10"
             >
               <Github className="h-4 w-4" />
@@ -79,7 +83,7 @@ export function Hero() {
               href={site.social.linkedin}
               target="_blank"
               rel="noreferrer"
-              aria-label="LinkedIn"
+              aria-label={t("linkedinAria")}
               className="inline-flex h-10 w-10 items-center justify-center rounded-full glass hover:bg-white/10"
             >
               <Linkedin className="h-4 w-4" />
@@ -94,11 +98,11 @@ export function Hero() {
           className="mt-16 flex items-center gap-4 text-sm text-ink-300"
         >
           <MapPin className="h-4 w-4" />
-          <span>{site.location}</span>
+          <span>{t("location")}</span>
           <span className="h-1 w-1 rounded-full bg-ink-500" />
-          <span>GMT+1</span>
+          <span>{t("timezone")}</span>
           <span className="h-1 w-1 rounded-full bg-ink-500" />
-          <span>Remote-friendly</span>
+          <span>{t("remote")}</span>
         </motion.div>
       </motion.div>
 

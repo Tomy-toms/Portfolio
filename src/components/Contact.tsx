@@ -3,6 +3,7 @@
 import { FormEvent, useState } from "react";
 import { motion } from "framer-motion";
 import { Check, Loader2, Mail, Send } from "lucide-react";
+import { useTranslations } from "next-intl";
 import { site } from "@/lib/site";
 import { SectionReveal } from "./SectionReveal";
 
@@ -13,6 +14,7 @@ type State =
   | { status: "error"; message: string };
 
 export function Contact() {
+  const t = useTranslations("Contact");
   const [state, setState] = useState<State>({ status: "idle" });
   const [fieldErrors, setFieldErrors] = useState<Record<string, string>>({});
 
@@ -24,7 +26,7 @@ export function Contact() {
       name: String(form.get("name") ?? ""),
       email: String(form.get("email") ?? ""),
       message: String(form.get("message") ?? ""),
-      website: String(form.get("website") ?? ""), // honeypot
+      website: String(form.get("website") ?? ""),
     };
     setState({ status: "loading" });
     try {
@@ -36,12 +38,12 @@ export function Contact() {
       const json = await res.json();
       if (!res.ok) {
         if (json?.fieldErrors) setFieldErrors(json.fieldErrors);
-        throw new Error(json?.error ?? "Something went wrong");
+        throw new Error(json?.error ?? t("errorFallback"));
       }
       setState({ status: "success" });
       (e.target as HTMLFormElement).reset();
     } catch (err: any) {
-      setState({ status: "error", message: err.message ?? "Try again later." });
+      setState({ status: "error", message: err.message ?? t("errorFallback") });
     }
   }
 
@@ -50,13 +52,13 @@ export function Contact() {
       <div className="container-page">
         <div className="grid gap-12 lg:grid-cols-12 lg:gap-16">
           <SectionReveal className="lg:col-span-5">
-            <span className="label-muted">05 — Contact</span>
+            <span className="label-muted">{t("eyebrow")}</span>
             <h2 className="section-heading mt-3">
-              Have a project in <span className="text-gradient-accent">mind</span>?
+              {t("titleA")}
+              <span className="text-gradient-accent">{t("titleAccent")}</span>
+              {t("titleB")}
             </h2>
-            <p className="mt-6 text-ink-300">
-              Tell me what you’re building. I reply within 24 hours on weekdays.
-            </p>
+            <p className="mt-6 text-ink-300">{t("description")}</p>
             <a
               href={`mailto:${site.email}`}
               className="mt-8 inline-flex items-center gap-2 font-display text-lg text-white hover:text-accent-cyan transition"
@@ -65,7 +67,7 @@ export function Contact() {
               {site.email}
             </a>
             <div className="mt-10 glass rounded-2xl p-6">
-              <div className="label-muted">Also on</div>
+              <div className="label-muted">{t("alsoOn")}</div>
               <ul className="mt-3 grid grid-cols-2 gap-2 text-sm">
                 {Object.entries(site.social).map(([k, v]) => (
                   <li key={k}>
@@ -92,14 +94,14 @@ export function Contact() {
             >
               <div className="grid gap-4 sm:grid-cols-2">
                 <label className="block">
-                  <span className="label-muted">Name</span>
+                  <span className="label-muted">{t("name")}</span>
                   <input
                     name="name"
                     required
                     maxLength={80}
                     autoComplete="name"
                     className="input mt-2"
-                    placeholder="Ada Lovelace"
+                    placeholder={t("namePlaceholder")}
                   />
                   {fieldErrors.name && (
                     <span className="mt-1 block text-xs text-accent-pink">
@@ -108,7 +110,7 @@ export function Contact() {
                   )}
                 </label>
                 <label className="block">
-                  <span className="label-muted">Email</span>
+                  <span className="label-muted">{t("email")}</span>
                   <input
                     name="email"
                     type="email"
@@ -116,7 +118,7 @@ export function Contact() {
                     maxLength={200}
                     autoComplete="email"
                     className="input mt-2"
-                    placeholder="you@company.com"
+                    placeholder={t("emailPlaceholder")}
                   />
                   {fieldErrors.email && (
                     <span className="mt-1 block text-xs text-accent-pink">
@@ -126,7 +128,7 @@ export function Contact() {
                 </label>
               </div>
               <label className="mt-4 block">
-                <span className="label-muted">Message</span>
+                <span className="label-muted">{t("message")}</span>
                 <textarea
                   name="message"
                   required
@@ -134,7 +136,7 @@ export function Contact() {
                   maxLength={5000}
                   rows={6}
                   className="input mt-2 resize-y"
-                  placeholder="Tell me about your project, goals, timeline…"
+                  placeholder={t("messagePlaceholder")}
                 />
                 {fieldErrors.message && (
                   <span className="mt-1 block text-xs text-accent-pink">
@@ -142,7 +144,6 @@ export function Contact() {
                   </span>
                 )}
               </label>
-              {/* honeypot */}
               <input
                 type="text"
                 name="website"
@@ -152,9 +153,7 @@ export function Contact() {
                 className="absolute -z-10 opacity-0 pointer-events-none"
               />
               <div className="mt-6 flex items-center justify-between gap-4">
-                <p className="text-xs text-ink-400">
-                  Protected by honeypot + rate-limit. No spam, ever.
-                </p>
+                <p className="text-xs text-ink-400">{t("protected")}</p>
                 <button
                   type="submit"
                   disabled={state.status === "loading"}
@@ -163,17 +162,17 @@ export function Contact() {
                   {state.status === "loading" ? (
                     <>
                       <Loader2 className="h-4 w-4 animate-spin" />
-                      Sending
+                      {t("sending")}
                     </>
                   ) : state.status === "success" ? (
                     <>
                       <Check className="h-4 w-4" />
-                      Sent!
+                      {t("sent")}
                     </>
                   ) : (
                     <>
                       <Send className="h-4 w-4" />
-                      Send message
+                      {t("send")}
                     </>
                   )}
                 </button>
@@ -193,7 +192,7 @@ export function Contact() {
                   animate={{ opacity: 1, y: 0 }}
                   className="mt-4 rounded-xl bg-accent-lime/10 border border-accent-lime/30 px-4 py-3 text-sm text-accent-lime"
                 >
-                  Thanks — your message is in. I’ll reply shortly.
+                  {t("success")}
                 </motion.p>
               )}
             </form>

@@ -4,38 +4,44 @@ import { useMemo, useState } from "react";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import { ArrowUpRight, Github, Star } from "lucide-react";
+import { useTranslations } from "next-intl";
 import type { Project } from "@prisma/client";
 import { SectionReveal } from "./SectionReveal";
 import { cn } from "@/lib/utils";
 
 export function Projects({ projects }: { projects: Project[] }) {
+  const t = useTranslations("Projects");
+  const ALL = t("all");
+
   const categories = useMemo(() => {
     const set = new Set<string>();
     projects.forEach((p) => set.add(p.category));
-    return ["All", ...Array.from(set)];
-  }, [projects]);
+    return [ALL, ...Array.from(set)];
+  }, [projects, ALL]);
 
-  const [active, setActive] = useState("All");
+  const [active, setActive] = useState(ALL);
 
   const filtered = useMemo(
-    () => (active === "All" ? projects : projects.filter((p) => p.category === active)),
-    [projects, active]
+    () => (active === ALL ? projects : projects.filter((p) => p.category === active)),
+    [projects, active, ALL]
   );
 
   return (
     <section id="projects" className="relative py-24 sm:py-32">
       <div className="container-page">
         <SectionReveal>
-          <span className="label-muted">02 — Selected Work</span>
+          <span className="label-muted">{t("eyebrow")}</span>
           <h2 className="section-heading mt-3 max-w-3xl">
-            A few projects I’m <span className="text-gradient-accent">proud</span> of.
+            {t("titleA")}
+            <span className="text-gradient-accent">{t("titleAccent")}</span>
+            {t("titleB")}
           </h2>
         </SectionReveal>
 
         {projects.length === 0 ? (
           <SectionReveal delay={0.1}>
             <div className="mt-12 glass rounded-2xl p-10 text-center text-ink-300">
-              <p>No projects yet. Add some from the admin dashboard.</p>
+              <p>{t("empty")}</p>
             </div>
           </SectionReveal>
         ) : (
@@ -89,7 +95,7 @@ export function Projects({ projects }: { projects: Project[] }) {
                         <div className="absolute inset-0 bg-gradient-to-t from-ink-950 via-ink-950/40 to-transparent" />
                         {p.featured && (
                           <span className="absolute left-3 top-3 chip bg-black/40 text-white">
-                            <Star className="h-3 w-3 text-accent-lime" /> Featured
+                            <Star className="h-3 w-3 text-accent-lime" /> {t("featured")}
                           </span>
                         )}
                         <span className="absolute right-3 top-3 chip bg-black/40 text-white">
@@ -103,9 +109,9 @@ export function Projects({ projects }: { projects: Project[] }) {
                         </div>
                         <p className="mt-1 text-sm text-ink-300">{p.tagline}</p>
                         <div className="mt-4 flex flex-wrap gap-1.5">
-                          {p.tech.slice(0, 4).map((t) => (
-                            <span key={t} className="chip text-[11px]">
-                              {t}
+                          {p.tech.slice(0, 4).map((tech) => (
+                            <span key={tech} className="chip text-[11px]">
+                              {tech}
                             </span>
                           ))}
                           {p.tech.length > 4 && (
@@ -119,7 +125,7 @@ export function Projects({ projects }: { projects: Project[] }) {
                         href={p.githubUrl}
                         target="_blank"
                         rel="noreferrer"
-                        aria-label={`${p.title} source on GitHub`}
+                        aria-label={t("sourceAria", { title: p.title })}
                         className="absolute bottom-5 right-5 inline-flex h-9 w-9 items-center justify-center rounded-full bg-black/40 text-white opacity-0 transition-opacity group-hover:opacity-100"
                       >
                         <Github className="h-4 w-4" />

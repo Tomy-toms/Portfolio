@@ -2,22 +2,35 @@
 
 import { motion } from "framer-motion";
 import { Briefcase } from "lucide-react";
-import { site } from "@/lib/site";
+import { useTranslations } from "next-intl";
 import { SectionReveal } from "./SectionReveal";
 
+type ExperienceItem = {
+  role: string;
+  company: string;
+  period: string;
+  location: string;
+  points: string[];
+};
+
 export function Experience() {
+  const t = useTranslations("Experience");
+  const items = t.raw("items") as ExperienceItem[];
+
   return (
     <section id="experience" className="relative py-24 sm:py-32">
       <div className="container-page">
         <SectionReveal>
-          <span className="label-muted">04 — Journey</span>
+          <span className="label-muted">{t("eyebrow")}</span>
           <h2 className="section-heading mt-3 max-w-3xl">
-            The short <span className="text-gradient-accent">career timeline</span>.
+            {t("titleA")}
+            <span className="text-gradient-accent">{t("titleAccent")}</span>
+            {t("titleB")}
           </h2>
         </SectionReveal>
 
         <ol className="relative mt-14 border-l border-white/10 pl-8 sm:pl-10">
-          {site.experience.map((item, i) => (
+          {items.map((item, i) => (
             <motion.li
               key={item.role + item.company}
               initial={{ opacity: 0, x: 20 }}

@@ -1,13 +1,17 @@
+import { getLocale, getTranslations } from "next-intl/server";
 import { site } from "@/lib/site";
 
-export function JsonLd() {
+export async function JsonLd() {
+  const locale = await getLocale();
+  const t = await getTranslations("Metadata");
+
   const data = {
     "@context": "https://schema.org",
     "@type": "Person",
     name: site.shortName,
     jobTitle: site.role,
-    description: site.tagline,
-    url: site.url,
+    description: t("description"),
+    url: `${site.url}/${locale}`,
     email: `mailto:${site.email}`,
     sameAs: Object.values(site.social),
     address: {

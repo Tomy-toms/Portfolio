@@ -1,23 +1,25 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { useTranslations } from "next-intl";
 import { site } from "@/lib/site";
 import { SectionReveal } from "./SectionReveal";
 
 export function Skills() {
+  const t = useTranslations("Skills");
+
   return (
     <section id="skills" className="relative py-24 sm:py-32">
       <div className="container-page">
         <div className="grid gap-12 lg:grid-cols-12 lg:gap-16">
           <SectionReveal className="lg:col-span-4">
-            <span className="label-muted">03 — Toolbox</span>
+            <span className="label-muted">{t("eyebrow")}</span>
             <h2 className="section-heading mt-3">
-              The <span className="text-gradient-accent">stack</span> I reach for.
+              {t("titleA")}
+              <span className="text-gradient-accent">{t("titleAccent")}</span>
+              {t("titleB")}
             </h2>
-            <p className="mt-6 text-ink-300">
-              Ten years of opinions distilled into the tools that make me
-              ship faster without compromising craft.
-            </p>
+            <p className="mt-6 text-ink-300">{t("intro")}</p>
           </SectionReveal>
 
           <SectionReveal delay={0.1} className="lg:col-span-8">
@@ -31,7 +33,7 @@ export function Skills() {
                     <div>
                       <div className="font-display text-white">{s.name}</div>
                       <div className="text-[11px] uppercase tracking-wider text-ink-400">
-                        {s.group}
+                        {t(`groups.${s.group}`)}
                       </div>
                     </div>
                     <span className="font-mono text-sm text-ink-300">
