@@ -331,7 +331,7 @@
     "lastUpdate": "Last updated: {date}",
     "editor": {
       "title": "Publisher",
-      "body": "This website is published by:\n\n**Thomas Barthelemy**\n[Postal address — TO BE FILLED IN]\nParis, France\n\nPhone: [TO BE FILLED IN]\nEmail: {email}\n\nLegal status: [Sole trader / Micro-entreprise / EURL — TO BE FILLED IN]\nFrench business ID (SIRET): [TO BE FILLED IN]\n\nPublication director: Thomas Barthelemy"
+      "body": "This website is published by:\n\n**Thomas Barthelemy**\n1386 Route d'Auzas\n30140 Saint Jean du Pin\nFrance\n\nPhone: +33 6 89 88 76 78\nEmail: {email}\n\nLegal status: Auto-entrepreneur (French sole trader)\nFrench business ID (SIRET): 942 805 300 00012\n\nPublication director: Thomas Barthelemy"
     },
     "hosting": {
       "title": "Hosting",
@@ -363,7 +363,7 @@
     },
     "controller": {
       "title": "Data controller",
-      "body": "The data controller is:\n\n**Thomas Barthelemy**\n[Postal address — TO BE FILLED IN]\nEmail: {email}"
+      "body": "The data controller is:\n\n**Thomas Barthelemy**\n1386 Route d'Auzas\n30140 Saint Jean du Pin\nFrance\nEmail: {email}"
     },
     "data": {
       "title": "Data collected",

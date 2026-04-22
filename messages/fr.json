@@ -331,7 +331,7 @@
     "lastUpdate": "Dernière mise à jour : {date}",
     "editor": {
       "title": "Éditeur du site",
-      "body": "Le présent site est édité par :\n\n**Thomas Barthelemy**\n[Adresse postale — À COMPLÉTER]\nParis, France\n\nTéléphone : [À COMPLÉTER]\nEmail : {email}\n\nStatut : [Auto-entrepreneur / Micro-entreprise / EURL — À COMPLÉTER]\nSIRET : [À COMPLÉTER]\n\nDirecteur de la publication : Thomas Barthelemy"
+      "body": "Le présent site est édité par :\n\n**Thomas Barthelemy**\n1386 Route d'Auzas\n30140 Saint Jean du Pin\nFrance\n\nTéléphone : 06 89 88 76 78\nEmail : {email}\n\nStatut : Auto-entrepreneur\nSIRET : 942 805 300 00012\n\nDirecteur de la publication : Thomas Barthelemy"
     },
     "hosting": {
       "title": "Hébergement",
@@ -363,7 +363,7 @@
     },
     "controller": {
       "title": "Responsable du traitement",
-      "body": "Le responsable du traitement est :\n\n**Thomas Barthelemy**\n[Adresse postale — À COMPLÉTER]\nEmail : {email}"
+      "body": "Le responsable du traitement est :\n\n**Thomas Barthelemy**\n1386 Route d'Auzas\n30140 Saint Jean du Pin\nFrance\nEmail : {email}"
     },
     "data": {
       "title": "Données collectées",
