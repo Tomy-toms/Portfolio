@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Check, Globe, RefreshCw, ShoppingBag, Sparkles } from "lucide-react";
+import { Check, Globe, RefreshCw, ShoppingBag } from "lucide-react";
 import { useTranslations } from "next-intl";
 import { SectionReveal } from "./SectionReveal";
 
@@ -46,8 +46,8 @@ export function Services() {
                 className="group relative flex flex-col rounded-3xl border border-white/10 bg-white/[0.03] p-8 transition-all hover:border-white/20 hover:bg-white/[0.05]"
               >
                 {item.badge && (
-                  <span className="absolute -top-3 left-8 chip bg-gradient-to-r from-accent to-accent-cyan text-white shadow-glow">
-                    <Sparkles className="h-3 w-3" /> {item.badge}
+                  <span className="absolute -top-3 left-8 chip bg-accent text-white">
+                    {item.badge}
                   </span>
                 )}
                 <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-to-br from-accent/20 to-accent-cyan/20 text-accent-cyan">

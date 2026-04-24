@@ -2,7 +2,7 @@
 
 import { FormEvent, useState } from "react";
 import { motion } from "framer-motion";
-import { Check, Loader2, Mail, Send } from "lucide-react";
+import { Check, Loader2, Send } from "lucide-react";
 import { useTranslations } from "next-intl";
 import { site } from "@/lib/site";
 import { SectionReveal } from "./SectionReveal";
@@ -55,17 +55,10 @@ export function Contact() {
             <span className="label-muted">{t("eyebrow")}</span>
             <h2 className="section-heading mt-3">
               {t("titleA")}
-              <span className="text-gradient-accent">{t("titleAccent")}</span>
+              {t("titleAccent")}
               {t("titleB")}
             </h2>
             <p className="mt-6 text-ink-300">{t("description")}</p>
-            <a
-              href={`mailto:${site.email}`}
-              className="mt-8 inline-flex items-center gap-2 font-display text-lg text-white hover:text-accent-cyan transition"
-            >
-              <Mail className="h-5 w-5" />
-              {site.email}
-            </a>
             <div className="mt-10 glass rounded-2xl p-6">
               <div className="label-muted">{t("alsoOn")}</div>
               <ul className="mt-3 grid grid-cols-2 gap-2 text-sm">

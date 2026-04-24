@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, Sparkles } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { useTranslations } from "next-intl";
 import { site } from "@/lib/site";
 import { cn } from "@/lib/utils";
@@ -60,8 +60,8 @@ export function Nav() {
               className="group flex items-center gap-2 pl-2"
               aria-label={t("home")}
             >
-              <span className="relative inline-flex h-8 w-8 items-center justify-center rounded-full bg-gradient-to-br from-accent to-accent-cyan text-white shadow-glow transition-transform group-hover:rotate-6">
-                <Sparkles className="h-4 w-4" aria-hidden />
+              <span className="inline-flex h-8 w-8 items-center justify-center rounded-full border border-white/15 bg-white/5 font-display text-xs font-semibold text-ink-100">
+                TB
               </span>
               <span className="font-display text-sm font-semibold tracking-wide text-ink-100">
                 {site.shortName}

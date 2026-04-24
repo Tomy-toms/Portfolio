@@ -21,7 +21,7 @@ export function Faq() {
           <span className="label-muted">{t("eyebrow")}</span>
           <h2 className="section-heading mt-3">
             {t("titleA")}
-            <span className="text-gradient-accent">{t("titleAccent")}</span>
+            {t("titleAccent")}
             {t("titleB")}
           </h2>
         </SectionReveal>

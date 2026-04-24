@@ -1,8 +1,8 @@
 {
   "Metadata": {
-    "title": "Thomas Barthelemy — Création de sites web pour entreprises",
-    "description": "Je crée des sites web rapides, visibles sur Google et pensés pour convertir. Livrés en 2 à 4 semaines, sans jargon technique. Basé à Paris.",
-    "ogAlt": "Thomas Barthelemy — Création de sites web pour entreprises"
+    "title": "Thomas Barthelemy — Création de sites web à Alès (Gard)",
+    "description": "Développeur web indépendant à Alès (30). Sites rapides, visibles sur Google, pensés pour convertir vos visiteurs en clients. Livrés en 2 à 4 semaines, sans jargon technique.",
+    "ogAlt": "Thomas Barthelemy — Création de sites web à Alès"
   },
   "Nav": {
     "home": "Accueil",
@@ -24,7 +24,7 @@
     "intro": "Je crée des sites <b>rapides</b>, <b>visibles sur Google</b> et pensés pour convertir vos visiteurs en clients. Livrés en 2 à 4 semaines, sans jargon technique.",
     "ctaWork": "Voir mes réalisations",
     "ctaContact": "Demander un devis",
-    "trust1": "Basé à Paris",
+    "trust1": "Basé à Alès (30)",
     "trust2": "Disponible partout en France",
     "trust3": "Réponse sous 24 h",
     "githubAria": "GitHub",
@@ -87,37 +87,8 @@
       "Un mois de support offert"
     ]
   },
-  "WhyWebsite": {
-    "eyebrow": "02 — Pourquoi c'est décisif",
-    "titleA": "Votre site est souvent le ",
-    "titleAccent": "premier contact",
-    "titleB": " avec vos futurs clients.",
-    "intro": "En 2026, on ne choisit plus une entreprise sans passer par son site. Voici ce que disent les chiffres.",
-    "stats": [
-      {
-        "value": "75 %",
-        "label": "des visiteurs jugent la crédibilité d'une entreprise sur son site",
-        "source": "Étude Stanford"
-      },
-      {
-        "value": "53 %",
-        "label": "quittent un site qui met plus de 3 secondes à charger",
-        "source": "Google"
-      },
-      {
-        "value": "61 %",
-        "label": "des recherches locales mènent à un appel ou une visite en boutique",
-        "source": "Google"
-      },
-      {
-        "value": "88 %",
-        "label": "ne reviennent jamais après une mauvaise expérience mobile",
-        "source": "Forbes"
-      }
-    ]
-  },
   "Projects": {
-    "eyebrow": "03 — Réalisations",
+    "eyebrow": "02 — Réalisations",
     "titleA": "Quelques projets et ",
     "titleAccent": "leurs résultats",
     "titleB": " concrets.",
@@ -127,7 +98,7 @@
     "sourceAria": "{title} — code source sur GitHub"
   },
   "Method": {
-    "eyebrow": "04 — Comment on travaille",
+    "eyebrow": "03 — Comment on travaille",
     "titleA": "Une méthode ",
     "titleAccent": "simple",
     "titleB": ", sans mauvaise surprise.",
@@ -160,7 +131,7 @@
     ]
   },
   "Pricing": {
-    "eyebrow": "05 — Combien ça coûte ?",
+    "eyebrow": "04 — Combien ça coûte ?",
     "titleA": "La vraie réponse : ",
     "titleAccent": "ça dépend",
     "titleB": ".",
@@ -169,102 +140,46 @@
     "promise": "Pas de facturation cachée. Pas de mauvaise surprise. Pas d'engagement avant le devis signé.",
     "cta": "Réserver mon appel découverte"
   },
-  "Testimonials": {
-    "eyebrow": "06 — Ils m'ont fait confiance",
-    "titleA": "Ce qu'en disent ",
-    "titleAccent": "mes clients",
-    "titleB": ".",
-    "items": [
-      {
-        "quote": "Thomas a compris exactement ce dont on avait besoin. En trois semaines, on avait un site qui nous ressemble enfin, et on voit déjà les premières demandes de devis arriver.",
-        "name": "Marie Dubois",
-        "role": "Gérante, Le Moulin Doré"
-      },
-      {
-        "quote": "Une approche humaine et professionnelle, loin du jargon habituel. Notre cabinet a désormais un outil de prise de rendez-vous qui fonctionne, et nos patients adorent.",
-        "name": "Dr. Antoine Martin",
-        "role": "Kinésithérapeute, Cabinet Martin"
-      },
-      {
-        "quote": "On avait un vieux site qui ne convertissait pas. Après la refonte, on est passés de 2 à 12 demandes de devis par mois. Le ROI a été atteint en deux mois.",
-        "name": "Pierre Lefèvre",
-        "role": "Dirigeant, Atelier Lumière"
-      }
-    ]
-  },
   "About": {
-    "eyebrow": "07 — À propos",
+    "eyebrow": "05 — À propos",
     "titleA": "Je suis ",
     "titleAccent": "Thomas",
-    "titleB": ", et j'aime faire du web qui sert à quelque chose.",
-    "bio": "Développeur web indépendant basé à Paris, je travaille main dans la main avec des artisans, des PME et des professions libérales pour leur donner la présence en ligne qu'ils méritent. Mon credo : un beau site, oui — mais surtout un site qui ramène des clients.",
-    "paragraph2": "Je ne sous-traite pas. Vous avez un interlocuteur unique de A à Z, qui répond en moins de 24 h, qui parle français (pas javaScript), et qui ne vous facturera pas trois allers-retours pour changer une couleur.",
-    "stats": {
-      "years": { "value": "7+", "label": "Années d'expérience" },
-      "projects": { "value": "40+", "label": "Projets livrés" },
-      "clients": { "value": "20+", "label": "Clients satisfaits" },
-      "response": { "value": "< 24 h", "label": "Temps de réponse" }
-    },
+    "titleB": " — menuisier de formation, développeur web par passion.",
+    "bio": "Basé à Alès (30), je crée des sites web pour les indépendants et les TPE. Ma particularité : je viens de chez vous. 17 ans dans le bâtiment — 12 ans comme menuisier, 5 ans en bureau d'étude — et 7 ans à coder en autodidacte en parallèle. Je sais ce que c'est qu'un chantier, un devis qui tient la route, et un client qui n'a pas le temps de décoder du jargon technique.",
+    "paragraph2": "Je travaille sans sous-traitance. Interlocuteur unique du premier appel à la mise en ligne, réponse en moins de 24 h les jours ouvrés, et un devis clair — en français, pas en JavaScript.",
     "focusEyebrow": "Focus actuel —",
-    "focus": "Sites vitrines pour artisans et professions libérales, refontes pour PME, outils de prise de rendez-vous et boutiques en ligne sur-mesure."
-  },
-  "Skills": {
-    "eyebrow": "08 — Stack technique",
-    "titleA": "Les outils que ",
-    "titleAccent": "j'utilise",
-    "titleB": ".",
-    "intro": "Pour les curieux ou les équipes techniques : voici les technologies sur lesquelles je m'appuie pour livrer des sites rapides, sécurisés et maintenables.",
-    "groups": {
-      "Language": "Langage",
-      "Framework": "Framework",
-      "Backend": "Backend",
-      "Data": "Base de données",
-      "UI": "Interface",
-      "Motion": "Animation",
-      "DevOps": "Déploiement",
-      "Design": "Design"
-    }
+    "focus": "Sites vitrines pour artisans, professions libérales et TPE — autour d'Alès et partout en France via télétravail. Refontes, outils de prise de rendez-vous, petites boutiques en ligne."
   },
   "Experience": {
-    "eyebrow": "09 — Parcours",
+    "eyebrow": "06 — Parcours",
     "titleA": "Quelques ",
     "titleAccent": "étapes",
     "titleB": " de mon parcours.",
     "items": [
       {
         "role": "Développeur web indépendant",
-        "company": "Thomas Barthelemy",
-        "period": "2023 — Aujourd'hui",
-        "location": "Paris · Télétravail",
+        "company": "À mon compte",
+        "period": "2025 — Aujourd'hui",
+        "location": "Alès (30) · Télétravail",
         "points": [
-          "Création de sites vitrines et boutiques en ligne pour artisans, professions libérales et PME.",
-          "Accompagnement complet : écoute, design, développement, SEO, formation, suivi."
+          "Développement web en autodidacte depuis 2019 — débuts en C++, spécialisation web depuis 3 ans (React, Next.js, Node, PostgreSQL).",
+          "Activité menée en parallèle d'un emploi salarié, avec l'objectif d'y passer à temps plein. Premiers sites déjà livrés."
         ]
       },
       {
-        "role": "Ingénieur Produit",
-        "company": "Northwind",
-        "period": "2021 — 2023",
-        "location": "Paris, FR",
+        "role": "Menuisier puis technicien en bureau d'étude",
+        "company": "PME de menuiserie & agencement",
+        "period": "2009 — Aujourd'hui",
+        "location": "Près d'Alès (30)",
         "points": [
-          "Propriétaire du tunnel de paiement e-commerce, 8 M€/an traités.",
-          "Accompagnement de 3 juniors et introduction de bonnes pratiques qualité."
-        ]
-      },
-      {
-        "role": "Développeur Freelance",
-        "company": "Indépendant",
-        "period": "2019 — 2021",
-        "location": "Paris, FR",
-        "points": [
-          "Plus de 20 sites livrés pour agences et startups.",
-          "Intégrations CMS sur-mesure et premiers parcours e-commerce."
+          "12 ans d'exécution en atelier et sur chantier — agencement, sur-mesure, pose (2009 → 2021).",
+          "Depuis 2021, technicien en bureau d'étude : conception, chiffrage, préparation de chantier, et interlocuteur quotidien des clients, architectes et fournisseurs."
         ]
       }
     ]
   },
   "Faq": {
-    "eyebrow": "10 — Vos questions",
+    "eyebrow": "07 — Vos questions",
     "titleA": "Les questions que ",
     "titleAccent": "l'on me pose",
     "titleB": " souvent.",
@@ -292,7 +207,7 @@
     ]
   },
   "Contact": {
-    "eyebrow": "11 — Contact",
+    "eyebrow": "08 — Contact",
     "titleA": "Un projet en ",
     "titleAccent": "tête",
     "titleB": " ?",

@@ -1,8 +1,8 @@
 {
   "Metadata": {
-    "title": "Thomas Barthelemy — Websites built for businesses",
-    "description": "I build fast, Google-friendly websites that turn visitors into customers. Delivered in 2 to 4 weeks, no jargon. Based in Paris.",
-    "ogAlt": "Thomas Barthelemy — Websites built for businesses"
+    "title": "Thomas Barthelemy — Web developer based in Alès, France",
+    "description": "Independent web developer based in Alès, southern France. Fast, Google-friendly websites designed to turn visitors into customers. Delivered in 2 to 4 weeks, no tech jargon.",
+    "ogAlt": "Thomas Barthelemy — Web developer based in Alès"
   },
   "Nav": {
     "home": "Home",
@@ -24,7 +24,7 @@
     "intro": "I build <b>fast</b>, <b>Google-friendly</b> websites designed to turn visitors into customers. Delivered in 2 to 4 weeks, no tech jargon.",
     "ctaWork": "See my work",
     "ctaContact": "Get a quote",
-    "trust1": "Based in Paris",
+    "trust1": "Based in Alès, France",
     "trust2": "Working across France",
     "trust3": "Reply within 24 h",
     "githubAria": "GitHub",
@@ -87,37 +87,8 @@
       "One month of free support"
     ]
   },
-  "WhyWebsite": {
-    "eyebrow": "02 — Why it matters",
-    "titleA": "Your website is often the ",
-    "titleAccent": "first impression",
-    "titleB": " your future customers get.",
-    "intro": "In 2026, nobody picks a business without checking the website first. Here's what the numbers say.",
-    "stats": [
-      {
-        "value": "75%",
-        "label": "of visitors judge a business's credibility from its website",
-        "source": "Stanford Study"
-      },
-      {
-        "value": "53%",
-        "label": "leave a site that takes more than 3 seconds to load",
-        "source": "Google"
-      },
-      {
-        "value": "61%",
-        "label": "of local searches end with a phone call or a visit",
-        "source": "Google"
-      },
-      {
-        "value": "88%",
-        "label": "never return after a bad mobile experience",
-        "source": "Forbes"
-      }
-    ]
-  },
   "Projects": {
-    "eyebrow": "03 — Selected work",
+    "eyebrow": "02 — Selected work",
     "titleA": "A few projects and ",
     "titleAccent": "real results",
     "titleB": ".",
@@ -127,7 +98,7 @@
     "sourceAria": "{title} source on GitHub"
   },
   "Method": {
-    "eyebrow": "04 — How we work",
+    "eyebrow": "03 — How we work",
     "titleA": "A ",
     "titleAccent": "simple",
     "titleB": " process, no bad surprises.",
@@ -160,7 +131,7 @@
     ]
   },
   "Pricing": {
-    "eyebrow": "05 — What will it cost?",
+    "eyebrow": "04 — What will it cost?",
     "titleA": "The honest answer: ",
     "titleAccent": "it depends",
     "titleB": ".",
@@ -169,102 +140,46 @@
     "promise": "No hidden billing. No bad surprises. No commitment before the signed quote.",
     "cta": "Book my discovery call"
   },
-  "Testimonials": {
-    "eyebrow": "06 — Trusted by",
-    "titleA": "What my ",
-    "titleAccent": "clients",
-    "titleB": " say.",
-    "items": [
-      {
-        "quote": "Thomas understood exactly what we needed. In three weeks we had a website that finally looked like us, and we're already seeing the first quote requests coming in.",
-        "name": "Marie Dubois",
-        "role": "Owner, Le Moulin Doré"
-      },
-      {
-        "quote": "A human, professional approach, far from the usual tech-speak. Our practice now has a booking tool that just works, and our patients love it.",
-        "name": "Dr. Antoine Martin",
-        "role": "Physiotherapist, Cabinet Martin"
-      },
-      {
-        "quote": "We had an old website that didn't convert. After the redesign we went from 2 to 12 quote requests per month. ROI in two months.",
-        "name": "Pierre Lefèvre",
-        "role": "Director, Atelier Lumière"
-      }
-    ]
-  },
   "About": {
-    "eyebrow": "07 — About",
+    "eyebrow": "05 — About",
     "titleA": "I'm ",
     "titleAccent": "Thomas",
-    "titleB": ", and I like building websites that actually work.",
-    "bio": "I'm an independent web developer based in Paris. I work hand-in-hand with craftspeople, small businesses and independent practitioners to give them the online presence they deserve. My motto: a beautiful website, yes — but above all a website that brings in customers.",
-    "paragraph2": "I don't outsource. You get one dedicated contact from start to finish, who replies within 24 h, speaks plain language (not JavaScript), and won't charge you for three back-and-forths just to change a colour.",
-    "stats": {
-      "years": { "value": "7+", "label": "Years of experience" },
-      "projects": { "value": "40+", "label": "Shipped projects" },
-      "clients": { "value": "20+", "label": "Happy clients" },
-      "response": { "value": "< 24 h", "label": "Response time" }
-    },
+    "titleB": " — joiner by trade, web developer by choice.",
+    "bio": "Based in Alès, southern France, I build websites for independents and small businesses. What sets me apart: I come from their world. 17 years in the building trade — 12 as a joiner, 5 in the design office — and 7 years of self-taught coding alongside it. I know what a real jobsite looks like, what a quote that actually holds up reads like, and what it's like to work for someone who doesn't have time to decode tech-speak.",
+    "paragraph2": "No outsourcing. One dedicated contact from first call to launch, a reply within 24 h on weekdays, and a quote you can actually read — in plain language, not in JavaScript.",
     "focusEyebrow": "Current focus —",
-    "focus": "Showcase websites for craftspeople and practitioners, redesigns for SMBs, online booking tools and tailor-made online stores."
-  },
-  "Skills": {
-    "eyebrow": "08 — Tech stack",
-    "titleA": "The tools I ",
-    "titleAccent": "use",
-    "titleB": ".",
-    "intro": "For the curious or technical teams: here's the stack I rely on to deliver fast, secure, and maintainable websites.",
-    "groups": {
-      "Language": "Language",
-      "Framework": "Framework",
-      "Backend": "Backend",
-      "Data": "Database",
-      "UI": "UI",
-      "Motion": "Motion",
-      "DevOps": "Hosting",
-      "Design": "Design"
-    }
+    "focus": "Showcase websites for craftspeople, practitioners and small businesses — around Alès and remotely across France. Redesigns, online booking tools, small online stores."
   },
   "Experience": {
-    "eyebrow": "09 — Journey",
+    "eyebrow": "06 — Journey",
     "titleA": "A few ",
     "titleAccent": "steps",
     "titleB": " along the way.",
     "items": [
       {
         "role": "Independent web developer",
-        "company": "Thomas Barthelemy",
-        "period": "2023 — Present",
-        "location": "Paris · Remote",
+        "company": "Sole trader",
+        "period": "2025 — Present",
+        "location": "Alès, France · Remote",
         "points": [
-          "Showcase websites and online shops for craftspeople, practitioners, and SMBs.",
-          "End-to-end partnership: listening, design, development, SEO, training, follow-up."
+          "Self-taught developer since 2019 — started with C++, focused on web for the past 3 years (React, Next.js, Node, PostgreSQL).",
+          "Run alongside a salaried job, with the goal of going full-time. First sites already delivered."
         ]
       },
       {
-        "role": "Product Engineer",
-        "company": "Northwind",
-        "period": "2021 — 2023",
-        "location": "Paris, FR",
+        "role": "Joiner, then design office technician",
+        "company": "Joinery & fit-out SME",
+        "period": "2009 — Present",
+        "location": "Near Alès, France",
         "points": [
-          "Owned the e-commerce checkout stack processing €8M/yr.",
-          "Mentored 3 juniors and introduced quality-testing practices."
-        ]
-      },
-      {
-        "role": "Freelance Developer",
-        "company": "Independent",
-        "period": "2019 — 2021",
-        "location": "Paris, FR",
-        "points": [
-          "Delivered 20+ sites for agencies and startups.",
-          "Custom CMS integrations and early e-commerce projects."
+          "12 years in the workshop and on site — fit-out, bespoke joinery, installation (2009 → 2021).",
+          "Since 2021, design office technician: design, costing, site preparation, and daily contact with clients, architects and suppliers."
         ]
       }
     ]
   },
   "Faq": {
-    "eyebrow": "10 — Your questions",
+    "eyebrow": "07 — Your questions",
     "titleA": "The questions I get ",
     "titleAccent": "asked",
     "titleB": " most.",
@@ -292,7 +207,7 @@
     ]
   },
   "Contact": {
-    "eyebrow": "11 — Contact",
+    "eyebrow": "08 — Contact",
     "titleA": "Got a project in ",
     "titleAccent": "mind",
     "titleB": "?",

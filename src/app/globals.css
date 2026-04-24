@@ -27,7 +27,6 @@
     background:
       radial-gradient(1200px 600px at 10% -10%, rgba(139, 92, 246, 0.15), transparent 60%),
       radial-gradient(900px 500px at 110% 10%, rgba(34, 211, 238, 0.12), transparent 60%),
-      radial-gradient(800px 400px at 50% 110%, rgba(236, 72, 153, 0.1), transparent 60%),
       #05070f;
     min-height: 100vh;
   }
@@ -86,7 +85,7 @@
     @apply bg-gradient-to-r from-white via-white to-accent-cyan bg-clip-text text-transparent;
   }
   .text-gradient-accent {
-    @apply bg-gradient-to-r from-accent via-accent-cyan to-accent-pink bg-clip-text text-transparent bg-[length:200%_100%] animate-gradient-pan;
+    @apply bg-gradient-to-r from-accent to-accent-cyan bg-clip-text text-transparent;
   }
   .divider-gradient {
     @apply h-px w-full bg-gradient-to-r from-transparent via-white/15 to-transparent;

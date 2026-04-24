@@ -1,145 +1,98 @@
-# Portfolio — Next.js · Tailwind · Framer Motion · Prisma
+## Portfolio — Thomas Barthelemy
 
-A production-ready, design-forward developer portfolio.
+Personal site for my freelance web development activity, based in Alès (France).
+Public site in FR / EN, plus a small admin to manage projects and the contact-form inbox.
 
-- **Frontend:** Next.js 14 App Router, React 18, TypeScript, Tailwind CSS, Framer Motion
-- **Backend:** Next.js route handlers (Node runtime), Prisma, PostgreSQL
-- **Auth:** JWT sessions (signed with `jose`), bcrypt password hashing, HTTP-only cookies
-- **SEO:** metadata API, sitemap/robots, JSON-LD (Person), OpenGraph/Twitter
-- **Wow:** custom cursor, scroll progress, animated gradient background, gradient text, glass UI, reveal-on-scroll, parallax hero
+### Stack
 
-## Quick start
+- Next.js 14 (App Router, React Server Components) + TypeScript
+- Tailwind CSS + Framer Motion
+- next-intl — FR / EN sub-path routing
+- Prisma + PostgreSQL (Supabase in production)
+- JWT sessions (`jose`) + bcrypt for the admin
+
+### Local setup
 
 ```bash
-# 1. Install
 npm install
-
-# 2. Configure env
 cp .env.example .env
-# Edit .env — at minimum set DATABASE_URL, JWT_SECRET,
-# ADMIN_EMAIL, ADMIN_PASSWORD.
+# Fill DATABASE_URL, JWT_SECRET, ADMIN_EMAIL, ADMIN_PASSWORD.
 
-# 3. Create the database schema
-npx prisma migrate dev --name init
-# (or for a one-shot push without migrations:)
-# npm run db:push
-
-# 4. Seed admin user + sample projects
-npm run db:seed
-
-# 5. Run the dev server
+npx prisma migrate dev --name init   # or, for a quick push: npm run db:push
+npm run db:seed                      # creates admin user + sample projects
 npm run dev
 ```
 
-Open http://localhost:3000 for the site and http://localhost:3000/admin/login for the dashboard.
+Public site: http://localhost:3000 — admin: http://localhost:3000/admin/login.
 
-## Environment variables
+### Environment variables
 
 | Key | Required | Purpose |
 | --- | --- | --- |
-| `DATABASE_URL` | ✓ | Postgres connection string |
-| `JWT_SECRET` | ✓ | ≥ 32 chars — used to sign session cookies |
-| `ADMIN_EMAIL` | seed only | Admin login email created by `db:seed` |
-| `ADMIN_PASSWORD` | seed only | Admin login password (bcrypt-hashed at seed) |
-| `NEXT_PUBLIC_SITE_URL` | recommended | Canonical URL used for OG tags + sitemap |
-| `NEXT_PUBLIC_SITE_NAME` | optional | Brand shown in metadata |
-| `NEXT_PUBLIC_CONTACT_EMAIL` | optional | Contact link email |
+| `DATABASE_URL` | yes | Postgres connection string |
+| `JWT_SECRET` | yes | ≥ 32 chars, signs the admin session cookie |
+| `ADMIN_EMAIL` | seed only | Admin login created by `db:seed` |
+| `ADMIN_PASSWORD` | seed only | Admin password (bcrypt-hashed at seed) |
+| `NEXT_PUBLIC_SITE_URL` | recommended | Canonical URL for sitemap + OG tags |
+| `NEXT_PUBLIC_SITE_NAME` | optional | Brand name shown in metadata |
+| `NEXT_PUBLIC_CONTACT_EMAIL` | optional | Public contact email |
 
-Generate a secret:
+Generate a JWT secret:
 
 ```bash
 node -e "console.log(require('crypto').randomBytes(48).toString('base64'))"
 ```
 
-## Free hosting stack
+### Scripts
 
-- **Database:** Supabase (free tier) or Neon — both give a Postgres connection string that plugs straight into `DATABASE_URL`.
-- **App:** Vercel (Next.js native) — set the same env vars in the project settings.
-- **Images:** remote Unsplash URLs are allowed via `next.config.mjs → images.remotePatterns`. Add your own hosts there.
-
-### Deploy to Vercel
-
-1. Push this repo to GitHub.
-2. Import in Vercel, set env vars.
-3. Add `prisma migrate deploy` to a build hook (or run once via `npx prisma migrate deploy`) — `postinstall` already runs `prisma generate`.
-
-## Project structure
-
-```
-prisma/
-  schema.prisma         Postgres schema (User, Project, ContactMessage)
-  seed.ts               Upserts admin + sample projects
-src/
-  app/
-    layout.tsx          Root layout, metadata, fonts, JSON-LD
-    page.tsx            Home (async, reads projects from DB)
-    globals.css         Design tokens + Tailwind layers
-    sitemap.ts / robots.ts
-    api/
-      auth/login        POST — bcrypt verify + JWT cookie, rate-limited
-      auth/logout       POST — clears cookie
-      auth/me           GET — current session
-      contact           POST — zod validation, honeypot, rate-limit, persist
-      projects          GET/POST — list + create (auth required for POST)
-      projects/[id]     GET/PATCH/DELETE — read + auth-guarded mutations
-      messages          GET — admin inbox
-      messages/[id]     PATCH/DELETE — read toggle / delete
-    admin/
-      login             Public login page
-      layout.tsx        Protected shell (session-aware header)
-      page.tsx          Projects CRUD dashboard
-      messages          Contact messages inbox
-  components/           Nav, Hero, About, Projects, Skills, Experience,
-                        Contact, Footer, CustomCursor, ScrollProgress,
-                        AnimatedBackground, SectionReveal, JsonLd
-  lib/
-    prisma.ts           Prisma singleton
-    auth.ts             JWT sign/verify + cookie helpers + bcrypt
-    validators.ts       Zod schemas (login, contact, project)
-    utils.ts            cn(), slugify()
-    site.ts             Site-wide config (nav, skills, experience, social)
-  middleware.ts         Protects /admin/** via JWT
-```
-
-## Security
-
-- Passwords hashed with bcrypt (cost 12).
-- Sessions signed HS256 (JWT_SECRET required ≥ 32 chars); cookie is `HttpOnly`, `SameSite=Lax`, `Secure` in prod.
-- Middleware guards every `/admin/*` route server-side (defense in depth in addition to session checks in handlers).
-- All POST/PATCH input runs through Zod; known error codes (`P2002`, `P2025`) produce friendly messages instead of leaking internals.
-- Honeypot field + in-memory per-IP rate limiting on `/api/contact` and `/api/auth/login`. Swap for Upstash Redis if you run multi-instance.
-- Security headers (`X-Content-Type-Options`, `Referrer-Policy`, `Permissions-Policy`, `X-Frame-Options`) set in `next.config.mjs`.
-- SSRF / XSS: Next's JSX auto-escapes, `dangerouslySetInnerHTML` is only used for the JSON-LD payload we control.
-
-## Performance
-
-- `next/image` with AVIF/WebP formats and remote patterns.
-- Google fonts loaded via `next/font` (zero layout shift).
-- `optimizePackageImports` enabled for `framer-motion` and `lucide-react`.
-- Home page is RSC; only interactive sections are client components.
-- `revalidate = 60` on the home page keeps the DB off the critical path.
-- Reduced-motion preference respected throughout.
-
-## Customising
-
-- **Your content:** edit `src/lib/site.ts` (nav, bio, skills, experience, social links).
-- **Your brand:** tweak colors in `tailwind.config.ts → theme.extend.colors`.
-- **New sections:** create a component, import it in `src/app/page.tsx`.
-- **Extra models:** add them to `prisma/schema.prisma`, run `npx prisma migrate dev`.
-
-## Scripts
-
-| Script | What it does |
+| Script | Action |
 | --- | --- |
-| `npm run dev` | Start dev server |
+| `npm run dev` | Dev server |
 | `npm run build` | `prisma generate` + `next build` |
 | `npm start` | Production server |
-| `npm run lint` | ESLint (next/core-web-vitals) |
-| `npm run db:push` | Push schema without migrations |
+| `npm run lint` | ESLint |
+| `npm run db:push` | Push schema without migration |
 | `npm run db:migrate` | Create + apply a dev migration |
-| `npm run db:seed` | Upsert admin + sample projects |
-| `npm run db:studio` | Open Prisma Studio |
+| `npm run db:seed` | Seed admin + sample projects |
+| `npm run db:studio` | Prisma Studio |
 
-## License
+### Project layout
 
-MIT — do whatever you like. If you ship something cool, a link back is always appreciated.
+```
+prisma/        Postgres schema (User, Project, ContactMessage) + seed
+messages/      i18n strings (fr.json, en.json)
+src/
+  app/
+    [locale]/  Public site (home, legal, privacy)
+    admin/     Protected dashboard (projects + messages CRUD)
+    api/       Auth, contact form, projects, messages routes
+  components/  Section components (Hero, Services, Projects, …)
+  lib/         Prisma singleton, auth helpers, validators, site config
+  i18n/        next-intl routing + request setup
+  middleware.ts JWT-protects /admin/*
+```
+
+### Deploy
+
+- App on Vercel (Next.js native), DB on Supabase or Neon — connection string into `DATABASE_URL`.
+- `postinstall` runs `prisma generate`. Run `npx prisma migrate deploy` once to apply migrations on the prod database.
+- Set the same env vars in the Vercel project settings.
+
+### Editing content
+
+- Site copy (FR + EN): `messages/fr.json`, `messages/en.json`.
+- Brand name, social links, contact email: `src/lib/site.ts`.
+- Colors: `tailwind.config.ts → theme.extend.colors`.
+- Projects: managed live via the admin (`/admin`).
+
+### Security notes
+
+- Passwords hashed with bcrypt (cost 12).
+- Sessions signed HS256, cookie is `HttpOnly`, `SameSite=Lax`, `Secure` in production.
+- `middleware.ts` guards every `/admin/*` route in addition to in-handler session checks.
+- All inputs run through Zod; honeypot field + per-IP rate-limit on `/api/contact` and `/api/auth/login`.
+- Security headers set in `next.config.mjs`.
+
+---
+
+© Thomas Barthelemy. Source code is not licensed for reuse.

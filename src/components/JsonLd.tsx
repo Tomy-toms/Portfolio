@@ -12,7 +12,6 @@ export async function JsonLd() {
     jobTitle: site.role,
     description: t("description"),
     url: `${site.url}/${locale}`,
-    email: `mailto:${site.email}`,
     sameAs: Object.values(site.social),
     address: {
       "@type": "PostalAddress",

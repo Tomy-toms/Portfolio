@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { Nav } from "@/components/Nav";
 import { Footer } from "@/components/Footer";
-import { AnimatedBackground } from "@/components/AnimatedBackground";
 import { ScrollProgress } from "@/components/ScrollProgress";
 import { LegalSection } from "@/components/LegalContent";
 import { site } from "@/lib/site";
@@ -42,7 +41,6 @@ export default async function LegalPage({ params }: Props) {
 
   return (
     <>
-      <AnimatedBackground />
       <ScrollProgress />
       <Nav />
       <main className="relative pt-32 pb-16 sm:pt-40 sm:pb-24">

@@ -24,7 +24,7 @@ export function Experience() {
           <span className="label-muted">{t("eyebrow")}</span>
           <h2 className="section-heading mt-3 max-w-3xl">
             {t("titleA")}
-            <span className="text-gradient-accent">{t("titleAccent")}</span>
+            {t("titleAccent")}
             {t("titleB")}
           </h2>
         </SectionReveal>
