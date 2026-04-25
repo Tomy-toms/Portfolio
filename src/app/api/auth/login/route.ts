@@ -9,8 +9,8 @@ import {
 import { flattenErrors, loginSchema } from "@/lib/validators";
 
 const ipAttempts = new Map<string, { count: number; reset: number }>();
-const MAX_ATTEMPTS = 8;
-const WINDOW_MS = 10 * 60 * 1000;
+const MAX_ATTEMPTS = 5;
+const WINDOW_MS = 15 * 60 * 1000; // 15 min — NOTE: in-memory, non partagé entre instances ; utiliser Redis/Upstash en multi-instance
 
 function rateLimit(ip: string) {
   const now = Date.now();
@@ -24,9 +24,10 @@ function rateLimit(ip: string) {
 }
 
 export async function POST(req: Request) {
+  // x-real-ip est injecté par Vercel/proxies de confiance et non falsifiable par le client
   const ip =
-    req.headers.get("x-forwarded-for")?.split(",")[0]?.trim() ||
     req.headers.get("x-real-ip") ||
+    req.headers.get("x-forwarded-for")?.split(",")[0]?.trim() ||
     "unknown";
 
   if (!rateLimit(ip)) {

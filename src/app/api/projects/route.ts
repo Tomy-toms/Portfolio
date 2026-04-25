@@ -1,15 +1,18 @@
 import { NextResponse } from "next/server";
 import { prisma } from "@/lib/prisma";
-import { getSessionFromCookies } from "@/lib/auth";
+import { requireAdmin } from "@/lib/auth";
 import { flattenErrors, projectSchema } from "@/lib/validators";
 
 export async function GET(req: Request) {
   const { searchParams } = new URL(req.url);
   const includeUnpublished = searchParams.get("all") === "1";
-  const session = await getSessionFromCookies();
 
-  const where =
-    includeUnpublished && session ? {} : { published: true };
+  if (includeUnpublished) {
+    const { error } = await requireAdmin();
+    if (error) return error;
+  }
+
+  const where = includeUnpublished ? {} : { published: true };
 
   const projects = await prisma.project.findMany({
     where,
@@ -19,10 +22,8 @@ export async function GET(req: Request) {
 }
 
 export async function POST(req: Request) {
-  const session = await getSessionFromCookies();
-  if (!session) {
-    return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
-  }
+  const { error } = await requireAdmin();
+  if (error) return error;
 
   let json: unknown;
   try {

@@ -4,7 +4,7 @@ import { contactSchema, flattenErrors } from "@/lib/validators";
 
 const ipAttempts = new Map<string, { count: number; reset: number }>();
 const MAX_PER_HOUR = 5;
-const WINDOW_MS = 60 * 60 * 1000;
+const WINDOW_MS = 60 * 60 * 1000; // NOTE: in-memory, non partagé entre instances ; utiliser Redis/Upstash en multi-instance
 
 function rateLimit(ip: string) {
   const now = Date.now();
@@ -19,8 +19,8 @@ function rateLimit(ip: string) {
 
 export async function POST(req: Request) {
   const ip =
-    req.headers.get("x-forwarded-for")?.split(",")[0]?.trim() ||
     req.headers.get("x-real-ip") ||
+    req.headers.get("x-forwarded-for")?.split(",")[0]?.trim() ||
     "unknown";
 
   if (!rateLimit(ip)) {
@@ -52,6 +52,8 @@ export async function POST(req: Request) {
   }
 
   const userAgent = req.headers.get("user-agent") ?? undefined;
+  // RGPD : IP et userAgent collectés sur base d'intérêt légitime (anti-spam).
+  // Prévoir une suppression automatique des messages après 90 jours.
 
   try {
     await prisma.contactMessage.create({

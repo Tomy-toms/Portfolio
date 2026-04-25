@@ -7,7 +7,8 @@ import { Loader2, Lock, Mail } from "lucide-react";
 export default function AdminLoginPage() {
   const router = useRouter();
   const params = useSearchParams();
-  const next = params.get("from") || "/admin";
+  const raw = params.get("from") ?? "";
+  const next = raw.startsWith("/") && !raw.startsWith("//") ? raw : "/admin";
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
 
@@ -99,10 +100,6 @@ export default function AdminLoginPage() {
             )}
           </button>
         </form>
-        <p className="mt-6 text-center text-xs text-ink-400">
-          Forgot password? Reset it by re-running{" "}
-          <code className="font-mono">npm run db:seed</code> with new env vars.
-        </p>
       </div>
     </div>
   );

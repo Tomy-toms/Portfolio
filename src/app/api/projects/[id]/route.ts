@@ -1,29 +1,32 @@
 import { NextResponse } from "next/server";
 import { prisma } from "@/lib/prisma";
-import { getSessionFromCookies } from "@/lib/auth";
+import { requireAdmin } from "@/lib/auth";
 import { flattenErrors, projectSchema } from "@/lib/validators";
 
 export async function GET(
-  _req: Request,
-  { params }: { params: { id: string } }
+  req: Request,
+  { params }: { params: Promise<{ id: string }> }
 ) {
-  const project = await prisma.project.findUnique({
-    where: { id: params.id },
-  });
+  const { id } = await params;
+  const project = await prisma.project.findUnique({ where: { id } });
   if (!project) {
     return NextResponse.json({ error: "Not found" }, { status: 404 });
+  }
+  if (!project.published) {
+    const { error } = await requireAdmin();
+    if (error) return NextResponse.json({ error: "Not found" }, { status: 404 });
   }
   return NextResponse.json({ project });
 }
 
 export async function PATCH(
   req: Request,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
-  const session = await getSessionFromCookies();
-  if (!session) {
-    return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
-  }
+  const { error } = await requireAdmin();
+  if (error) return error;
+
+  const { id } = await params;
 
   let json: unknown;
   try {
@@ -42,7 +45,7 @@ export async function PATCH(
 
   try {
     const project = await prisma.project.update({
-      where: { id: params.id },
+      where: { id },
       data: {
         ...parsed.data,
         liveUrl: parsed.data.liveUrl === "" ? null : parsed.data.liveUrl,
@@ -67,14 +70,13 @@ export async function PATCH(
 
 export async function DELETE(
   _req: Request,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
-  const session = await getSessionFromCookies();
-  if (!session) {
-    return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
-  }
+  const { error } = await requireAdmin();
+  if (error) return error;
+  const { id } = await params;
   try {
-    await prisma.project.delete({ where: { id: params.id } });
+    await prisma.project.delete({ where: { id } });
     return NextResponse.json({ ok: true });
   } catch (e: any) {
     if (e?.code === "P2025") {

@@ -1,22 +1,21 @@
 import { NextResponse } from "next/server";
 import { prisma } from "@/lib/prisma";
-import { getSessionFromCookies } from "@/lib/auth";
+import { requireAdmin } from "@/lib/auth";
 
 export async function PATCH(
   req: Request,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
-  const session = await getSessionFromCookies();
-  if (!session) {
-    return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
-  }
+  const { error } = await requireAdmin();
+  if (error) return error;
+  const { id } = await params;
   const body = await req.json().catch(() => ({}));
   const data: { read?: boolean } = {};
   if (typeof body.read === "boolean") data.read = body.read;
 
   try {
     const message = await prisma.contactMessage.update({
-      where: { id: params.id },
+      where: { id },
       data,
     });
     return NextResponse.json({ message });
@@ -30,14 +29,13 @@ export async function PATCH(
 
 export async function DELETE(
   _req: Request,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
-  const session = await getSessionFromCookies();
-  if (!session) {
-    return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
-  }
+  const { error } = await requireAdmin();
+  if (error) return error;
+  const { id } = await params;
   try {
-    await prisma.contactMessage.delete({ where: { id: params.id } });
+    await prisma.contactMessage.delete({ where: { id } });
     return NextResponse.json({ ok: true });
   } catch (e: any) {
     if (e?.code === "P2025") {
