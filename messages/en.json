@@ -1,8 +1,8 @@
 {
   "Metadata": {
-    "title": "Thomas Barthelemy — Web developer based in Alès, France",
-    "description": "Independent web developer based in Alès, southern France. Fast, Google-friendly websites designed to turn visitors into customers. Delivered in 2 to 4 weeks, no tech jargon.",
-    "ogAlt": "Thomas Barthelemy — Web developer based in Alès"
+    "title": "Thomas Barthelemy — Freelance Web Developer based in Alès, France",
+    "description": "Freelance web developer based in Alès, southern France (Gard). Fast, Google-friendly websites for small businesses. Free quote.",
+    "ogAlt": "Thomas Barthelemy — Freelance Web Developer based in Alès, France"
   },
   "Nav": {
     "home": "Home",
@@ -21,6 +21,7 @@
     "titleLine1": "Websites built",
     "titleLine2": "to grow",
     "titleLine3": "your business.",
+    "subtitle": "Freelance web developer based in Alès, France — websites for independents and small businesses",
     "intro": "I build <b>fast</b>, <b>Google-friendly</b> websites designed to turn visitors into customers. Delivered in 2 to 4 weeks, no tech jargon.",
     "ctaWork": "See my work",
     "ctaContact": "Get a quote",
@@ -32,9 +33,9 @@
   },
   "Services": {
     "eyebrow": "01 — What I do",
-    "titleA": "Three ways to ",
-    "titleAccent": "grow",
-    "titleB": " your business online.",
+    "titleA": "Website creation — ",
+    "titleAccent": "3 formats",
+    "titleB": " tailored to your business.",
     "intro": "Every project is different. Here are the three formats I offer most often — then we adapt to your actual needs.",
     "items": [
       {
@@ -89,8 +90,8 @@
   },
   "Projects": {
     "eyebrow": "02 — Selected work",
-    "titleA": "A few projects and ",
-    "titleAccent": "real results",
+    "titleA": "Projects delivered ",
+    "titleAccent": "and real results",
     "titleB": ".",
     "empty": "No projects yet. Case studies will be published very soon.",
     "all": "All",
@@ -143,12 +144,12 @@
   "About": {
     "eyebrow": "05 — About",
     "titleA": "I'm ",
-    "titleAccent": "Thomas",
-    "titleB": " — joiner by trade, web developer by choice.",
-    "bio": "Based in Alès, southern France, I build websites for independents and small businesses. What sets me apart: I come from their world. 17 years in the building trade — 12 as a joiner, 5 in the design office — and 7 years of self-taught coding alongside it. I know what a real jobsite looks like, what a quote that actually holds up reads like, and what it's like to work for someone who doesn't have time to decode tech-speak.",
+    "titleAccent": "Thomas Barthelemy",
+    "titleB": " — freelance web developer based in Alès, France.",
+    "bio": "Joiner by trade, web developer by passion. Based in Alès, southern France, I build websites for independents and small businesses — locally in the Gard region and remotely across France. What sets me apart: I come from their world. 17 years in the building trade — 12 as a joiner, 5 in the design office — and 7 years of self-taught coding alongside it. I know what a real jobsite looks like, what a quote that actually holds up reads like, and what it's like to work for someone who doesn't have time to decode tech-speak.",
     "paragraph2": "No outsourcing. One dedicated contact from first call to launch, a reply within 24 h on weekdays, and a quote you can actually read — in plain language, not in JavaScript.",
     "focusEyebrow": "Current focus —",
-    "focus": "Showcase websites for craftspeople, practitioners and small businesses — around Alès and remotely across France. Redesigns, online booking tools, small online stores."
+    "focus": "Showcase websites for craftspeople, practitioners and small businesses — primarily around Alès, Nîmes, Uzès and across the Gard department, and remotely anywhere in France. Redesigns, online booking tools, small online stores."
   },
   "Experience": {
     "eyebrow": "06 — Journey",
@@ -180,17 +181,25 @@
   },
   "Faq": {
     "eyebrow": "07 — Your questions",
-    "titleA": "The questions I get ",
-    "titleAccent": "asked",
-    "titleB": " most.",
+    "titleA": "Your questions about ",
+    "titleAccent": "web development",
+    "titleB": " in France.",
     "items": [
       {
         "q": "How much does a website cost?",
         "a": "As a rough guide, a well-built showcase website typically starts around €1,500, a full redesign around €3,000, and an e-commerce project around €5,000. But it's deliberately indicative — the real price depends on your needs. We discuss it during the discovery call, and I send you a fixed quote right after."
       },
       {
-        "q": "How long does it take?",
+        "q": "How long does it take to build a website?",
         "a": "Plan for 2 to 3 weeks for a showcase site, 3 to 5 weeks for a redesign, 4 to 8 weeks for an e-commerce or tailor-made project. I commit to a firm delivery date in the quote."
+      },
+      {
+        "q": "Do you work remotely?",
+        "a": "Yes. I'm based in Alès, in southern France, but I work remotely with clients across France. A video call is usually all we need. I also travel locally within about 50 km — Nîmes, Uzès, Bagnols-sur-Cèze, Anduze and the wider Gard area."
+      },
+      {
+        "q": "Do you build WordPress sites?",
+        "a": "Yes, when it's the right fit. For projects where you need simple, autonomous content management, WordPress (or a headless CMS) can be the right call. For high-performance sites, I prefer Next.js. We choose together based on your actual usage."
       },
       {
         "q": "Can I edit my site myself?",
@@ -231,7 +240,9 @@
     "crafted": "Built with care. Next.js, Tailwind, Framer Motion.",
     "admin": "Admin",
     "legal": "Legal",
-    "privacy": "Privacy"
+    "privacy": "Privacy",
+    "napLabel": "Thomas Barthelemy — Freelance Web Developer",
+    "napLocation": "Alès (30), Gard, France"
   },
   "LanguageSwitcher": {
     "label": "Language",

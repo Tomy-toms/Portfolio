@@ -15,21 +15,49 @@ import { prisma } from "@/lib/prisma";
 
 export const revalidate = 60;
 
-function devMockProjects() {
+function placeholderProjects() {
   const now = new Date();
   const bg = (color: string) =>
     `data:image/svg+xml;utf8,${encodeURIComponent(
       `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 800"><defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="${color}"/><stop offset="1" stop-color="#0a0d17"/></linearGradient></defs><rect width="600" height="800" fill="url(#g)"/></svg>`
     )}`;
   const base = [
-    { title: "Aurora Dashboard", tagline: "Tableau de bord analytique temps réel", category: "SaaS", tech: ["Next.js", "tRPC", "Postgres", "Tailwind"], color: "#8b5cf6", featured: true },
-    { title: "Lumen CMS", tagline: "CMS headless pour équipes éditoriales", category: "Web", tech: ["Remix", "Prisma", "TypeScript"], color: "#22d3ee", featured: false },
-    { title: "Parcel Route", tagline: "Optimisation de tournées de livraison", category: "Mobile", tech: ["React Native", "Mapbox", "Node"], color: "#ec4899", featured: false },
-    { title: "Oak Commerce", tagline: "Boutique en ligne modulaire", category: "E-commerce", tech: ["Next.js", "Stripe", "Contentful"], color: "#10b981", featured: true },
+    {
+      title: "Site vitrine — Artisan menuisier",
+      tagline: "Site vitrine professionnel pour un artisan menuisier. SEO local, galerie réalisations, devis en ligne.",
+      category: "Site vitrine",
+      tech: ["Next.js", "Tailwind CSS", "Vercel", "PostgreSQL"],
+      color: "#8b5cf6",
+      featured: true,
+    },
+    {
+      title: "E-commerce — Chocolatier artisanal",
+      tagline: "Boutique en ligne pour un chocolatier du Gard. Paiement Stripe, gestion des stocks, expédition.",
+      category: "E-commerce",
+      tech: ["Next.js", "Stripe", "Supabase", "TypeScript"],
+      color: "#22d3ee",
+      featured: false,
+    },
+    {
+      title: "Refonte — Cabinet de kinésithérapie",
+      tagline: "Refonte complète avec prise de rendez-vous en ligne. Performance +60 %, SEO local amélioré.",
+      category: "Refonte",
+      tech: ["Next.js", "Tailwind CSS", "PostgreSQL"],
+      color: "#ec4899",
+      featured: false,
+    },
+    {
+      title: "Outil métier — Agence immobilière",
+      tagline: "Application web de gestion de biens et de mandats. Interface admin, exports PDF automatisés.",
+      category: "Outil métier",
+      tech: ["React", "Node.js", "PostgreSQL", "TypeScript"],
+      color: "#10b981",
+      featured: true,
+    },
   ];
   return base.map((p, i) => ({
-    id: `mock-${i}`,
-    slug: `mock-${i}`,
+    id: `placeholder-${i}`,
+    slug: `placeholder-${i}`,
     title: p.title,
     tagline: p.tagline,
     description: p.tagline,
@@ -52,18 +80,18 @@ async function getProjects() {
       where: { published: true },
       orderBy: [{ featured: "desc" }, { order: "asc" }, { createdAt: "desc" }],
     });
-    if (projects.length === 0 && process.env.NODE_ENV === "development") {
-      console.warn("[page] DB returned 0 projects — using dev mock projects.");
-      return devMockProjects();
+    if (projects.length === 0) {
+      if (process.env.NODE_ENV === "development") {
+        console.warn("[page] DB returned 0 projects — using placeholder projects.");
+      }
+      return placeholderProjects();
     }
     return projects;
   } catch (e) {
     if (process.env.NODE_ENV === "development") {
-      console.warn("[page] DB unavailable — using dev mock projects.", e);
-      return devMockProjects();
+      console.warn("[page] DB unavailable — using placeholder projects.", e);
     }
-    console.warn("[page] DB unavailable — rendering with empty projects.", e);
-    return [];
+    return placeholderProjects();
   }
 }
 

@@ -44,11 +44,20 @@ export function Hero() {
           <span className="block text-ink-100">{t("titleLine3")}</span>
         </motion.h1>
 
+        <motion.h2
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.22, duration: 0.6 }}
+          className="mt-4 text-xs font-medium uppercase tracking-widest text-ink-400"
+        >
+          {t("subtitle")}
+        </motion.h2>
+
         <motion.p
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.3, duration: 0.6 }}
-          className="mt-8 max-w-xl text-lg leading-relaxed text-ink-200"
+          className="mt-6 max-w-xl text-lg leading-relaxed text-ink-200"
         >
           {t.rich("intro", {
             b: (chunks) => <span className="text-white">{chunks}</span>,

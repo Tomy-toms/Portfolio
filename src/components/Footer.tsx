@@ -55,6 +55,28 @@ export async function Footer() {
           </Link>
         </nav>
       </div>
+
+      <div className="container-page mt-8 border-t border-white/5 pt-6">
+        <address className="not-italic text-xs text-ink-500 leading-relaxed">
+          <strong className="text-ink-400">{t("napLabel")}</strong>
+          {" · "}
+          <span>{t("napLocation")}</span>
+          {" · "}
+          <a
+            href={`tel:${site.phone}`}
+            className="hover:text-ink-300 transition"
+          >
+            {site.phone.replace("+33", "0").replace(/(\d{2})(\d{2})(\d{2})(\d{2})(\d{2})/, "$1 $2 $3 $4 $5")}
+          </a>
+          {" · "}
+          <a
+            href={`mailto:${site.email}`}
+            className="hover:text-ink-300 transition"
+          >
+            {site.email}
+          </a>
+        </address>
+      </div>
     </footer>
   );
 }

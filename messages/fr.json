@@ -1,8 +1,8 @@
 {
   "Metadata": {
-    "title": "Thomas Barthelemy — Création de sites web à Alès (Gard)",
-    "description": "Développeur web indépendant à Alès (30). Sites rapides, visibles sur Google, pensés pour convertir vos visiteurs en clients. Livrés en 2 à 4 semaines, sans jargon technique.",
-    "ogAlt": "Thomas Barthelemy — Création de sites web à Alès"
+    "title": "Thomas Barthelemy — Développeur web freelance à Alès (Gard)",
+    "description": "Développeur web freelance à Alès (30, Gard). Création de sites internet rapides, optimisés Google, livrés en 2 à 4 semaines. Devis gratuit.",
+    "ogAlt": "Thomas Barthelemy — Développeur web freelance à Alès (Gard)"
   },
   "Nav": {
     "home": "Accueil",
@@ -21,6 +21,7 @@
     "titleLine1": "Des sites web qui",
     "titleLine2": "travaillent pour",
     "titleLine3": "votre entreprise.",
+    "subtitle": "Développeur web freelance à Alès (Gard) — création de sites internet pour indépendants et TPE",
     "intro": "Je crée des sites <b>rapides</b>, <b>visibles sur Google</b> et pensés pour convertir vos visiteurs en clients. Livrés en 2 à 4 semaines, sans jargon technique.",
     "ctaWork": "Voir mes réalisations",
     "ctaContact": "Demander un devis",
@@ -32,14 +33,14 @@
   },
   "Services": {
     "eyebrow": "01 — Ce que je fais",
-    "titleA": "Trois façons de ",
-    "titleAccent": "faire grandir",
-    "titleB": " votre activité en ligne.",
+    "titleA": "Création de site internet à Alès — ",
+    "titleAccent": "3 formats",
+    "titleB": " adaptés à votre activité.",
     "intro": "Chaque projet est unique. Voici les trois formats que je propose le plus souvent — on adapte ensuite à votre besoin réel.",
     "items": [
       {
         "badge": "Le plus demandé",
-        "title": "Site Vitrine",
+        "title": "Site vitrine",
         "description": "Pour présenter votre activité, capter des demandes de devis et gagner en crédibilité auprès de vos prospects.",
         "features": [
           "4 à 8 pages sur mesure",
@@ -52,7 +53,7 @@
       },
       {
         "badge": "",
-        "title": "Refonte complète",
+        "title": "Refonte de site web",
         "description": "Votre site actuel ne vous ressemble plus, est trop lent ou ne convertit pas ? On repart sur des bases solides.",
         "features": [
           "Audit de l'existant offert",
@@ -89,8 +90,8 @@
   },
   "Projects": {
     "eyebrow": "02 — Réalisations",
-    "titleA": "Quelques projets et ",
-    "titleAccent": "leurs résultats",
+    "titleA": "Des projets livrés ",
+    "titleAccent": "et leurs résultats",
     "titleB": " concrets.",
     "empty": "Aucun projet pour l'instant. Les réalisations seront publiées très prochainement.",
     "all": "Tous",
@@ -143,12 +144,12 @@
   "About": {
     "eyebrow": "05 — À propos",
     "titleA": "Je suis ",
-    "titleAccent": "Thomas",
-    "titleB": " — menuisier de formation, développeur web par passion.",
-    "bio": "Basé à Alès (30), je crée des sites web pour les indépendants et les TPE. Ma particularité : je viens de chez vous. 17 ans dans le bâtiment — 12 ans comme menuisier, 5 ans en bureau d'étude — et 7 ans à coder en autodidacte en parallèle. Je sais ce que c'est qu'un chantier, un devis qui tient la route, et un client qui n'a pas le temps de décoder du jargon technique.",
+    "titleAccent": "Thomas Barthelemy",
+    "titleB": " — développeur web freelance à Alès (Gard).",
+    "bio": "Menuisier de formation, développeur web par passion. Basé à Alès (30), je crée des sites internet pour les indépendants et les TPE de la région — Nîmes, Uzès, Bagnols-sur-Cèze, Anduze, Alès et partout en France via télétravail. Ma particularité : je viens de chez vous. 17 ans dans le bâtiment — 12 ans comme menuisier, 5 ans en bureau d'étude — et 7 ans à coder en autodidacte en parallèle. Je sais ce que c'est qu'un chantier, un devis qui tient la route, et un client qui n'a pas le temps de décoder du jargon technique.",
     "paragraph2": "Je travaille sans sous-traitance. Interlocuteur unique du premier appel à la mise en ligne, réponse en moins de 24 h les jours ouvrés, et un devis clair — en français, pas en JavaScript.",
     "focusEyebrow": "Focus actuel —",
-    "focus": "Sites vitrines pour artisans, professions libérales et TPE — autour d'Alès et partout en France via télétravail. Refontes, outils de prise de rendez-vous, petites boutiques en ligne."
+    "focus": "Création de sites vitrines pour artisans, professions libérales et TPE — principalement autour d'Alès, Nîmes, Uzès et dans tout le Gard, et partout en France via télétravail. Refontes de sites web, outils de prise de rendez-vous en ligne, petites boutiques e-commerce."
   },
   "Experience": {
     "eyebrow": "06 — Parcours",
@@ -180,17 +181,25 @@
   },
   "Faq": {
     "eyebrow": "07 — Vos questions",
-    "titleA": "Les questions que ",
-    "titleAccent": "l'on me pose",
-    "titleB": " souvent.",
+    "titleA": "Vos questions sur la ",
+    "titleAccent": "création de site web",
+    "titleB": " à Alès.",
     "items": [
       {
-        "q": "Combien coûte un site web ?",
+        "q": "Combien coûte un site internet à Alès ?",
         "a": "Un site vitrine bien conçu démarre en général autour de 1 500 €, une refonte complète autour de 3 000 €, un e-commerce autour de 5 000 €. Mais c'est volontairement indicatif : le vrai prix dépend de votre besoin. On en parle lors de l'appel découverte, je vous envoie un devis ferme ensuite."
       },
       {
-        "q": "Combien de temps faut-il pour livrer un site ?",
+        "q": "Combien de temps faut-il pour créer un site web ?",
         "a": "Comptez 2 à 3 semaines pour un site vitrine, 3 à 5 semaines pour une refonte, 4 à 8 semaines pour un projet e-commerce ou sur-mesure. Je vous donne une date ferme de livraison lors du devis."
+      },
+      {
+        "q": "Travaillez-vous uniquement à Alès ?",
+        "a": "Non. Je suis basé à Alès (Gard) et je me déplace facilement dans un rayon de 50 km — Nîmes, Uzès, Bagnols-sur-Cèze, Anduze, Le Vigan… Mais la grande majorité de mes projets se font à distance, partout en France. Une visioconférence suffit dans la plupart des cas."
+      },
+      {
+        "q": "Créez-vous des sites WordPress ?",
+        "a": "Oui, selon les besoins. Pour les projets nécessitant une prise en main simple et autonome de votre part, WordPress (ou un CMS headless) peut être la bonne option. Pour les sites à haute performance, je privilégie Next.js. On choisit ensemble la solution la plus adaptée à votre usage réel."
       },
       {
         "q": "Pourrai-je modifier mon site moi-même ?",
@@ -201,7 +210,7 @@
         "a": "Vous bénéficiez d'un mois de support offert pour les petits ajustements. Ensuite, je reste disponible pour les évolutions (nouveau contenu, nouvelle fonctionnalité, ajout de pages) sur devis ou par forfait mensuel de maintenance."
       },
       {
-        "q": "Pourquoi vous et pas une agence ?",
+        "q": "Pourquoi vous et pas une agence web à Alès ou Nîmes ?",
         "a": "Parce que vous aurez un interlocuteur unique, qui répond vite, qui ne sous-traite rien et qui ne vous fera pas payer trois niveaux de marge. Une agence reste une bonne option pour les très gros projets ; pour le reste, vous gagnez en clarté et en réactivité."
       }
     ]
@@ -231,7 +240,9 @@
     "crafted": "Construit avec soin. Next.js, Tailwind, Framer Motion.",
     "admin": "Admin",
     "legal": "Mentions légales",
-    "privacy": "Confidentialité"
+    "privacy": "Confidentialité",
+    "napLabel": "Thomas Barthelemy — Développeur web freelance",
+    "napLocation": "Alès (30), Gard, France"
   },
   "LanguageSwitcher": {
     "label": "Langue",

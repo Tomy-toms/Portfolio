@@ -1,10 +1,19 @@
 export const site = {
-  name: process.env.NEXT_PUBLIC_SITE_NAME ?? "Thomas Barthelemy — Portfolio",
+  name: process.env.NEXT_PUBLIC_SITE_NAME ?? "Thomas Barthelemy — Développeur web à Alès",
   shortName: "Thomas Barthelemy",
-  role: "Web Developer",
+  role: "Développeur web freelance",
   tagline:
-    "Independent web developer based in Alès, France — fast, Google-friendly websites built to convert.",
-  location: "Alès, France",
+    "Développeur web freelance à Alès (Gard) — sites internet rapides, visibles sur Google, livrés en 2 à 4 semaines.",
+  location: "Alès, Gard, France",
+  phone: "+33689887678",
+  address: {
+    street: "1386 Route d'Auzas",
+    city: "Saint-Jean-du-Pin",
+    postalCode: "30140",
+    region: "Gard",
+    country: "FR",
+    display: "Alès (30)",
+  },
   email: process.env.NEXT_PUBLIC_CONTACT_EMAIL ?? "hello@example.com",
   url:
     process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/$/, "") ??

@@ -24,22 +24,40 @@ export async function generateMetadata({
   const t = await getTranslations({ locale, namespace: "Metadata" });
   const base = site.url;
 
+  const isFr = locale === "fr";
+
   return {
     metadataBase: new URL(base),
     title: {
       default: t("title"),
-      template: `%s · ${site.shortName}`,
+      template: isFr
+        ? `%s · Thomas Barthelemy — Développeur web à Alès`
+        : `%s · Thomas Barthelemy — Web Developer in Alès`,
     },
     description: t("description"),
-    keywords: [
-      "web developer",
-      "full-stack",
-      "Next.js",
-      "React",
-      "TypeScript",
-      "portfolio",
-      site.shortName,
-    ],
+    keywords: isFr
+      ? [
+          "développeur web Alès",
+          "création site internet Alès",
+          "site web Alès",
+          "agence web Alès",
+          "développeur web Gard",
+          "création site vitrine Alès",
+          "refonte site web Alès",
+          "freelance web Alès",
+          "site internet Gard",
+          "développeur web freelance Alès",
+          "création site e-commerce Alès",
+          "développeur WordPress Alès",
+          "Thomas Barthelemy",
+        ]
+      : [
+          "web developer Alès France",
+          "freelance web developer France",
+          "website creation France",
+          "Next.js developer France",
+          "Thomas Barthelemy",
+        ],
     authors: [{ name: site.shortName, url: base }],
     creator: site.shortName,
     openGraph: {
