@@ -12,7 +12,7 @@
     "method": "How it works",
     "faq": "FAQ",
     "contact": "Contact",
-    "cta": "Let's talk",
+    "cta": "Free quote",
     "openMenu": "Open menu",
     "closeMenu": "Close menu"
   },
@@ -24,7 +24,7 @@
     "subtitle": "Freelance web developer based in Alès, France — websites for independents and small businesses",
     "intro": "I build <b>fast</b>, <b>Google-friendly</b> websites designed to turn visitors into customers. Delivered in 2 to 4 weeks, no tech jargon.",
     "ctaWork": "See my work",
-    "ctaContact": "Get a quote",
+    "ctaContact": "Book a free call (30 min)",
     "trust1": "Based in Alès, France",
     "trust2": "Working across France",
     "trust3": "Reply within 24 h",
@@ -80,12 +80,12 @@
     ],
     "includes": "Included in every project",
     "includesList": [
-      "First year of hosting",
-      "Domain name",
-      "SSL certificate (https)",
-      "Initial Google SEO setup",
-      "Training to manage your content",
-      "One month of free support"
+      "First year of hosting included — no hidden fees",
+      "Domain name included",
+      "Secure connection (https) — required by Google",
+      "Google SEO configured from day one",
+      "Manage your own content — training included",
+      "1 month of free support after delivery"
     ]
   },
   "Projects": {
@@ -99,7 +99,7 @@
     "sourceAria": "{title} source on GitHub"
   },
   "Method": {
-    "eyebrow": "03 — How we work",
+    "eyebrow": "06 — How we work",
     "titleA": "A ",
     "titleAccent": "simple",
     "titleB": " process, no bad surprises.",
@@ -132,17 +132,17 @@
     ]
   },
   "Pricing": {
-    "eyebrow": "04 — What will it cost?",
+    "eyebrow": "03 — What will it cost?",
     "titleA": "The honest answer: ",
     "titleAccent": "it depends",
     "titleB": ".",
     "paragraph1": "A showcase website for a three-person practice has nothing in common with an online store for a launching brand.",
     "paragraph2": "That's why I always start with a free 30-minute discovery call — I learn your business, your goals, your constraints. Then, and only then, you get a clear fixed quote, no surprises.",
     "promise": "No hidden billing. No bad surprises. No commitment before the signed quote.",
-    "cta": "Book my discovery call"
+    "cta": "Get my free quote"
   },
   "About": {
-    "eyebrow": "05 — About",
+    "eyebrow": "04 — About",
     "titleA": "I'm ",
     "titleAccent": "Thomas Barthelemy",
     "titleB": " — freelance web developer based in Alès, France.",
@@ -152,7 +152,7 @@
     "focus": "Showcase websites for craftspeople, practitioners and small businesses — primarily around Alès, Nîmes, Uzès and across the Gard department, and remotely anywhere in France. Redesigns, online booking tools, small online stores."
   },
   "Experience": {
-    "eyebrow": "06 — Journey",
+    "eyebrow": "05 — Journey",
     "titleA": "A few ",
     "titleAccent": "steps",
     "titleB": " along the way.",
@@ -217,17 +217,17 @@
   },
   "Contact": {
     "eyebrow": "08 — Contact",
-    "titleA": "Got a project in ",
-    "titleAccent": "mind",
-    "titleB": "?",
-    "description": "Tell me about your business, what you want to improve, your timeline. I reply within 24 hours on weekdays.",
-    "alsoOn": "Also on",
+    "titleA": "Let's talk about your ",
+    "titleAccent": "project",
+    "titleB": ".",
+    "description": "Tell me about your business, what you want to improve, your timeline. I reply within 24 hours on weekdays — no commitment required.",
+    "alsoOn": "Get in touch",
     "name": "Name",
     "namePlaceholder": "Marie Dubois",
     "email": "Email",
     "emailPlaceholder": "you@company.com",
     "message": "Your project",
-    "messagePlaceholder": "Describe your business, your goal, your timeline…",
+    "messagePlaceholder": "E.g. I'm a plumber near Lyon. I need a website to show up on Google and get quote requests. Ideally live before summer.",
     "protected": "Protected by honeypot + rate-limit. No spam, ever.",
     "send": "Send message",
     "sending": "Sending",
@@ -237,7 +237,7 @@
   },
   "Footer": {
     "rights": "© {year} {name}. All rights reserved.",
-    "crafted": "Built with care. Next.js, Tailwind, Framer Motion.",
+    "crafted": "Built in Alès, France, with care.",
     "admin": "Admin",
     "legal": "Legal",
     "privacy": "Privacy",

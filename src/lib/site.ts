@@ -6,6 +6,7 @@ export const site = {
     "Développeur web freelance à Alès (Gard) — sites internet rapides, visibles sur Google, livrés en 2 à 4 semaines.",
   location: "Alès, Gard, France",
   phone: "+33689887678",
+  phoneDisplay: "06 89 88 76 78",
   address: {
     street: "1386 Route d'Auzas",
     city: "Saint-Jean-du-Pin",

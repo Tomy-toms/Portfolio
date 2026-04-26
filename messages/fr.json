@@ -12,7 +12,7 @@
     "method": "Méthode",
     "faq": "FAQ",
     "contact": "Contact",
-    "cta": "Travaillons ensemble",
+    "cta": "Devis gratuit",
     "openMenu": "Ouvrir le menu",
     "closeMenu": "Fermer le menu"
   },
@@ -24,7 +24,7 @@
     "subtitle": "Développeur web freelance à Alès (Gard) — création de sites internet pour indépendants et TPE",
     "intro": "Je crée des sites <b>rapides</b>, <b>visibles sur Google</b> et pensés pour convertir vos visiteurs en clients. Livrés en 2 à 4 semaines, sans jargon technique.",
     "ctaWork": "Voir mes réalisations",
-    "ctaContact": "Demander un devis",
+    "ctaContact": "Réserver un appel gratuit (30 min)",
     "trust1": "Basé à Alès (30)",
     "trust2": "Disponible partout en France",
     "trust3": "Réponse sous 24 h",
@@ -80,12 +80,12 @@
     ],
     "includes": "Inclus dans chaque projet",
     "includesList": [
-      "Hébergement la première année",
-      "Nom de domaine",
-      "Certificat SSL (https)",
-      "Référencement Google initial",
-      "Formation à la mise à jour",
-      "Un mois de support offert"
+      "Hébergement inclus la 1ère année — zéro frais caché",
+      "Nom de domaine inclus",
+      "Connexion sécurisée (https) — exigée par Google",
+      "Référencement Google configuré dès le lancement",
+      "Vous gérez votre contenu seul — formation incluse",
+      "1 mois de support offert après livraison"
     ]
   },
   "Projects": {
@@ -99,7 +99,7 @@
     "sourceAria": "{title} — code source sur GitHub"
   },
   "Method": {
-    "eyebrow": "03 — Comment on travaille",
+    "eyebrow": "06 — Comment on travaille",
     "titleA": "Une méthode ",
     "titleAccent": "simple",
     "titleB": ", sans mauvaise surprise.",
@@ -132,17 +132,17 @@
     ]
   },
   "Pricing": {
-    "eyebrow": "04 — Combien ça coûte ?",
+    "eyebrow": "03 — Combien ça coûte ?",
     "titleA": "La vraie réponse : ",
     "titleAccent": "ça dépend",
     "titleB": ".",
     "paragraph1": "Un site vitrine pour un cabinet de trois personnes n'a pas les mêmes besoins qu'une boutique en ligne pour une marque qui lance son activité.",
     "paragraph2": "C'est pourquoi je commence toujours par un appel de découverte offert de 30 minutes — je comprends votre métier, vos objectifs, vos contraintes. Ensuite seulement, je vous envoie un devis ferme et détaillé, sans surprise.",
     "promise": "Pas de facturation cachée. Pas de mauvaise surprise. Pas d'engagement avant le devis signé.",
-    "cta": "Réserver mon appel découverte"
+    "cta": "Obtenir mon devis gratuit"
   },
   "About": {
-    "eyebrow": "05 — À propos",
+    "eyebrow": "04 — À propos",
     "titleA": "Je suis ",
     "titleAccent": "Thomas Barthelemy",
     "titleB": " — développeur web freelance à Alès (Gard).",
@@ -152,7 +152,7 @@
     "focus": "Création de sites vitrines pour artisans, professions libérales et TPE — principalement autour d'Alès, Nîmes, Uzès et dans tout le Gard, et partout en France via télétravail. Refontes de sites web, outils de prise de rendez-vous en ligne, petites boutiques e-commerce."
   },
   "Experience": {
-    "eyebrow": "06 — Parcours",
+    "eyebrow": "05 — Parcours",
     "titleA": "Quelques ",
     "titleAccent": "étapes",
     "titleB": " de mon parcours.",
@@ -217,17 +217,17 @@
   },
   "Contact": {
     "eyebrow": "08 — Contact",
-    "titleA": "Un projet en ",
-    "titleAccent": "tête",
-    "titleB": " ?",
-    "description": "Parlez-moi de votre activité, de ce que vous voulez améliorer, de vos délais. Je réponds en moins de 24 h les jours ouvrés.",
-    "alsoOn": "Aussi sur",
+    "titleA": "Parlons de votre ",
+    "titleAccent": "projet",
+    "titleB": ".",
+    "description": "Parlez-moi de votre activité, de ce que vous voulez améliorer, de vos délais. Je réponds en moins de 24 h les jours ouvrés — sans engagement de votre part.",
+    "alsoOn": "Me joindre",
     "name": "Nom",
     "namePlaceholder": "Marie Dubois",
     "email": "Email",
     "emailPlaceholder": "vous@entreprise.fr",
     "message": "Votre projet",
-    "messagePlaceholder": "Décrivez-moi votre activité, votre objectif, vos délais…",
+    "messagePlaceholder": "Ex : Je suis électricien à Nîmes. J'ai besoin d'un site pour apparaître sur Google et recevoir des demandes de devis. J'aimerais être en ligne avant cet été.",
     "protected": "Protégé par honeypot + rate-limit. Zéro spam, promis.",
     "send": "Envoyer le message",
     "sending": "Envoi",
@@ -237,7 +237,7 @@
   },
   "Footer": {
     "rights": "© {year} {name}. Tous droits réservés.",
-    "crafted": "Construit avec soin. Next.js, Tailwind, Framer Motion.",
+    "crafted": "Fait à Alès (30), avec soin.",
     "admin": "Admin",
     "legal": "Mentions légales",
     "privacy": "Confidentialité",

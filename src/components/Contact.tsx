@@ -62,6 +62,15 @@ export function Contact() {
             <div className="mt-10 glass rounded-2xl p-6">
               <div className="label-muted">{t("alsoOn")}</div>
               <ul className="mt-3 grid grid-cols-2 gap-2 text-sm">
+                <li>
+                  <a
+                    href={`tel:${site.phone}`}
+                    className="flex items-center justify-between rounded-xl bg-white/5 px-3 py-2 text-ink-200 hover:bg-white/10 hover:text-white transition"
+                  >
+                    <span>{site.phoneDisplay}</span>
+                    <span className="text-ink-400">↗</span>
+                  </a>
+                </li>
                 {Object.entries(site.social).map(([k, v]) => (
                   <li key={k}>
                     <a

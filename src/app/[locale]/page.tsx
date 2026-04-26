@@ -111,10 +111,10 @@ export default async function HomePage({ params }: Props) {
         <Hero />
         <Services />
         <Projects projects={projects} />
-        <Method />
         <Pricing />
         <About />
         <Experience />
+        <Method />
         <Faq />
         <Contact />
       </main>
