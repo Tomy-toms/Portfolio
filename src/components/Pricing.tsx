@@ -9,7 +9,7 @@ export function Pricing() {
   const t = useTranslations("Pricing");
 
   return (
-    <section className="relative py-24 sm:py-32">
+    <section className="relative py-16 sm:py-24 lg:py-32">
       <div className="container-page">
         <SectionReveal>
           <div className="relative overflow-hidden rounded-[2rem] border border-white/10 bg-gradient-to-br from-white/[0.04] to-white/[0.01] p-8 sm:p-14">

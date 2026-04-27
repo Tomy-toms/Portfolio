@@ -28,7 +28,7 @@
       radial-gradient(1200px 600px at 10% -10%, rgba(139, 92, 246, 0.15), transparent 60%),
       radial-gradient(900px 500px at 110% 10%, rgba(34, 211, 238, 0.12), transparent 60%),
       #05070f;
-    min-height: 100vh;
+    min-height: 100dvh;
   }
   h1, h2, h3, h4, h5 {
     font-family: var(--font-display);
@@ -58,16 +58,16 @@
 
 @layer components {
   .container-page {
-    @apply mx-auto w-full max-w-6xl px-5 sm:px-8;
+    @apply mx-auto w-full max-w-7xl px-5 sm:px-8 lg:px-10;
   }
   .glass {
-    @apply bg-white/[0.03] backdrop-blur-xl border border-white/10;
+    @apply bg-white/[0.03] backdrop-blur-md border border-white/10;
   }
   .glass-strong {
-    @apply bg-white/[0.06] backdrop-blur-2xl border border-white/10;
+    @apply bg-white/[0.06] backdrop-blur-xl border border-white/10;
   }
   .btn {
-    @apply inline-flex items-center justify-center gap-2 rounded-full px-5 py-2.5 text-sm font-medium transition-all duration-200 active:scale-[0.98];
+    @apply inline-flex items-center justify-center gap-2 rounded-full px-5 py-2.5 text-sm font-medium transition-[transform,box-shadow,background-color] duration-200 active:scale-[0.98];
   }
   .btn-primary {
     @apply btn bg-gradient-to-r from-accent to-accent-cyan text-white shadow-glow hover:shadow-[0_0_40px_-5px_rgba(139,92,246,0.8)] hover:-translate-y-0.5;
@@ -94,10 +94,10 @@
     @apply text-xs uppercase tracking-[0.2em] text-ink-300;
   }
   .card-hover {
-    @apply transition-all duration-300 hover:border-white/20 hover:bg-white/[0.06] hover:-translate-y-1 hover:shadow-glow;
+    @apply transition-[transform,border-color,background-color,box-shadow] duration-300 hover:border-white/20 hover:bg-white/[0.06] hover:-translate-y-1 hover:shadow-glow;
   }
   .input {
-    @apply w-full rounded-xl bg-white/[0.04] border border-white/10 px-4 py-3 text-ink-100 placeholder:text-ink-400 outline-none focus:border-accent/60 focus:bg-white/[0.06] transition;
+    @apply w-full rounded-xl bg-white/[0.04] border border-white/10 px-4 py-3 text-ink-100 placeholder:text-ink-400 outline-none focus:border-accent/60 focus:bg-white/[0.06] transition-colors;
   }
   .grid-bg {
     background-image:
@@ -115,3 +115,13 @@
     scroll-behavior: auto !important;
   }
 }
+
+@media (prefers-reduced-transparency: reduce) {
+  .glass, .glass-strong {
+    backdrop-filter: none !important;
+    background-color: rgba(10, 13, 23, 0.92);
+  }
+}
+
+.no-scrollbar::-webkit-scrollbar { display: none; }
+.no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }

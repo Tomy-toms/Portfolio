@@ -19,7 +19,7 @@ export function Method() {
   const steps = t.raw("steps") as Step[];
 
   return (
-    <section id="method" className="relative py-24 sm:py-32">
+    <section id="method" className="relative py-16 sm:py-24 lg:py-32">
       <div className="container-page">
         <SectionReveal className="max-w-3xl">
           <span className="label-muted">{t("eyebrow")}</span>

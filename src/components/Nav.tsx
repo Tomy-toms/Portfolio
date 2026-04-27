@@ -42,14 +42,14 @@ export function Nav() {
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.5, ease: "easeOut" }}
         className={cn(
-          "fixed inset-x-0 top-0 z-50 transition-all duration-300",
+          "fixed inset-x-0 top-0 z-50 transition-[padding] duration-300",
           scrolled ? "py-2" : "py-4"
         )}
       >
         <div className="container-page">
           <nav
             className={cn(
-              "flex items-center justify-between rounded-full px-4 py-2 transition-all",
+              "flex items-center justify-between rounded-full px-4 py-2 transition-colors",
               scrolled
                 ? "glass-strong shadow-lg shadow-black/20"
                 : "bg-transparent"

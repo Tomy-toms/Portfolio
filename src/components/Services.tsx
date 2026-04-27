@@ -21,7 +21,7 @@ export function Services() {
   const includesList = t.raw("includesList") as string[];
 
   return (
-    <section id="services" className="relative py-24 sm:py-32">
+    <section id="services" className="relative py-16 sm:py-24 lg:py-32">
       <div className="container-page">
         <SectionReveal className="max-w-3xl">
           <span className="label-muted">{t("eyebrow")}</span>
@@ -43,7 +43,7 @@ export function Services() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-80px" }}
                 transition={{ delay: i * 0.08, duration: 0.55 }}
-                className="group relative flex flex-col rounded-3xl border border-white/10 bg-white/[0.03] p-8 transition-all hover:border-white/20 hover:bg-white/[0.05]"
+                className="group relative flex flex-col rounded-3xl border border-white/10 bg-white/[0.03] p-8 transition-colors hover:border-white/20 hover:bg-white/[0.05]"
               >
                 {item.badge && (
                   <span className="absolute -top-3 left-8 chip bg-accent text-white">

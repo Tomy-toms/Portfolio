@@ -15,7 +15,7 @@ export function Faq() {
   const [openIdx, setOpenIdx] = useState<number | null>(0);
 
   return (
-    <section id="faq" className="relative py-24 sm:py-32">
+    <section id="faq" className="relative py-16 sm:py-24 lg:py-32">
       <div className="container-page">
         <SectionReveal className="max-w-3xl">
           <span className="label-muted">{t("eyebrow")}</span>

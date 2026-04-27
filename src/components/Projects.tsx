@@ -53,7 +53,7 @@ export function Projects({ projects }: { projects: Project[] }) {
         </h2>
       </SectionReveal>
       <SectionReveal delay={0.1}>
-        <div className="mt-6 flex flex-wrap gap-2">
+        <div className="no-scrollbar mt-6 -mx-5 flex gap-2 overflow-x-auto px-5 sm:mx-0 sm:flex-wrap sm:px-0">
           {categories.map((c) => (
             <button
               key={c}
@@ -64,7 +64,7 @@ export function Projects({ projects }: { projects: Project[] }) {
                   sectionRef.current?.scrollIntoView({ behavior: "smooth" });
               }}
               className={cn(
-                "rounded-full border px-4 py-1.5 text-sm transition-all",
+                "shrink-0 rounded-full border px-4 py-2.5 text-sm transition-colors",
                 active === c
                   ? "border-accent bg-accent/15 text-white shadow-glow"
                   : "border-white/10 bg-white/5 text-ink-200 hover:border-white/20 hover:text-white"
@@ -80,7 +80,7 @@ export function Projects({ projects }: { projects: Project[] }) {
 
   if (projects.length === 0) {
     return (
-      <section id="projects" ref={sectionRef} className="relative py-24 sm:py-32">
+      <section id="projects" ref={sectionRef} className="relative py-16 sm:py-24 lg:py-32">
         <div className="container-page">
           {sectionHeader}
           <SectionReveal delay={0.15}>
@@ -96,7 +96,7 @@ export function Projects({ projects }: { projects: Project[] }) {
   // ─── Mobile / tablet: regular grid ───────────────────────────────────────
   if (!isDesktop) {
     return (
-      <section id="projects" ref={sectionRef} className="relative py-24 sm:py-32">
+      <section id="projects" ref={sectionRef} className="relative py-16 sm:py-24 lg:py-32">
         <div className="container-page">
           {sectionHeader}
           <div className="mt-10 grid gap-6 sm:grid-cols-2">
@@ -146,12 +146,12 @@ export function Projects({ projects }: { projects: Project[] }) {
                       <p className="mt-1 text-sm text-ink-300">{p.tagline}</p>
                       <div className="mt-4 flex flex-wrap gap-1.5">
                         {p.tech.slice(0, 4).map((tech) => (
-                          <span key={tech} className="chip text-[11px]">
+                          <span key={tech} className="chip">
                             {tech}
                           </span>
                         ))}
                         {p.tech.length > 4 && (
-                          <span className="chip text-[11px]">
+                          <span className="chip">
                             +{p.tech.length - 4}
                           </span>
                         )}
@@ -237,7 +237,7 @@ function StackedCard({
   return (
     <div
       ref={ref}
-      className="sticky flex h-screen items-center justify-center pb-[10vh]"
+      className="sticky flex h-[100dvh] items-center justify-center pb-[10vh]"
       style={{ top: `${topOffset}px`, zIndex: index + 1 }}
     >
       <motion.article
@@ -249,7 +249,7 @@ function StackedCard({
           target="_blank"
           rel="noreferrer"
           className="grid w-full md:grid-cols-2"
-          style={{ height: "min(78vh, 720px)" }}
+          style={{ height: "min(72vh, 720px)" }}
         >
           <div className="relative overflow-hidden">
             <Image
@@ -257,6 +257,7 @@ function StackedCard({
               alt={project.title}
               fill
               sizes="(min-width: 1024px) 50vw, 100vw"
+              priority={index === 0}
               className="object-cover transition-transform duration-700 group-hover:scale-105"
             />
             <div className="absolute inset-0 bg-gradient-to-r from-ink-950/70 via-transparent to-transparent md:bg-gradient-to-r md:from-transparent md:to-ink-900/40" />
@@ -280,7 +281,7 @@ function StackedCard({
             <p className="text-ink-300">{project.tagline}</p>
             <div className="mt-2 flex flex-wrap gap-1.5">
               {project.tech.map((tech) => (
-                <span key={tech} className="chip text-[11px]">
+                <span key={tech} className="chip">
                   {tech}
                 </span>
               ))}

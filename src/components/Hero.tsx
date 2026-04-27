@@ -16,7 +16,7 @@ export function Hero() {
   return (
     <section
       ref={ref}
-      className="relative isolate overflow-hidden pt-40 pb-24 sm:pt-52 sm:pb-32"
+      className="relative isolate overflow-hidden pt-28 pb-20 sm:pt-52 sm:pb-32"
       aria-label="Intro"
     >
       <motion.div style={{ y, opacity }} className="container-page">
@@ -37,7 +37,7 @@ export function Hero() {
           initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.15, duration: 0.7 }}
-          className="mt-6 font-display text-5xl sm:text-7xl md:text-8xl font-semibold leading-[0.95] tracking-tight"
+          className="mt-6 font-display text-[clamp(2.5rem,10vw,3rem)] sm:text-7xl lg:text-8xl font-semibold leading-[0.95] tracking-tight"
         >
           <span className="block text-ink-100">{t("titleLine1")}</span>
           <span className="block text-gradient-accent">{t("titleLine2")}</span>

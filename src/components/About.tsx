@@ -7,7 +7,7 @@ export function About() {
   const t = useTranslations("About");
 
   return (
-    <section id="about" className="relative py-24 sm:py-32">
+    <section id="about" className="relative py-16 sm:py-24 lg:py-32">
       <div className="container-page">
         <SectionReveal className="max-w-3xl">
           <span className="label-muted">{t("eyebrow")}</span>

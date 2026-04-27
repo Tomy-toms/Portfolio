@@ -48,7 +48,7 @@ export function Contact() {
   }
 
   return (
-    <section id="contact" className="relative py-24 sm:py-32">
+    <section id="contact" className="relative py-16 sm:py-24 lg:py-32">
       <div className="container-page">
         <div className="grid gap-12 lg:grid-cols-12 lg:gap-16">
           <SectionReveal className="lg:col-span-5">
@@ -65,7 +65,7 @@ export function Contact() {
                 <li>
                   <a
                     href={`tel:${site.phone}`}
-                    className="flex items-center justify-between rounded-xl bg-white/5 px-3 py-2 text-ink-200 hover:bg-white/10 hover:text-white transition"
+                    className="flex items-center justify-between rounded-xl bg-white/5 px-3 py-2 text-ink-200 hover:bg-white/10 hover:text-white transition-colors"
                   >
                     <span>{site.phoneDisplay}</span>
                     <span className="text-ink-400">↗</span>
@@ -77,7 +77,7 @@ export function Contact() {
                       href={v}
                       target="_blank"
                       rel="noreferrer"
-                      className="flex items-center justify-between rounded-xl bg-white/5 px-3 py-2 text-ink-200 hover:bg-white/10 hover:text-white transition"
+                      className="flex items-center justify-between rounded-xl bg-white/5 px-3 py-2 text-ink-200 hover:bg-white/10 hover:text-white transition-colors"
                     >
                       <span className="capitalize">{k}</span>
                       <span className="text-ink-400">↗</span>
