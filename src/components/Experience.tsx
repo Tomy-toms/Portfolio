@@ -1,9 +1,6 @@
-"use client";
-
-import { motion } from "framer-motion";
 import { Briefcase } from "lucide-react";
-import { useTranslations } from "next-intl";
-import { SectionReveal } from "./SectionReveal";
+import { getTranslations } from "next-intl/server";
+import { Reveal } from "./Reveal";
 
 type ExperienceItem = {
   role: string;
@@ -13,30 +10,28 @@ type ExperienceItem = {
   points: string[];
 };
 
-export function Experience() {
-  const t = useTranslations("Experience");
+export async function Experience() {
+  const t = await getTranslations("Experience");
   const items = t.raw("items") as ExperienceItem[];
 
   return (
     <section id="experience" className="relative py-16 sm:py-24 lg:py-32">
       <div className="container-page">
-        <SectionReveal>
+        <Reveal>
           <span className="label-muted">{t("eyebrow")}</span>
           <h2 className="section-heading mt-3 max-w-3xl">
             {t("titleA")}
             {t("titleAccent")}
             {t("titleB")}
           </h2>
-        </SectionReveal>
+        </Reveal>
 
         <ol className="relative mt-14 border-l border-white/10 pl-8 sm:pl-10">
           {items.map((item, i) => (
-            <motion.li
+            <Reveal
               key={item.role + item.company}
-              initial={{ opacity: 0, x: 20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true, margin: "-80px" }}
-              transition={{ delay: i * 0.08, duration: 0.6 }}
+              as="li"
+              delay={i * 0.08}
               className="relative mb-10 last:mb-0"
             >
               <span className="absolute -left-[42px] sm:-left-[50px] top-1 flex h-8 w-8 items-center justify-center rounded-full bg-gradient-to-br from-accent to-accent-cyan text-white shadow-glow">
@@ -62,7 +57,7 @@ export function Experience() {
                   ))}
                 </ul>
               </div>
-            </motion.li>
+            </Reveal>
           ))}
         </ol>
       </div>

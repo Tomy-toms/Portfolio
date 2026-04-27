@@ -1,11 +1,10 @@
 "use client";
 
 import { FormEvent, useState } from "react";
-import { motion } from "framer-motion";
 import { Check, Loader2, Send } from "lucide-react";
 import { useTranslations } from "next-intl";
 import { site } from "@/lib/site";
-import { SectionReveal } from "./SectionReveal";
+import { Reveal } from "./Reveal";
 
 type State =
   | { status: "idle" }
@@ -51,7 +50,7 @@ export function Contact() {
     <section id="contact" className="relative py-16 sm:py-24 lg:py-32">
       <div className="container-page">
         <div className="grid gap-12 lg:grid-cols-12 lg:gap-16">
-          <SectionReveal className="lg:col-span-5">
+          <Reveal className="lg:col-span-5">
             <span className="label-muted">{t("eyebrow")}</span>
             <h2 className="section-heading mt-3">
               {t("titleA")}
@@ -86,9 +85,9 @@ export function Contact() {
                 ))}
               </ul>
             </div>
-          </SectionReveal>
+          </Reveal>
 
-          <SectionReveal delay={0.1} className="lg:col-span-7">
+          <Reveal delay={0.1} className="lg:col-span-7">
             <form
               onSubmit={onSubmit}
               className="glass-strong rounded-3xl p-6 sm:p-8"
@@ -180,25 +179,23 @@ export function Contact() {
                 </button>
               </div>
               {state.status === "error" && (
-                <motion.p
-                  initial={{ opacity: 0, y: 6 }}
-                  animate={{ opacity: 1, y: 0 }}
+                <p
+                  role="alert"
                   className="mt-4 rounded-xl bg-accent-pink/10 border border-accent-pink/30 px-4 py-3 text-sm text-accent-pink"
                 >
                   {state.message}
-                </motion.p>
+                </p>
               )}
               {state.status === "success" && (
-                <motion.p
-                  initial={{ opacity: 0, y: 6 }}
-                  animate={{ opacity: 1, y: 0 }}
+                <p
+                  role="status"
                   className="mt-4 rounded-xl bg-accent-lime/10 border border-accent-lime/30 px-4 py-3 text-sm text-accent-lime"
                 >
                   {t("success")}
-                </motion.p>
+                </p>
               )}
             </form>
-          </SectionReveal>
+          </Reveal>
         </div>
       </div>
     </section>

@@ -1,7 +1,9 @@
 import { NextResponse } from "next/server";
+import { revalidateTag } from "next/cache";
 import { prisma } from "@/lib/prisma";
 import { requireAdmin } from "@/lib/auth";
 import { flattenErrors, projectSchema } from "@/lib/validators";
+import { PROJECTS_TAG } from "@/lib/projects-data";
 
 export async function GET(req: Request) {
   const { searchParams } = new URL(req.url);
@@ -48,6 +50,7 @@ export async function POST(req: Request) {
         githubUrl: parsed.data.githubUrl || null,
       },
     });
+    revalidateTag(PROJECTS_TAG);
     return NextResponse.json({ project }, { status: 201 });
   } catch (e: any) {
     if (e?.code === "P2002") {

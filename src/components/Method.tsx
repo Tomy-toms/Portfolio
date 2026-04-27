@@ -1,9 +1,6 @@
-"use client";
-
-import { motion } from "framer-motion";
 import { MessageCircle, PenLine, Code2, Rocket } from "lucide-react";
-import { useTranslations } from "next-intl";
-import { SectionReveal } from "./SectionReveal";
+import { getTranslations } from "next-intl/server";
+import { Reveal } from "./Reveal";
 
 type Step = {
   number: string;
@@ -14,14 +11,14 @@ type Step = {
 
 const ICONS = [MessageCircle, PenLine, Code2, Rocket];
 
-export function Method() {
-  const t = useTranslations("Method");
+export async function Method() {
+  const t = await getTranslations("Method");
   const steps = t.raw("steps") as Step[];
 
   return (
     <section id="method" className="relative py-16 sm:py-24 lg:py-32">
       <div className="container-page">
-        <SectionReveal className="max-w-3xl">
+        <Reveal className="max-w-3xl">
           <span className="label-muted">{t("eyebrow")}</span>
           <h2 className="section-heading mt-3">
             {t("titleA")}
@@ -29,7 +26,7 @@ export function Method() {
             {t("titleB")}
           </h2>
           <p className="mt-6 text-ink-300">{t("intro")}</p>
-        </SectionReveal>
+        </Reveal>
 
         <div className="relative mt-14">
           <div
@@ -40,12 +37,10 @@ export function Method() {
             {steps.map((step, i) => {
               const Icon = ICONS[i] ?? MessageCircle;
               return (
-                <motion.li
+                <Reveal
                   key={step.number}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, margin: "-80px" }}
-                  transition={{ delay: i * 0.1, duration: 0.55 }}
+                  as="li"
+                  delay={i * 0.1}
                   className="glass card-hover rounded-3xl p-6 sm:p-8"
                 >
                   <div className="flex items-start gap-4">
@@ -69,7 +64,7 @@ export function Method() {
                   <p className="mt-5 text-sm text-ink-200 leading-relaxed">
                     {step.description}
                   </p>
-                </motion.li>
+                </Reveal>
               );
             })}
           </ol>

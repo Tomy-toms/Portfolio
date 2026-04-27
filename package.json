@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "prisma generate && next build",
+    "build": "next build",
     "start": "next start",
     "lint": "next lint",
     "db:push": "prisma db push",
@@ -17,7 +17,6 @@
     "@prisma/client": "^5.22.0",
     "bcryptjs": "^2.4.3",
     "clsx": "^2.1.1",
-    "framer-motion": "^11.11.17",
     "jose": "^5.9.6",
     "lucide-react": "^0.454.0",
     "next": "15.5.15",

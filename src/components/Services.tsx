@@ -1,9 +1,6 @@
-"use client";
-
-import { motion } from "framer-motion";
 import { Check, Globe, RefreshCw, ShoppingBag } from "lucide-react";
-import { useTranslations } from "next-intl";
-import { SectionReveal } from "./SectionReveal";
+import { getTranslations } from "next-intl/server";
+import { Reveal } from "./Reveal";
 
 type ServiceItem = {
   badge: string;
@@ -15,15 +12,15 @@ type ServiceItem = {
 
 const ICONS = [Globe, RefreshCw, ShoppingBag];
 
-export function Services() {
-  const t = useTranslations("Services");
+export async function Services() {
+  const t = await getTranslations("Services");
   const items = t.raw("items") as ServiceItem[];
   const includesList = t.raw("includesList") as string[];
 
   return (
     <section id="services" className="relative py-16 sm:py-24 lg:py-32">
       <div className="container-page">
-        <SectionReveal className="max-w-3xl">
+        <Reveal className="max-w-3xl">
           <span className="label-muted">{t("eyebrow")}</span>
           <h2 className="section-heading mt-3">
             {t("titleA")}
@@ -31,18 +28,16 @@ export function Services() {
             {t("titleB")}
           </h2>
           <p className="mt-6 text-ink-300">{t("intro")}</p>
-        </SectionReveal>
+        </Reveal>
 
         <div className="mt-14 grid gap-6 md:grid-cols-3">
           {items.map((item, i) => {
             const Icon = ICONS[i] ?? Globe;
             return (
-              <motion.article
+              <Reveal
                 key={item.title}
-                initial={{ opacity: 0, y: 24 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-80px" }}
-                transition={{ delay: i * 0.08, duration: 0.55 }}
+                as="article"
+                delay={i * 0.08}
                 className="group relative flex flex-col rounded-3xl border border-white/10 bg-white/[0.03] p-8 transition-colors hover:border-white/20 hover:bg-white/[0.05]"
               >
                 {item.badge && (
@@ -70,12 +65,12 @@ export function Services() {
                 <p className="mt-auto pt-6 text-xs italic text-ink-400">
                   {item.for}
                 </p>
-              </motion.article>
+              </Reveal>
             );
           })}
         </div>
 
-        <SectionReveal delay={0.1}>
+        <Reveal delay={0.1}>
           <div className="mt-10 glass rounded-2xl p-6 sm:p-8">
             <div className="label-muted">{t("includes")}</div>
             <ul className="mt-5 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
@@ -90,7 +85,7 @@ export function Services() {
               ))}
             </ul>
           </div>
-        </SectionReveal>
+        </Reveal>
       </div>
     </section>
   );

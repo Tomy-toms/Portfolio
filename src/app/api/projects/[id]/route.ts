@@ -1,7 +1,9 @@
 import { NextResponse } from "next/server";
+import { revalidateTag } from "next/cache";
 import { prisma } from "@/lib/prisma";
 import { requireAdmin } from "@/lib/auth";
 import { flattenErrors, projectSchema } from "@/lib/validators";
+import { PROJECTS_TAG } from "@/lib/projects-data";
 
 export async function GET(
   req: Request,
@@ -52,6 +54,7 @@ export async function PATCH(
         githubUrl: parsed.data.githubUrl === "" ? null : parsed.data.githubUrl,
       },
     });
+    revalidateTag(PROJECTS_TAG);
     return NextResponse.json({ project });
   } catch (e: any) {
     if (e?.code === "P2025") {
@@ -77,6 +80,7 @@ export async function DELETE(
   const { id } = await params;
   try {
     await prisma.project.delete({ where: { id } });
+    revalidateTag(PROJECTS_TAG);
     return NextResponse.json({ ok: true });
   } catch (e: any) {
     if (e?.code === "P2025") {

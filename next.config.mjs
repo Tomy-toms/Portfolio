@@ -15,7 +15,10 @@ const nextConfig = {
     formats: ["image/avif", "image/webp"],
   },
   experimental: {
-    optimizePackageImports: ["framer-motion", "lucide-react"],
+    // framer-motion has been removed from the homepage bundle (replaced by
+    // CSS-driven animations + a tiny IntersectionObserver). lucide-react still
+    // benefits from per-icon tree-shaking.
+    optimizePackageImports: ["lucide-react"],
   },
   async headers() {
     const csp = [
