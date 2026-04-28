@@ -16,7 +16,7 @@ const WINDOW_MS = 15 * 60 * 1000;
 export async function POST(req: Request) {
   const ip = getClientIp(req);
 
-  if (!rateLimit("login", ip, MAX_ATTEMPTS, WINDOW_MS)) {
+  if (!(await rateLimit("login", ip, MAX_ATTEMPTS, WINDOW_MS))) {
     return NextResponse.json(
       { error: "Too many attempts. Try again later." },
       { status: 429 }

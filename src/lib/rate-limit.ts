@@ -1,34 +1,35 @@
-// In-memory per-IP token bucket. NOTE: not shared between serverless instances.
-// In multi-instance / Vercel production, swap for Upstash (@upstash/ratelimit) or
-// a Redis-backed store. The shape of `rateLimit()` is designed so the call sites
-// (login, contact) don't need to change when that swap happens.
+import { Ratelimit } from "@upstash/ratelimit";
+import { Redis } from "@upstash/redis";
 
-type Bucket = { count: number; reset: number };
-const stores = new Map<string, Map<string, Bucket>>();
+const redis = Redis.fromEnv();
 
-export function rateLimit(
+const limiters = new Map<string, Ratelimit>();
+
+function getLimiter(key: string, max: number, windowMs: number) {
+  const cacheKey = `${key}:${max}:${windowMs}`;
+  let limiter = limiters.get(cacheKey);
+  if (!limiter) {
+    limiter = new Ratelimit({
+      redis,
+      limiter: Ratelimit.slidingWindow(max, `${windowMs} ms`),
+      prefix: `rl:${key}`,
+      analytics: false,
+    });
+    limiters.set(cacheKey, limiter);
+  }
+  return limiter;
+}
+
+export async function rateLimit(
   key: string,
   ip: string,
   max: number,
   windowMs: number
-): boolean {
-  let store = stores.get(key);
-  if (!store) {
-    store = new Map<string, Bucket>();
-    stores.set(key, store);
-  }
-  const now = Date.now();
-  const entry = store.get(ip);
-  if (!entry || entry.reset < now) {
-    store.set(ip, { count: 1, reset: now + windowMs });
-    return true;
-  }
-  entry.count++;
-  return entry.count <= max;
+): Promise<boolean> {
+  const { success } = await getLimiter(key, max, windowMs).limit(ip);
+  return success;
 }
 
-// `x-real-ip` is injected by Vercel/trusted proxies and not spoofable by the
-// client. `x-forwarded-for` is a fallback for other deployments.
 export function getClientIp(req: Request): string {
   return (
     req.headers.get("x-real-ip") ||

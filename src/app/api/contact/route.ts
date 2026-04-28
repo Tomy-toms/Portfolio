@@ -9,7 +9,7 @@ const WINDOW_MS = 60 * 60 * 1000;
 export async function POST(req: Request) {
   const ip = getClientIp(req);
 
-  if (!rateLimit("contact", ip, MAX_PER_HOUR, WINDOW_MS)) {
+  if (!(await rateLimit("contact", ip, MAX_PER_HOUR, WINDOW_MS))) {
     return NextResponse.json(
       { error: "Slow down — you've sent too many messages recently." },
       { status: 429 }
