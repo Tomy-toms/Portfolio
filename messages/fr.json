@@ -14,7 +14,10 @@
     "contact": "Contact",
     "cta": "Devis gratuit",
     "openMenu": "Ouvrir le menu",
-    "closeMenu": "Fermer le menu"
+    "closeMenu": "Fermer le menu",
+    "skipToContent": "Aller au contenu principal",
+    "primary": "Navigation principale",
+    "mobileMenuTitle": "Menu de navigation"
   },
   "Hero": {
     "availability": "Disponible pour de nouveaux projets — 2026",
@@ -96,7 +99,11 @@
     "empty": "Aucun projet pour l'instant. Les réalisations seront publiées très prochainement.",
     "all": "Tous",
     "featured": "À la une",
-    "sourceAria": "{title} — code source sur GitHub"
+    "viewSite": "Voir le site",
+    "source": "Code source",
+    "sourceAria": "{title} — code source sur GitHub",
+    "liveAria": "{title} — voir le site en ligne",
+    "filterAria": "Filtrer les projets par catégorie"
   },
   "Method": {
     "eyebrow": "06 — Comment on travaille",
@@ -233,7 +240,11 @@
     "sending": "Envoi",
     "sent": "Envoyé !",
     "success": "Merci — votre message est bien arrivé. Je reviens vers vous sous 24 h les jours ouvrés.",
-    "errorFallback": "Un problème est survenu. Réessayez plus tard."
+    "errorFallback": "Un problème est survenu. Réessayez plus tard.",
+    "required": "obligatoire",
+    "formAria": "Formulaire de contact",
+    "phoneAria": "Appeler le {phone}",
+    "socialAria": "Profil {network} (nouvel onglet)"
   },
   "Footer": {
     "rights": "© {year} {name}. Tous droits réservés.",
@@ -242,7 +253,10 @@
     "legal": "Mentions légales",
     "privacy": "Confidentialité",
     "napLabel": "Thomas Barthelemy — Développeur web freelance",
-    "napLocation": "Alès (30), Gard, France"
+    "napLocation": "Alès (30), Gard, France",
+    "footerNavAria": "Liens du pied de page",
+    "phoneAria": "Appeler Thomas",
+    "emailAria": "Envoyer un email à Thomas"
   },
   "LanguageSwitcher": {
     "label": "Langue",

@@ -14,7 +14,10 @@
     "contact": "Contact",
     "cta": "Free quote",
     "openMenu": "Open menu",
-    "closeMenu": "Close menu"
+    "closeMenu": "Close menu",
+    "skipToContent": "Skip to main content",
+    "primary": "Primary navigation",
+    "mobileMenuTitle": "Navigation menu"
   },
   "Hero": {
     "availability": "Available for new projects — 2026",
@@ -96,7 +99,11 @@
     "empty": "No projects yet. Case studies will be published very soon.",
     "all": "All",
     "featured": "Featured",
-    "sourceAria": "{title} source on GitHub"
+    "viewSite": "View site",
+    "source": "Source code",
+    "sourceAria": "{title} source on GitHub",
+    "liveAria": "{title} — view live site",
+    "filterAria": "Filter projects by category"
   },
   "Method": {
     "eyebrow": "06 — How we work",
@@ -233,7 +240,11 @@
     "sending": "Sending",
     "sent": "Sent!",
     "success": "Thanks — your message is in. I'll reply within 24 h on weekdays.",
-    "errorFallback": "Something went wrong. Try again later."
+    "errorFallback": "Something went wrong. Try again later.",
+    "required": "required",
+    "formAria": "Contact form",
+    "phoneAria": "Call {phone}",
+    "socialAria": "{network} profile (new tab)"
   },
   "Footer": {
     "rights": "© {year} {name}. All rights reserved.",
@@ -242,7 +253,10 @@
     "legal": "Legal",
     "privacy": "Privacy",
     "napLabel": "Thomas Barthelemy — Freelance Web Developer",
-    "napLocation": "Alès (30), Gard, France"
+    "napLocation": "Alès (30), Gard, France",
+    "footerNavAria": "Footer links",
+    "phoneAria": "Call Thomas",
+    "emailAria": "Send Thomas an email"
   },
   "LanguageSwitcher": {
     "label": "Language",

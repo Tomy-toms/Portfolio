@@ -28,12 +28,12 @@ export async function Hero() {
           <span className="block text-ink-100">{t("titleLine3")}</span>
         </h1>
 
-        <h2
-          className="hero-fade mt-4 text-xs font-medium uppercase tracking-widest text-ink-400"
+        <p
+          className="hero-fade mt-4 text-xs font-medium uppercase tracking-widest text-ink-300"
           style={{ ["--hero-delay" as string]: "0.22s" }}
         >
           {t("subtitle")}
-        </h2>
+        </p>
 
         <p
           className="hero-fade mt-6 max-w-xl text-lg leading-relaxed text-ink-200"
@@ -49,7 +49,7 @@ export async function Hero() {
           style={{ ["--hero-delay" as string]: "0.4s" }}
         >
           <a href="#contact" className="btn-primary">
-            {t("ctaContact")} <ArrowRight className="h-4 w-4" />
+            {t("ctaContact")} <ArrowRight className="h-4 w-4" aria-hidden />
           </a>
           <a href="#projects" className="btn-ghost">
             {t("ctaWork")}
@@ -62,7 +62,7 @@ export async function Hero() {
               aria-label={t("githubAria")}
               className="inline-flex h-10 w-10 items-center justify-center rounded-full glass hover:bg-white/10"
             >
-              <Github className="h-4 w-4" />
+              <Github className="h-4 w-4" aria-hidden />
             </a>
             <a
               href={site.social.linkedin}
@@ -71,7 +71,7 @@ export async function Hero() {
               aria-label={t("linkedinAria")}
               className="inline-flex h-10 w-10 items-center justify-center rounded-full glass hover:bg-white/10"
             >
-              <Linkedin className="h-4 w-4" />
+              <Linkedin className="h-4 w-4" aria-hidden />
             </a>
           </div>
         </div>
@@ -80,11 +80,11 @@ export async function Hero() {
           className="hero-fade mt-16 flex flex-wrap items-center gap-4 text-sm text-ink-300"
           style={{ ["--hero-delay" as string]: "0.55s" }}
         >
-          <MapPin className="h-4 w-4" />
+          <MapPin className="h-4 w-4" aria-hidden />
           <span>{t("trust1")}</span>
-          <span className="h-1 w-1 rounded-full bg-ink-500" />
+          <span aria-hidden className="h-1 w-1 rounded-full bg-ink-400" />
           <span>{t("trust2")}</span>
-          <span className="h-1 w-1 rounded-full bg-ink-500" />
+          <span aria-hidden className="h-1 w-1 rounded-full bg-ink-400" />
           <span>{t("trust3")}</span>
         </div>
       </div>

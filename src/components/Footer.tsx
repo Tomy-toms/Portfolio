@@ -22,34 +22,34 @@ export async function Footer() {
           <p className="font-display text-sm text-ink-200">
             {t("rights", { year: new Date().getFullYear(), name: site.shortName })}
           </p>
-          <p className="mt-1 text-xs text-ink-400">{t("crafted")}</p>
+          <p className="mt-1 text-xs text-ink-300">{t("crafted")}</p>
         </div>
 
-        <nav aria-label="Footer" className="-mx-3 flex flex-wrap gap-x-1 gap-y-1 text-sm">
+        <nav aria-label={t("footerNavAria")} className="-mx-3 flex flex-wrap gap-x-1 gap-y-1 text-sm">
           {NAV_ITEMS.map((n) => (
             <a
               key={n.href}
               href={`/${locale}${n.href}`}
-              className="px-3 py-2 text-ink-300 hover:text-white transition-colors"
+              className="px-3 py-2 text-ink-200 hover:text-white transition-colors"
             >
               {tNav(n.key)}
             </a>
           ))}
           <Link
             href={`/${locale}/legal`}
-            className="px-3 py-2 text-ink-300 hover:text-white transition-colors"
+            className="px-3 py-2 text-ink-200 hover:text-white transition-colors"
           >
             {t("legal")}
           </Link>
           <Link
             href={`/${locale}/privacy`}
-            className="px-3 py-2 text-ink-300 hover:text-white transition-colors"
+            className="px-3 py-2 text-ink-200 hover:text-white transition-colors"
           >
             {t("privacy")}
           </Link>
           <Link
             href="/admin/login"
-            className="px-3 py-2 text-ink-400 hover:text-white transition-colors"
+            className="px-3 py-2 text-ink-300 hover:text-white transition-colors"
           >
             {t("admin")}
           </Link>
@@ -57,22 +57,24 @@ export async function Footer() {
       </div>
 
       <div className="container-page mt-8 border-t border-white/5 pt-6">
-        <address className="not-italic text-xs text-ink-500 leading-relaxed">
+        <address className="not-italic text-xs text-ink-300 leading-relaxed">
           <div className="flex flex-wrap items-center gap-x-2 gap-y-1">
-            <strong className="text-ink-400">{t("napLabel")}</strong>
-            <span aria-hidden className="text-ink-700">·</span>
+            <strong className="text-ink-200">{t("napLabel")}</strong>
+            <span aria-hidden className="text-ink-500">·</span>
             <span>{t("napLocation")}</span>
-            <span aria-hidden className="text-ink-700">·</span>
+            <span aria-hidden className="text-ink-500">·</span>
             <a
               href={`tel:${site.phone}`}
-              className="py-1 hover:text-ink-300 transition-colors"
+              aria-label={t("phoneAria")}
+              className="py-1 hover:text-white transition-colors"
             >
               {site.phone.replace("+33", "0").replace(/(\d{2})(\d{2})(\d{2})(\d{2})(\d{2})/, "$1 $2 $3 $4 $5")}
             </a>
-            <span aria-hidden className="text-ink-700">·</span>
+            <span aria-hidden className="text-ink-500">·</span>
             <a
               href={`mailto:${site.email}`}
-              className="py-1 hover:text-ink-300 transition-colors"
+              aria-label={t("emailAria")}
+              className="py-1 hover:text-white transition-colors"
             >
               {site.email}
             </a>

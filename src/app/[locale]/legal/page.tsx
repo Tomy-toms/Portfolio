@@ -43,12 +43,12 @@ export default async function LegalPage({ params }: Props) {
     <>
       <ScrollProgress />
       <Nav />
-      <main className="relative pt-32 pb-16 sm:pt-40 sm:pb-24">
+      <main id="main" tabIndex={-1} className="relative pt-32 pb-16 sm:pt-40 sm:pb-24 scroll-mt-24 outline-none">
         <div className="container-page max-w-3xl">
           <header>
             <span className="label-muted">Legal</span>
             <h1 className="section-heading mt-3">{t("title")}</h1>
-            <p className="mt-4 text-sm text-ink-400">{lastUpdate}</p>
+            <p className="mt-4 text-sm text-ink-300">{lastUpdate}</p>
           </header>
 
           <div className="mt-12">

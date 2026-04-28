@@ -48,17 +48,18 @@
     background: #0a0d17;
   }
   ::-webkit-scrollbar-thumb {
-    background: #2f3549;
+    background: #6a7692;
     border-radius: 9999px;
     border: 2px solid #0a0d17;
   }
   ::-webkit-scrollbar-thumb:hover {
-    background: #454d66;
+    background: #8e96b0;
   }
   :focus-visible {
-    outline: 2px solid rgb(var(--ring));
+    outline: 3px solid #a78bfa;
     outline-offset: 3px;
     border-radius: 6px;
+    box-shadow: 0 0 0 5px rgba(139, 92, 246, 0.25);
   }
 }
 

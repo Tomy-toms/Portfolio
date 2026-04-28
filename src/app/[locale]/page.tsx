@@ -27,7 +27,7 @@ export default async function HomePage({ params }: Props) {
     <>
       <ScrollProgress />
       <Nav />
-      <main id="top" className="relative">
+      <main id="main" tabIndex={-1} className="relative scroll-mt-24 outline-none">
         <Hero />
         <Services />
         <Projects projects={projects} />

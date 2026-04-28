@@ -1,6 +1,6 @@
 "use client";
 
-import { FormEvent, useState } from "react";
+import { FormEvent, useEffect, useRef, useState } from "react";
 import { Check, Loader2, Send } from "lucide-react";
 import { useTranslations } from "next-intl";
 import { site } from "@/lib/site";
@@ -16,6 +16,13 @@ export function Contact() {
   const t = useTranslations("Contact");
   const [state, setState] = useState<State>({ status: "idle" });
   const [fieldErrors, setFieldErrors] = useState<Record<string, string>>({});
+  const successRef = useRef<HTMLParagraphElement>(null);
+  const errorRef = useRef<HTMLParagraphElement>(null);
+
+  useEffect(() => {
+    if (state.status === "success") successRef.current?.focus();
+    if (state.status === "error") errorRef.current?.focus();
+  }, [state.status]);
 
   async function onSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -64,10 +71,11 @@ export function Contact() {
                 <li>
                   <a
                     href={`tel:${site.phone}`}
+                    aria-label={t("phoneAria", { phone: site.phoneDisplay })}
                     className="flex items-center justify-between rounded-xl bg-white/5 px-3 py-2 text-ink-200 hover:bg-white/10 hover:text-white transition-colors"
                   >
                     <span>{site.phoneDisplay}</span>
-                    <span className="text-ink-400">↗</span>
+                    <span aria-hidden className="text-ink-300">↗</span>
                   </a>
                 </li>
                 {Object.entries(site.social).map(([k, v]) => (
@@ -76,10 +84,11 @@ export function Contact() {
                       href={v}
                       target="_blank"
                       rel="noreferrer"
+                      aria-label={t("socialAria", { network: k })}
                       className="flex items-center justify-between rounded-xl bg-white/5 px-3 py-2 text-ink-200 hover:bg-white/10 hover:text-white transition-colors"
                     >
                       <span className="capitalize">{k}</span>
-                      <span className="text-ink-400">↗</span>
+                      <span aria-hidden className="text-ink-300">↗</span>
                     </a>
                   </li>
                 ))}
@@ -92,59 +101,96 @@ export function Contact() {
               onSubmit={onSubmit}
               className="glass-strong rounded-3xl p-6 sm:p-8"
               noValidate
+              aria-label={t("formAria")}
             >
               <div className="grid gap-4 sm:grid-cols-2">
-                <label className="block">
-                  <span className="label-muted">{t("name")}</span>
+                <div>
+                  <label htmlFor="contact-name" className="label-muted block">
+                    {t("name")}
+                    <span aria-hidden className="ml-0.5 text-accent-pink">*</span>
+                    <span className="sr-only"> ({t("required")})</span>
+                  </label>
                   <input
+                    id="contact-name"
                     name="name"
                     required
                     maxLength={80}
                     autoComplete="name"
+                    aria-required="true"
+                    aria-invalid={Boolean(fieldErrors.name)}
+                    aria-describedby={fieldErrors.name ? "contact-name-error" : undefined}
                     className="input mt-2"
                     placeholder={t("namePlaceholder")}
                   />
                   {fieldErrors.name && (
-                    <span className="mt-1 block text-xs text-accent-pink">
+                    <span
+                      id="contact-name-error"
+                      role="alert"
+                      className="mt-1 block text-xs text-accent-pink"
+                    >
                       {fieldErrors.name}
                     </span>
                   )}
-                </label>
-                <label className="block">
-                  <span className="label-muted">{t("email")}</span>
+                </div>
+                <div>
+                  <label htmlFor="contact-email" className="label-muted block">
+                    {t("email")}
+                    <span aria-hidden className="ml-0.5 text-accent-pink">*</span>
+                    <span className="sr-only"> ({t("required")})</span>
+                  </label>
                   <input
+                    id="contact-email"
                     name="email"
                     type="email"
                     required
                     maxLength={200}
                     autoComplete="email"
+                    aria-required="true"
+                    aria-invalid={Boolean(fieldErrors.email)}
+                    aria-describedby={fieldErrors.email ? "contact-email-error" : undefined}
                     className="input mt-2"
                     placeholder={t("emailPlaceholder")}
                   />
                   {fieldErrors.email && (
-                    <span className="mt-1 block text-xs text-accent-pink">
+                    <span
+                      id="contact-email-error"
+                      role="alert"
+                      className="mt-1 block text-xs text-accent-pink"
+                    >
                       {fieldErrors.email}
                     </span>
                   )}
-                </label>
+                </div>
               </div>
-              <label className="mt-4 block">
-                <span className="label-muted">{t("message")}</span>
+              <div className="mt-4">
+                <label htmlFor="contact-message" className="label-muted block">
+                  {t("message")}
+                  <span aria-hidden className="ml-0.5 text-accent-pink">*</span>
+                  <span className="sr-only"> ({t("required")})</span>
+                </label>
                 <textarea
+                  id="contact-message"
                   name="message"
                   required
                   minLength={10}
                   maxLength={5000}
                   rows={6}
+                  aria-required="true"
+                  aria-invalid={Boolean(fieldErrors.message)}
+                  aria-describedby={fieldErrors.message ? "contact-message-error" : undefined}
                   className="input mt-2 resize-y"
                   placeholder={t("messagePlaceholder")}
                 />
                 {fieldErrors.message && (
-                  <span className="mt-1 block text-xs text-accent-pink">
+                  <span
+                    id="contact-message-error"
+                    role="alert"
+                    className="mt-1 block text-xs text-accent-pink"
+                  >
                     {fieldErrors.message}
                   </span>
                 )}
-              </label>
+              </div>
               <input
                 type="text"
                 name="website"
@@ -154,7 +200,7 @@ export function Contact() {
                 className="absolute -z-10 opacity-0 pointer-events-none"
               />
               <div className="mt-6 flex items-center justify-between gap-4">
-                <p className="text-xs text-ink-400">{t("protected")}</p>
+                <p className="text-xs text-ink-300">{t("protected")}</p>
                 <button
                   type="submit"
                   disabled={state.status === "loading"}
@@ -162,17 +208,17 @@ export function Contact() {
                 >
                   {state.status === "loading" ? (
                     <>
-                      <Loader2 className="h-4 w-4 animate-spin" />
+                      <Loader2 className="h-4 w-4 animate-spin" aria-hidden />
                       {t("sending")}
                     </>
                   ) : state.status === "success" ? (
                     <>
-                      <Check className="h-4 w-4" />
+                      <Check className="h-4 w-4" aria-hidden />
                       {t("sent")}
                     </>
                   ) : (
                     <>
-                      <Send className="h-4 w-4" />
+                      <Send className="h-4 w-4" aria-hidden />
                       {t("send")}
                     </>
                   )}
@@ -180,16 +226,20 @@ export function Contact() {
               </div>
               {state.status === "error" && (
                 <p
+                  ref={errorRef}
+                  tabIndex={-1}
                   role="alert"
-                  className="mt-4 rounded-xl bg-accent-pink/10 border border-accent-pink/30 px-4 py-3 text-sm text-accent-pink"
+                  className="mt-4 rounded-xl bg-accent-pink/10 border border-accent-pink/30 px-4 py-3 text-sm text-accent-pink outline-none"
                 >
                   {state.message}
                 </p>
               )}
               {state.status === "success" && (
                 <p
+                  ref={successRef}
+                  tabIndex={-1}
                   role="status"
-                  className="mt-4 rounded-xl bg-accent-lime/10 border border-accent-lime/30 px-4 py-3 text-sm text-accent-lime"
+                  className="mt-4 rounded-xl bg-accent-lime/10 border border-accent-lime/30 px-4 py-3 text-sm text-accent-lime outline-none"
                 >
                   {t("success")}
                 </p>

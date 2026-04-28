@@ -39,11 +39,16 @@ export function Projects({ projects }: { projects: Project[] }) {
         </h2>
       </Reveal>
       <Reveal delay={0.1}>
-        <div className="no-scrollbar mt-6 -mx-5 flex gap-2 overflow-x-auto px-5 sm:mx-0 sm:flex-wrap sm:px-0">
+        <div
+          role="group"
+          aria-label={t("filterAria")}
+          className="no-scrollbar mt-6 -mx-5 flex gap-2 overflow-x-auto px-5 sm:mx-0 sm:flex-wrap sm:px-0"
+        >
           {categories.map((c) => (
             <button
               key={c}
               type="button"
+              aria-pressed={active === c}
               onClick={() => {
                 setActive(c);
                 sectionRef.current?.scrollIntoView({ behavior: "smooth" });
@@ -113,26 +118,29 @@ export function Projects({ projects }: { projects: Project[] }) {
                   zIndex: i + 1,
                 }}
               >
-                <article className="group relative flex w-full max-w-5xl overflow-hidden rounded-3xl border border-white/10 bg-ink-900 shadow-2xl shadow-black/40 transition-colors hover:border-white/20">
-                  <a
-                    href={project.liveUrl || project.githubUrl || "#"}
-                    target="_blank"
-                    rel="noreferrer"
+                <article
+                  aria-labelledby={`project-${project.id}-title`}
+                  className="group relative flex w-full max-w-5xl overflow-hidden rounded-3xl border border-white/10 bg-ink-900 shadow-2xl shadow-black/40 transition-colors hover:border-white/20"
+                >
+                  <div
                     className="grid w-full grid-rows-[14rem_1fr] sm:grid-rows-[16rem_1fr] md:grid-rows-1 md:grid-cols-2"
                     style={{ height: "min(80vh, 720px)" }}
                   >
                     <div className="relative overflow-hidden">
                       <Image
                         src={project.imageUrl}
-                        alt={project.title}
+                        alt=""
                         fill
                         sizes="(min-width: 1024px) 50vw, 100vw"
                         className="object-cover transition-transform duration-700 group-hover:scale-105"
                       />
-                      <div className="absolute inset-0 bg-gradient-to-t from-ink-950 via-transparent to-transparent md:bg-gradient-to-r md:from-transparent md:to-ink-900/40" />
+                      <div
+                        aria-hidden
+                        className="absolute inset-0 bg-gradient-to-t from-ink-950 via-transparent to-transparent md:bg-gradient-to-r md:from-transparent md:to-ink-900/40"
+                      />
                       {project.featured && (
                         <span className="absolute left-3 top-3 chip bg-black/60 text-white sm:left-4 sm:top-4">
-                          <Star className="h-3 w-3 text-accent-lime" />{" "}
+                          <Star className="h-3 w-3 text-accent-lime" aria-hidden />{" "}
                           {t("featured")}
                         </span>
                       )}
@@ -143,10 +151,16 @@ export function Projects({ projects }: { projects: Project[] }) {
 
                     <div className="flex flex-col justify-center gap-3 overflow-hidden p-6 sm:gap-4 sm:p-8 md:p-10 lg:p-12">
                       <div className="flex items-start justify-between gap-3">
-                        <h3 className="font-display text-xl text-white sm:text-2xl md:text-3xl">
+                        <h3
+                          id={`project-${project.id}-title`}
+                          className="font-display text-xl text-white sm:text-2xl md:text-3xl"
+                        >
                           {project.title}
                         </h3>
-                        <ArrowUpRight className="h-5 w-5 shrink-0 text-ink-300 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-white sm:h-6 sm:w-6" />
+                        <ArrowUpRight
+                          aria-hidden
+                          className="h-5 w-5 shrink-0 text-ink-300 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-white sm:h-6 sm:w-6"
+                        />
                       </div>
                       <p className="text-sm text-ink-300 sm:text-base">
                         {project.tagline}
@@ -158,20 +172,34 @@ export function Projects({ projects }: { projects: Project[] }) {
                           </span>
                         ))}
                       </div>
+                      <div className="mt-3 flex flex-wrap gap-3 sm:mt-4">
+                        {project.liveUrl && (
+                          <a
+                            href={project.liveUrl}
+                            target="_blank"
+                            rel="noreferrer"
+                            aria-label={t("liveAria", { title: project.title })}
+                            className="btn-primary"
+                          >
+                            {t("viewSite")}
+                            <ArrowUpRight className="h-4 w-4" aria-hidden />
+                          </a>
+                        )}
+                        {project.githubUrl && (
+                          <a
+                            href={project.githubUrl}
+                            target="_blank"
+                            rel="noreferrer"
+                            aria-label={t("sourceAria", { title: project.title })}
+                            className="btn-ghost"
+                          >
+                            <Github className="h-4 w-4" aria-hidden />
+                            {t("source")}
+                          </a>
+                        )}
+                      </div>
                     </div>
-                  </a>
-
-                  {project.githubUrl && (
-                    <a
-                      href={project.githubUrl}
-                      target="_blank"
-                      rel="noreferrer"
-                      aria-label={t("sourceAria", { title: project.title })}
-                      className="absolute bottom-5 right-5 inline-flex h-9 w-9 items-center justify-center rounded-full bg-black/60 text-white opacity-0 transition-opacity group-hover:opacity-100"
-                    >
-                      <Github className="h-4 w-4" />
-                    </a>
-                  )}
+                  </div>
                 </article>
               </div>
             ))}

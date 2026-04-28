@@ -39,6 +39,11 @@ export default async function RootLayout({
       className={`${inter.variable} ${display.variable} ${mono.variable} dark`}
       suppressHydrationWarning
     >
+      <head>
+        <noscript>
+          <style>{`.reveal,.hero-fade{opacity:1!important;transform:none!important;animation:none!important}`}</style>
+        </noscript>
+      </head>
       <body>{children}</body>
     </html>
   );
