@@ -40,14 +40,37 @@ Le schéma déclare 3 nouveaux index pour accélérer les requêtes principales 
 
 C'est non-destructif (ajout d'index = aucune perte de données).
 
-### Commande
+### Option A — SQL direct dans Supabase (recommandé, 1 min, fait maintenant)
+
+Supabase → **SQL Editor** → **New query** → colle :
+
+```sql
+CREATE INDEX IF NOT EXISTS "Project_published_featured_order_idx"
+  ON "Project" ("published", "featured", "order");
+
+CREATE INDEX IF NOT EXISTS "ContactMessage_read_createdAt_idx"
+  ON "ContactMessage" ("read", "createdAt");
+
+CREATE INDEX IF NOT EXISTS "ContactMessage_createdAt_idx"
+  ON "ContactMessage" ("createdAt");
+```
+
+Les noms suivent la convention Prisma `{Modèle}_{cols}_idx`, donc un futur `prisma db push` les détectera comme déjà présents et ne fera rien.
+
+### Option B — `prisma db push` (depuis ton réseau perso)
 ```bash
 npx prisma db push
 ```
+Sortie attendue : `🚀 Your database is now in sync with your Prisma schema.`
 
-### Validation
-- Sortie attendue : `🚀 Your database is now in sync with your Prisma schema.`
-- Sur Supabase → Table Editor → `Project` → onglet **Indexes** : tu dois voir un index dont le nom contient `published_featured_order`. Idem sur `ContactMessage` (`read_createdAt`, `createdAt`).
+### Validation (commune aux 2 options)
+- Supabase → Table Editor → `Project` → onglet **Indexes** : tu vois `Project_published_featured_order_idx`. Idem sur `ContactMessage` (`read_createdAt`, `createdAt`).
+- Ou en SQL :
+  ```sql
+  SELECT indexname FROM pg_indexes
+  WHERE tablename IN ('Project', 'ContactMessage')
+  ORDER BY tablename, indexname;
+  ```
 
 ---
 
