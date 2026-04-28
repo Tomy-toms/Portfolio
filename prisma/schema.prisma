@@ -38,6 +38,8 @@ model Project {
   published   Boolean  @default(true)
   createdAt   DateTime @default(now())
   updatedAt   DateTime @updatedAt
+
+  @@index([published, featured, order])
 }
 
 model ContactMessage {
@@ -49,4 +51,7 @@ model ContactMessage {
   userAgent String?
   read      Boolean  @default(false)
   createdAt DateTime @default(now())
+
+  @@index([read, createdAt])
+  @@index([createdAt])
 }

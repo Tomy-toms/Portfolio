@@ -1,26 +1,17 @@
-import { SignJWT, jwtVerify, type JWTPayload } from "jose";
+import { SignJWT } from "jose";
 import bcrypt from "bcryptjs";
 import { cookies } from "next/headers";
 import { NextRequest, NextResponse } from "next/server";
+import {
+  ALG,
+  AUTH_COOKIE,
+  getJwtSecret,
+  verifyToken,
+  type SessionPayload,
+} from "./auth-shared";
 
-const AUTH_COOKIE = "portfolio_session";
-const ALG = "HS256";
-
-function getSecret(): Uint8Array {
-  const secret = process.env.JWT_SECRET;
-  if (!secret || secret.length < 32) {
-    throw new Error(
-      "JWT_SECRET env var must be set and at least 32 characters long"
-    );
-  }
-  return new TextEncoder().encode(secret);
-}
-
-export type SessionPayload = JWTPayload & {
-  sub: string;
-  email: string;
-  role: "ADMIN" | "EDITOR";
-};
+export type { SessionPayload } from "./auth-shared";
+export const AUTH_COOKIE_NAME = AUTH_COOKIE;
 
 export async function hashPassword(password: string): Promise<string> {
   return bcrypt.hash(password, 12);
@@ -35,16 +26,11 @@ export async function signSession(payload: Omit<SessionPayload, "iat" | "exp">) 
     .setProtectedHeader({ alg: ALG })
     .setIssuedAt()
     .setExpirationTime("24h")
-    .sign(getSecret());
+    .sign(getJwtSecret());
 }
 
 export async function verifySession(token: string): Promise<SessionPayload | null> {
-  try {
-    const { payload } = await jwtVerify(token, getSecret(), { algorithms: [ALG] });
-    return payload as SessionPayload;
-  } catch {
-    return null;
-  }
+  return verifyToken(token);
 }
 
 export async function setSessionCookie(token: string) {
@@ -63,15 +49,12 @@ export async function clearSessionCookie() {
 
 export async function getSessionFromCookies(): Promise<SessionPayload | null> {
   const token = (await cookies()).get(AUTH_COOKIE)?.value;
-  if (!token) return null;
-  return verifySession(token);
+  return verifyToken(token);
 }
 
 export function getSessionTokenFromRequest(req: NextRequest): string | undefined {
   return req.cookies.get(AUTH_COOKIE)?.value;
 }
-
-export const AUTH_COOKIE_NAME = AUTH_COOKIE;
 
 type AdminResult =
   | { session: SessionPayload; error: null }

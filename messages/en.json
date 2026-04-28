@@ -4,6 +4,17 @@
     "description": "Freelance web developer based in Alès, southern France (Gard). Fast, Google-friendly websites for small businesses. Free quote.",
     "ogAlt": "Thomas Barthelemy — Freelance Web Developer based in Alès, France"
   },
+  "JsonLd": {
+    "businessName": "Thomas Barthelemy — Freelance Web Developer",
+    "personJobTitle": "Freelance Web Developer",
+    "offerCatalogName": "Website creation",
+    "offerVitrineName": "Custom marketing website",
+    "offerVitrineDescription": "Professional marketing website built from scratch, delivered in 2 to 3 weeks. Modern design, local SEO optimisation for Google, secure contact form. Starting at €1,500.",
+    "offerRefonteName": "Website redesign",
+    "offerRefonteDescription": "Full redesign of your existing website. New design, content migration, performance and Google SEO improvements. Starting at €3,000.",
+    "offerEcommerceName": "E-commerce website",
+    "offerEcommerceDescription": "Online shop, customer area, online booking, custom business tool. Delivered in 4 to 8 weeks. Starting at €5,000."
+  },
   "Nav": {
     "home": "Home",
     "about": "About",

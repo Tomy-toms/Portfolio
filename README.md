@@ -19,7 +19,7 @@ cp .env.example .env
 # Fill DATABASE_URL, JWT_SECRET, ADMIN_EMAIL, ADMIN_PASSWORD.
 
 npx prisma migrate dev --name init   # or, for a quick push: npm run db:push
-npm run db:seed                      # creates admin user + sample projects
+npm run db:seed                      # creates the admin user (projects are added via /admin)
 npm run dev
 ```
 
@@ -53,7 +53,7 @@ node -e "console.log(require('crypto').randomBytes(48).toString('base64'))"
 | `npm run lint` | ESLint |
 | `npm run db:push` | Push schema without migration |
 | `npm run db:migrate` | Create + apply a dev migration |
-| `npm run db:seed` | Seed admin + sample projects |
+| `npm run db:seed` | Seed the admin user only |
 | `npm run db:studio` | Prisma Studio |
 
 ### Project layout

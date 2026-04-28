@@ -6,6 +6,7 @@ import { ArrowUpRight, Github, Star } from "lucide-react";
 import { useTranslations } from "next-intl";
 import type { Project } from "@prisma/client";
 import { Reveal } from "./Reveal";
+import { SectionHeader } from "./SectionHeader";
 import { cn } from "@/lib/utils";
 
 export function Projects({ projects }: { projects: Project[] }) {
@@ -31,12 +32,14 @@ export function Projects({ projects }: { projects: Project[] }) {
   const sectionHeader = (
     <>
       <Reveal>
-        <span className="label-muted">{t("eyebrow")}</span>
-        <h2 className="section-heading mt-3 max-w-3xl">
-          {t("titleA")}
-          <span className="text-gradient-accent">{t("titleAccent")}</span>
-          {t("titleB")}
-        </h2>
+        <SectionHeader
+          eyebrow={t("eyebrow")}
+          titleA={t("titleA")}
+          titleAccent={t("titleAccent")}
+          titleB={t("titleB")}
+          accent
+          headingClassName="max-w-3xl"
+        />
       </Reveal>
       <Reveal delay={0.1}>
         <div

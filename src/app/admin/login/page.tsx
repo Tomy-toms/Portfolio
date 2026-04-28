@@ -3,6 +3,7 @@
 import { FormEvent, useState } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import { Loader2, Lock, Mail } from "lucide-react";
+import { errorMessage } from "@/lib/utils";
 
 export default function AdminLoginPage() {
   const router = useRouter();
@@ -31,8 +32,8 @@ export default function AdminLoginPage() {
       if (!res.ok) throw new Error(json?.error ?? "Login failed");
       router.replace(next);
       router.refresh();
-    } catch (err: any) {
-      setError(err.message ?? "Login failed");
+    } catch (err) {
+      setError(errorMessage(err, "Login failed"));
     } finally {
       setLoading(false);
     }

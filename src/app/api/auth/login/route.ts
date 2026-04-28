@@ -1,4 +1,5 @@
 import { NextResponse } from "next/server";
+import type { User } from "@prisma/client";
 import { prisma } from "@/lib/prisma";
 import {
   hashPassword,
@@ -7,30 +8,15 @@ import {
   verifyPassword,
 } from "@/lib/auth";
 import { flattenErrors, loginSchema } from "@/lib/validators";
+import { getClientIp, rateLimit } from "@/lib/rate-limit";
 
-const ipAttempts = new Map<string, { count: number; reset: number }>();
 const MAX_ATTEMPTS = 5;
-const WINDOW_MS = 15 * 60 * 1000; // 15 min — NOTE: in-memory, non partagé entre instances ; utiliser Redis/Upstash en multi-instance
-
-function rateLimit(ip: string) {
-  const now = Date.now();
-  const entry = ipAttempts.get(ip);
-  if (!entry || entry.reset < now) {
-    ipAttempts.set(ip, { count: 1, reset: now + WINDOW_MS });
-    return true;
-  }
-  entry.count++;
-  return entry.count <= MAX_ATTEMPTS;
-}
+const WINDOW_MS = 15 * 60 * 1000;
 
 export async function POST(req: Request) {
-  // x-real-ip est injecté par Vercel/proxies de confiance et non falsifiable par le client
-  const ip =
-    req.headers.get("x-real-ip") ||
-    req.headers.get("x-forwarded-for")?.split(",")[0]?.trim() ||
-    "unknown";
+  const ip = getClientIp(req);
 
-  if (!rateLimit(ip)) {
+  if (!rateLimit("login", ip, MAX_ATTEMPTS, WINDOW_MS)) {
     return NextResponse.json(
       { error: "Too many attempts. Try again later." },
       { status: 429 }
@@ -53,23 +39,24 @@ export async function POST(req: Request) {
   }
 
   const { email, password } = parsed.data;
-  const user = await prisma.user.findUnique({ where: { email } });
 
-  // timing-safe fallback when user doesn't exist
+  let user: User | null = null;
+  try {
+    user = await prisma.user.findUnique({ where: { email } });
+  } catch (e) {
+    console.error("[auth:login] db lookup failed", e);
+    return NextResponse.json({ error: "Login failed" }, { status: 500 });
+  }
+
+  // Timing-safe fallback when the user doesn't exist.
   if (!user) {
     await hashPassword("dummy-to-equalize-timing");
-    return NextResponse.json(
-      { error: "Invalid credentials" },
-      { status: 401 }
-    );
+    return NextResponse.json({ error: "Invalid credentials" }, { status: 401 });
   }
 
   const ok = await verifyPassword(password, user.passwordHash);
   if (!ok) {
-    return NextResponse.json(
-      { error: "Invalid credentials" },
-      { status: 401 }
-    );
+    return NextResponse.json({ error: "Invalid credentials" }, { status: 401 });
   }
 
   const token = await signSession({

@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import { revalidateTag } from "next/cache";
+import { Prisma } from "@prisma/client";
 import { prisma } from "@/lib/prisma";
 import { requireAdmin } from "@/lib/auth";
 import { flattenErrors, projectSchema } from "@/lib/validators";
@@ -48,23 +49,21 @@ export async function PATCH(
   try {
     const project = await prisma.project.update({
       where: { id },
-      data: {
-        ...parsed.data,
-        liveUrl: parsed.data.liveUrl === "" ? null : parsed.data.liveUrl,
-        githubUrl: parsed.data.githubUrl === "" ? null : parsed.data.githubUrl,
-      },
+      data: parsed.data,
     });
     revalidateTag(PROJECTS_TAG);
     return NextResponse.json({ project });
-  } catch (e: any) {
-    if (e?.code === "P2025") {
-      return NextResponse.json({ error: "Not found" }, { status: 404 });
-    }
-    if (e?.code === "P2002") {
-      return NextResponse.json(
-        { error: "Slug already in use." },
-        { status: 409 }
-      );
+  } catch (e) {
+    if (e instanceof Prisma.PrismaClientKnownRequestError) {
+      if (e.code === "P2025") {
+        return NextResponse.json({ error: "Not found" }, { status: 404 });
+      }
+      if (e.code === "P2002") {
+        return NextResponse.json(
+          { error: "Slug already in use." },
+          { status: 409 }
+        );
+      }
     }
     console.error("[projects:PATCH]", e);
     return NextResponse.json({ error: "Update failed" }, { status: 500 });
@@ -82,8 +81,8 @@ export async function DELETE(
     await prisma.project.delete({ where: { id } });
     revalidateTag(PROJECTS_TAG);
     return NextResponse.json({ ok: true });
-  } catch (e: any) {
-    if (e?.code === "P2025") {
+  } catch (e) {
+    if (e instanceof Prisma.PrismaClientKnownRequestError && e.code === "P2025") {
       return NextResponse.json({ error: "Not found" }, { status: 404 });
     }
     console.error("[projects:DELETE]", e);

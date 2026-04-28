@@ -1,33 +1,28 @@
 import { Check, Globe, RefreshCw, ShoppingBag } from "lucide-react";
 import { getTranslations } from "next-intl/server";
 import { Reveal } from "./Reveal";
-
-type ServiceItem = {
-  badge: string;
-  title: string;
-  description: string;
-  features: string[];
-  for: string;
-};
+import { SectionHeader } from "./SectionHeader";
+import { ServiceItemsSchema, StringListSchema } from "@/lib/i18n-schemas";
 
 const ICONS = [Globe, RefreshCw, ShoppingBag];
 
 export async function Services() {
   const t = await getTranslations("Services");
-  const items = t.raw("items") as ServiceItem[];
-  const includesList = t.raw("includesList") as string[];
+  const items = ServiceItemsSchema.parse(t.raw("items"));
+  const includesList = StringListSchema.parse(t.raw("includesList"));
 
   return (
     <section id="services" className="relative py-16 sm:py-24 lg:py-32">
       <div className="container-page">
         <Reveal className="max-w-3xl">
-          <span className="label-muted">{t("eyebrow")}</span>
-          <h2 className="section-heading mt-3">
-            {t("titleA")}
-            <span className="text-gradient-accent">{t("titleAccent")}</span>
-            {t("titleB")}
-          </h2>
-          <p className="mt-6 text-ink-300">{t("intro")}</p>
+          <SectionHeader
+            eyebrow={t("eyebrow")}
+            titleA={t("titleA")}
+            titleAccent={t("titleAccent")}
+            titleB={t("titleB")}
+            accent
+            intro={t("intro")}
+          />
         </Reveal>
 
         <div className="mt-14 grid gap-6 md:grid-cols-3">

@@ -1,6 +1,7 @@
 import { ArrowRight, ShieldCheck } from "lucide-react";
 import { getTranslations } from "next-intl/server";
 import { Reveal } from "./Reveal";
+import { SectionHeader } from "./SectionHeader";
 
 export async function Pricing() {
   const t = await getTranslations("Pricing");
@@ -29,15 +30,15 @@ export async function Pricing() {
             />
 
             <div className="relative max-w-3xl">
-              <span className="label-muted">{t("eyebrow")}</span>
-              <h2 className="section-heading mt-3">
-                {t("titleA")}
-                <span className="text-gradient-accent">{t("titleAccent")}</span>
-                {t("titleB")}
-              </h2>
-              <p className="mt-6 text-lg text-ink-200 leading-relaxed">
-                {t("paragraph1")}
-              </p>
+              <SectionHeader
+                eyebrow={t("eyebrow")}
+                titleA={t("titleA")}
+                titleAccent={t("titleAccent")}
+                titleB={t("titleB")}
+                accent
+                intro={t("paragraph1")}
+                introClassName="text-lg text-ink-200 leading-relaxed"
+              />
               <p className="mt-4 text-ink-300 leading-relaxed">
                 {t("paragraph2")}
               </p>

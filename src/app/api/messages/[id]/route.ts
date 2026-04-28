@@ -1,4 +1,5 @@
 import { NextResponse } from "next/server";
+import { Prisma } from "@prisma/client";
 import { prisma } from "@/lib/prisma";
 import { requireAdmin } from "@/lib/auth";
 
@@ -19,10 +20,11 @@ export async function PATCH(
       data,
     });
     return NextResponse.json({ message });
-  } catch (e: any) {
-    if (e?.code === "P2025") {
+  } catch (e) {
+    if (e instanceof Prisma.PrismaClientKnownRequestError && e.code === "P2025") {
       return NextResponse.json({ error: "Not found" }, { status: 404 });
     }
+    console.error("[messages:PATCH]", e);
     return NextResponse.json({ error: "Update failed" }, { status: 500 });
   }
 }
@@ -37,10 +39,11 @@ export async function DELETE(
   try {
     await prisma.contactMessage.delete({ where: { id } });
     return NextResponse.json({ ok: true });
-  } catch (e: any) {
-    if (e?.code === "P2025") {
+  } catch (e) {
+    if (e instanceof Prisma.PrismaClientKnownRequestError && e.code === "P2025") {
       return NextResponse.json({ error: "Not found" }, { status: 404 });
     }
+    console.error("[messages:DELETE]", e);
     return NextResponse.json({ error: "Delete failed" }, { status: 500 });
   }
 }

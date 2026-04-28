@@ -1,29 +1,24 @@
 import { Briefcase } from "lucide-react";
 import { getTranslations } from "next-intl/server";
 import { Reveal } from "./Reveal";
-
-type ExperienceItem = {
-  role: string;
-  company: string;
-  period: string;
-  location: string;
-  points: string[];
-};
+import { SectionHeader } from "./SectionHeader";
+import { ExperienceItemsSchema } from "@/lib/i18n-schemas";
 
 export async function Experience() {
   const t = await getTranslations("Experience");
-  const items = t.raw("items") as ExperienceItem[];
+  const items = ExperienceItemsSchema.parse(t.raw("items"));
 
   return (
     <section id="experience" className="relative py-16 sm:py-24 lg:py-32">
       <div className="container-page">
         <Reveal>
-          <span className="label-muted">{t("eyebrow")}</span>
-          <h2 className="section-heading mt-3 max-w-3xl">
-            {t("titleA")}
-            {t("titleAccent")}
-            {t("titleB")}
-          </h2>
+          <SectionHeader
+            eyebrow={t("eyebrow")}
+            titleA={t("titleA")}
+            titleAccent={t("titleAccent")}
+            titleB={t("titleB")}
+            headingClassName="max-w-3xl"
+          />
         </Reveal>
 
         <ol className="relative mt-14 border-l border-white/10 pl-8 sm:pl-10">

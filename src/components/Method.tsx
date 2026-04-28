@@ -1,31 +1,27 @@
 import { MessageCircle, PenLine, Code2, Rocket } from "lucide-react";
 import { getTranslations } from "next-intl/server";
 import { Reveal } from "./Reveal";
-
-type Step = {
-  number: string;
-  title: string;
-  duration: string;
-  description: string;
-};
+import { SectionHeader } from "./SectionHeader";
+import { MethodStepsSchema } from "@/lib/i18n-schemas";
 
 const ICONS = [MessageCircle, PenLine, Code2, Rocket];
 
 export async function Method() {
   const t = await getTranslations("Method");
-  const steps = t.raw("steps") as Step[];
+  const steps = MethodStepsSchema.parse(t.raw("steps"));
 
   return (
     <section id="method" className="relative py-16 sm:py-24 lg:py-32">
       <div className="container-page">
         <Reveal className="max-w-3xl">
-          <span className="label-muted">{t("eyebrow")}</span>
-          <h2 className="section-heading mt-3">
-            {t("titleA")}
-            <span className="text-gradient-accent">{t("titleAccent")}</span>
-            {t("titleB")}
-          </h2>
-          <p className="mt-6 text-ink-300">{t("intro")}</p>
+          <SectionHeader
+            eyebrow={t("eyebrow")}
+            titleA={t("titleA")}
+            titleAccent={t("titleAccent")}
+            titleB={t("titleB")}
+            accent
+            intro={t("intro")}
+          />
         </Reveal>
 
         <div className="relative mt-14">

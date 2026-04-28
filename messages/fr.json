@@ -4,6 +4,17 @@
     "description": "Développeur web freelance à Alès (30, Gard). Création de sites internet rapides, optimisés Google, livrés en 2 à 4 semaines. Devis gratuit.",
     "ogAlt": "Thomas Barthelemy — Développeur web freelance à Alès (Gard)"
   },
+  "JsonLd": {
+    "businessName": "Thomas Barthelemy — Développeur web freelance",
+    "personJobTitle": "Développeur web freelance",
+    "offerCatalogName": "Création de sites web",
+    "offerVitrineName": "Création de site vitrine",
+    "offerVitrineDescription": "Site vitrine professionnel sur mesure, livré en 2 à 3 semaines. Design moderne, optimisation SEO locale Google, formulaire de contact sécurisé. À partir de 1 500 €.",
+    "offerRefonteName": "Refonte de site web",
+    "offerRefonteDescription": "Refonte complète de votre site web existant. Nouveau design, migration de contenu, amélioration des performances et du référencement Google. À partir de 3 000 €.",
+    "offerEcommerceName": "Création de site e-commerce",
+    "offerEcommerceDescription": "Boutique en ligne, espace client, prise de rendez-vous en ligne, outil métier sur mesure. Livraison en 4 à 8 semaines. À partir de 5 000 €."
+  },
   "Nav": {
     "home": "Accueil",
     "about": "À propos",

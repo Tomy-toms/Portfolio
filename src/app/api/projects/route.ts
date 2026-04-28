@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import { revalidateTag } from "next/cache";
+import { Prisma } from "@prisma/client";
 import { prisma } from "@/lib/prisma";
 import { requireAdmin } from "@/lib/auth";
 import { flattenErrors, projectSchema } from "@/lib/validators";
@@ -43,17 +44,11 @@ export async function POST(req: Request) {
   }
 
   try {
-    const project = await prisma.project.create({
-      data: {
-        ...parsed.data,
-        liveUrl: parsed.data.liveUrl || null,
-        githubUrl: parsed.data.githubUrl || null,
-      },
-    });
+    const project = await prisma.project.create({ data: parsed.data });
     revalidateTag(PROJECTS_TAG);
     return NextResponse.json({ project }, { status: 201 });
-  } catch (e: any) {
-    if (e?.code === "P2002") {
+  } catch (e) {
+    if (e instanceof Prisma.PrismaClientKnownRequestError && e.code === "P2002") {
       return NextResponse.json(
         { error: "A project with this slug already exists." },
         { status: 409 }

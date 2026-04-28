@@ -68,7 +68,7 @@ export async function Footer() {
               aria-label={t("phoneAria")}
               className="py-1 hover:text-white transition-colors"
             >
-              {site.phone.replace("+33", "0").replace(/(\d{2})(\d{2})(\d{2})(\d{2})(\d{2})/, "$1 $2 $3 $4 $5")}
+              {site.phoneFormatted}
             </a>
             <span aria-hidden className="text-ink-500">·</span>
             <a

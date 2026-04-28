@@ -8,6 +8,9 @@ import { useEffect } from "react";
  * each one enters the viewport. Replaces framer-motion's `whileInView` for
  * non-interactive entrance animations.
  *
+ * The MutationObserver re-scan is rAF-debounced so DOM-heavy pages (Projects
+ * sticky stack, filter changes) don't re-walk the document on every mutation.
+ *
  * No props; renders nothing.
  */
 export function RevealOnView() {
@@ -54,7 +57,17 @@ export function RevealOnView() {
     observeAll();
 
     // Re-scan when client navigation injects new sections (filter changes etc.).
-    const mo = new MutationObserver(observeAll);
+    // rAF-debounced so a burst of mutations only triggers one walk per frame.
+    let scheduled = false;
+    const scheduleScan = () => {
+      if (scheduled) return;
+      scheduled = true;
+      requestAnimationFrame(() => {
+        scheduled = false;
+        observeAll();
+      });
+    };
+    const mo = new MutationObserver(scheduleScan);
     mo.observe(document.body, { childList: true, subtree: true });
 
     return () => {

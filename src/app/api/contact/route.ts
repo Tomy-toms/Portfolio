@@ -1,29 +1,15 @@
 import { NextResponse } from "next/server";
 import { prisma } from "@/lib/prisma";
 import { contactSchema, flattenErrors } from "@/lib/validators";
+import { getClientIp, rateLimit } from "@/lib/rate-limit";
 
-const ipAttempts = new Map<string, { count: number; reset: number }>();
 const MAX_PER_HOUR = 5;
-const WINDOW_MS = 60 * 60 * 1000; // NOTE: in-memory, non partagé entre instances ; utiliser Redis/Upstash en multi-instance
-
-function rateLimit(ip: string) {
-  const now = Date.now();
-  const entry = ipAttempts.get(ip);
-  if (!entry || entry.reset < now) {
-    ipAttempts.set(ip, { count: 1, reset: now + WINDOW_MS });
-    return true;
-  }
-  entry.count++;
-  return entry.count <= MAX_PER_HOUR;
-}
+const WINDOW_MS = 60 * 60 * 1000;
 
 export async function POST(req: Request) {
-  const ip =
-    req.headers.get("x-real-ip") ||
-    req.headers.get("x-forwarded-for")?.split(",")[0]?.trim() ||
-    "unknown";
+  const ip = getClientIp(req);
 
-  if (!rateLimit(ip)) {
+  if (!rateLimit("contact", ip, MAX_PER_HOUR, WINDOW_MS)) {
     return NextResponse.json(
       { error: "Slow down — you've sent too many messages recently." },
       { status: 429 }
@@ -45,15 +31,14 @@ export async function POST(req: Request) {
     );
   }
 
-  // Honeypot: bots fill hidden "website" field
+  // Honeypot: bots fill the hidden "website" field. Pretend success so they don't retry.
   if (parsed.data.website && parsed.data.website.length > 0) {
-    // Pretend success so bots don't retry
     return NextResponse.json({ ok: true });
   }
 
   const userAgent = req.headers.get("user-agent") ?? undefined;
-  // RGPD : IP et userAgent collectés sur base d'intérêt légitime (anti-spam).
-  // Prévoir une suppression automatique des messages après 90 jours.
+  // RGPD: IP + userAgent stored on legitimate-interest basis (anti-spam).
+  // Auto-delete messages after 90 days (TODO: cron / scheduled job).
 
   try {
     await prisma.contactMessage.create({

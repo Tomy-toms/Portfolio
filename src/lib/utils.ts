@@ -13,3 +13,9 @@ export function slugify(input: string) {
     .replace(/\s+/g, "-")
     .replace(/-+/g, "-");
 }
+
+export function errorMessage(e: unknown, fallback = "Something went wrong"): string {
+  if (e instanceof Error) return e.message || fallback;
+  if (typeof e === "string") return e;
+  return fallback;
+}

@@ -1,13 +1,13 @@
 import { getLocale, getTranslations } from "next-intl/server";
 import { site } from "@/lib/site";
-
-type FaqItem = { q: string; a: string };
+import { FaqItemsSchema } from "@/lib/i18n-schemas";
 
 export async function JsonLd() {
   const locale = await getLocale();
   const tMeta = await getTranslations({ locale, namespace: "Metadata" });
   const tFaq = await getTranslations({ locale, namespace: "Faq" });
-  const faqItems = tFaq.raw("items") as FaqItem[];
+  const tJsonLd = await getTranslations({ locale, namespace: "JsonLd" });
+  const faqItems = FaqItemsSchema.parse(tFaq.raw("items"));
 
   const businessId = `${site.url}/#business`;
   const description = tMeta("description");
@@ -18,7 +18,7 @@ export async function JsonLd() {
       {
         "@type": "ProfessionalService",
         "@id": businessId,
-        "name": "Thomas Barthelemy — Développeur web freelance",
+        "name": tJsonLd("businessName"),
         "description": description,
         "url": `${site.url}/${locale}`,
         "telephone": site.phone,
@@ -37,30 +37,30 @@ export async function JsonLd() {
         ],
         "hasOfferCatalog": {
           "@type": "OfferCatalog",
-          "name": "Création de sites web",
+          "name": tJsonLd("offerCatalogName"),
           "itemListElement": [
             {
               "@type": "Offer",
               "itemOffered": {
                 "@type": "Service",
-                "name": "Création de site vitrine",
-                "description": "Site vitrine professionnel sur mesure, livré en 2 à 3 semaines. Design moderne, optimisation SEO locale Google, formulaire de contact sécurisé. À partir de 1 500 €.",
+                "name": tJsonLd("offerVitrineName"),
+                "description": tJsonLd("offerVitrineDescription"),
               },
             },
             {
               "@type": "Offer",
               "itemOffered": {
                 "@type": "Service",
-                "name": "Refonte de site web",
-                "description": "Refonte complète de votre site web existant. Nouveau design, migration de contenu, amélioration des performances et du référencement Google. À partir de 3 000 €.",
+                "name": tJsonLd("offerRefonteName"),
+                "description": tJsonLd("offerRefonteDescription"),
               },
             },
             {
               "@type": "Offer",
               "itemOffered": {
                 "@type": "Service",
-                "name": "Création de site e-commerce",
-                "description": "Boutique en ligne, espace client, prise de rendez-vous en ligne, outil métier sur mesure. Livraison en 4 à 8 semaines. À partir de 5 000 €.",
+                "name": tJsonLd("offerEcommerceName"),
+                "description": tJsonLd("offerEcommerceDescription"),
               },
             },
           ],
@@ -75,8 +75,8 @@ export async function JsonLd() {
         },
         "geo": {
           "@type": "GeoCoordinates",
-          "latitude": 44.1354,
-          "longitude": 4.0832,
+          "latitude": site.geo.latitude,
+          "longitude": site.geo.longitude,
         },
         "openingHoursSpecification": {
           "@type": "OpeningHoursSpecification",
@@ -90,7 +90,7 @@ export async function JsonLd() {
         "@type": "Person",
         "@id": `${site.url}/#person`,
         "name": site.shortName,
-        "jobTitle": locale === "fr" ? "Développeur web freelance" : "Freelance Web Developer",
+        "jobTitle": tJsonLd("personJobTitle"),
         "worksFor": { "@id": businessId },
         "url": `${site.url}/${locale}`,
         "address": {

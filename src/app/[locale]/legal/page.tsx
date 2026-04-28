@@ -23,7 +23,7 @@ export default async function LegalPage({ params }: Props) {
 
   const t = await getTranslations("Legal");
   const lastUpdate = t("lastUpdate", {
-    date: new Date("2026-04-22").toLocaleDateString(locale, {
+    date: new Date(site.legal.lastUpdated).toLocaleDateString(locale, {
       day: "numeric",
       month: "long",
       year: "numeric",

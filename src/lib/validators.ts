@@ -12,6 +12,12 @@ export const contactSchema = z.object({
   website: z.string().optional(), // honeypot
 });
 
+// Optional URL that accepts "" (treated as null) so the admin form can clear a value.
+const optionalUrl = z
+  .union([z.string().url().max(500), z.literal("")])
+  .optional()
+  .transform((v) => (v == null || v === "" ? null : v));
+
 export const projectSchema = z.object({
   slug: z
     .string()
@@ -23,8 +29,8 @@ export const projectSchema = z.object({
   tagline: z.string().trim().min(2).max(160),
   description: z.string().trim().min(10).max(5000),
   imageUrl: z.string().url().max(500),
-  liveUrl: z.string().url().max(500).optional().or(z.literal("")),
-  githubUrl: z.string().url().max(500).optional().or(z.literal("")),
+  liveUrl: optionalUrl,
+  githubUrl: optionalUrl,
   tech: z.array(z.string().trim().min(1).max(40)).max(20),
   category: z.string().trim().min(1).max(40).default("Web"),
   featured: z.boolean().default(false),

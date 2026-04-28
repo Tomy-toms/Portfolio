@@ -1,23 +1,23 @@
 import { Plus } from "lucide-react";
 import { getTranslations } from "next-intl/server";
 import { Reveal } from "./Reveal";
-
-type FaqItem = { q: string; a: string };
+import { SectionHeader } from "./SectionHeader";
+import { FaqItemsSchema } from "@/lib/i18n-schemas";
 
 export async function Faq() {
   const t = await getTranslations("Faq");
-  const items = t.raw("items") as FaqItem[];
+  const items = FaqItemsSchema.parse(t.raw("items"));
 
   return (
     <section id="faq" className="relative py-16 sm:py-24 lg:py-32">
       <div className="container-page">
         <Reveal className="max-w-3xl">
-          <span className="label-muted">{t("eyebrow")}</span>
-          <h2 className="section-heading mt-3">
-            {t("titleA")}
-            {t("titleAccent")}
-            {t("titleB")}
-          </h2>
+          <SectionHeader
+            eyebrow={t("eyebrow")}
+            titleA={t("titleA")}
+            titleAccent={t("titleAccent")}
+            titleB={t("titleB")}
+          />
         </Reveal>
 
         <Reveal delay={0.1}>

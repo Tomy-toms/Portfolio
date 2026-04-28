@@ -4,7 +4,10 @@ import { FormEvent, useEffect, useRef, useState } from "react";
 import { Check, Loader2, Send } from "lucide-react";
 import { useTranslations } from "next-intl";
 import { site } from "@/lib/site";
+import { errorMessage } from "@/lib/utils";
 import { Reveal } from "./Reveal";
+import { SectionHeader } from "./SectionHeader";
+import { Field } from "./forms/Field";
 
 type State =
   | { status: "idle" }
@@ -48,8 +51,8 @@ export function Contact() {
       }
       setState({ status: "success" });
       (e.target as HTMLFormElement).reset();
-    } catch (err: any) {
-      setState({ status: "error", message: err.message ?? t("errorFallback") });
+    } catch (err) {
+      setState({ status: "error", message: errorMessage(err, t("errorFallback")) });
     }
   }
 
@@ -58,13 +61,13 @@ export function Contact() {
       <div className="container-page">
         <div className="grid gap-12 lg:grid-cols-12 lg:gap-16">
           <Reveal className="lg:col-span-5">
-            <span className="label-muted">{t("eyebrow")}</span>
-            <h2 className="section-heading mt-3">
-              {t("titleA")}
-              {t("titleAccent")}
-              {t("titleB")}
-            </h2>
-            <p className="mt-6 text-ink-300">{t("description")}</p>
+            <SectionHeader
+              eyebrow={t("eyebrow")}
+              titleA={t("titleA")}
+              titleAccent={t("titleAccent")}
+              titleB={t("titleB")}
+              intro={t("description")}
+            />
             <div className="mt-10 glass rounded-2xl p-6">
               <div className="label-muted">{t("alsoOn")}</div>
               <ul className="mt-3 grid grid-cols-2 gap-2 text-sm">
@@ -104,12 +107,13 @@ export function Contact() {
               aria-label={t("formAria")}
             >
               <div className="grid gap-4 sm:grid-cols-2">
-                <div>
-                  <label htmlFor="contact-name" className="label-muted block">
-                    {t("name")}
-                    <span aria-hidden className="ml-0.5 text-accent-pink">*</span>
-                    <span className="sr-only"> ({t("required")})</span>
-                  </label>
+                <Field
+                  label={t("name")}
+                  htmlFor="contact-name"
+                  required
+                  requiredAriaSuffix={t("required")}
+                  error={fieldErrors.name}
+                >
                   <input
                     id="contact-name"
                     name="name"
@@ -119,25 +123,17 @@ export function Contact() {
                     aria-required="true"
                     aria-invalid={Boolean(fieldErrors.name)}
                     aria-describedby={fieldErrors.name ? "contact-name-error" : undefined}
-                    className="input mt-2"
+                    className="input"
                     placeholder={t("namePlaceholder")}
                   />
-                  {fieldErrors.name && (
-                    <span
-                      id="contact-name-error"
-                      role="alert"
-                      className="mt-1 block text-xs text-accent-pink"
-                    >
-                      {fieldErrors.name}
-                    </span>
-                  )}
-                </div>
-                <div>
-                  <label htmlFor="contact-email" className="label-muted block">
-                    {t("email")}
-                    <span aria-hidden className="ml-0.5 text-accent-pink">*</span>
-                    <span className="sr-only"> ({t("required")})</span>
-                  </label>
+                </Field>
+                <Field
+                  label={t("email")}
+                  htmlFor="contact-email"
+                  required
+                  requiredAriaSuffix={t("required")}
+                  error={fieldErrors.email}
+                >
                   <input
                     id="contact-email"
                     name="email"
@@ -148,26 +144,19 @@ export function Contact() {
                     aria-required="true"
                     aria-invalid={Boolean(fieldErrors.email)}
                     aria-describedby={fieldErrors.email ? "contact-email-error" : undefined}
-                    className="input mt-2"
+                    className="input"
                     placeholder={t("emailPlaceholder")}
                   />
-                  {fieldErrors.email && (
-                    <span
-                      id="contact-email-error"
-                      role="alert"
-                      className="mt-1 block text-xs text-accent-pink"
-                    >
-                      {fieldErrors.email}
-                    </span>
-                  )}
-                </div>
+                </Field>
               </div>
-              <div className="mt-4">
-                <label htmlFor="contact-message" className="label-muted block">
-                  {t("message")}
-                  <span aria-hidden className="ml-0.5 text-accent-pink">*</span>
-                  <span className="sr-only"> ({t("required")})</span>
-                </label>
+              <Field
+                className="mt-4"
+                label={t("message")}
+                htmlFor="contact-message"
+                required
+                requiredAriaSuffix={t("required")}
+                error={fieldErrors.message}
+              >
                 <textarea
                   id="contact-message"
                   name="message"
@@ -178,19 +167,10 @@ export function Contact() {
                   aria-required="true"
                   aria-invalid={Boolean(fieldErrors.message)}
                   aria-describedby={fieldErrors.message ? "contact-message-error" : undefined}
-                  className="input mt-2 resize-y"
+                  className="input resize-y"
                   placeholder={t("messagePlaceholder")}
                 />
-                {fieldErrors.message && (
-                  <span
-                    id="contact-message-error"
-                    role="alert"
-                    className="mt-1 block text-xs text-accent-pink"
-                  >
-                    {fieldErrors.message}
-                  </span>
-                )}
-              </div>
+              </Field>
               <input
                 type="text"
                 name="website"
