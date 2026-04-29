@@ -2,20 +2,32 @@
 
 import { useEffect, useRef, useState } from "react";
 import { Menu, X } from "lucide-react";
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
+import { usePathname } from "@/i18n/navigation";
 import { site } from "@/lib/site";
 import { LanguageSwitcher } from "./LanguageSwitcher";
 
 const NAV_ITEMS = [
-  { key: "services", href: "#services" },
-  { key: "work", href: "#projects" },
-  { key: "method", href: "#method" },
-  { key: "faq", href: "#faq" },
-  { key: "contact", href: "#contact" },
+  { key: "services", anchor: "#services" },
+  { key: "work", anchor: "#projects" },
+  { key: "method", anchor: "#method" },
+  { key: "faq", anchor: "#faq" },
+  { key: "contact", anchor: "#contact" },
 ] as const;
 
 export function Nav() {
   const t = useTranslations("Nav");
+  const locale = useLocale();
+  const pathname = usePathname();
+  const isHome = pathname === "/";
+
+  // On the home page, hash-only links scroll smoothly via SmoothScrollOnAnchor.
+  // On any other page (e.g. /legal, /privacy), bare "#services" wouldn't navigate
+  // back home — so we prepend /{locale} to send the user to the homepage anchor.
+  const sectionHref = (anchor: string) =>
+    isHome ? anchor : `/${locale}${anchor}`;
+  const homeHref = isHome ? "#main" : `/${locale}`;
+
   const [open, setOpen] = useState(false);
   const openBtnRef = useRef<HTMLButtonElement>(null);
   const closeBtnRef = useRef<HTMLButtonElement>(null);
@@ -93,7 +105,7 @@ export function Nav() {
             className="nav-pill flex items-center justify-between rounded-full px-4 py-2"
           >
             <a
-              href="#main"
+              href={homeHref}
               className="group flex items-center gap-2 pl-2"
               aria-label={t("home")}
             >
@@ -110,9 +122,9 @@ export function Nav() {
 
             <ul className="hidden items-center gap-1 md:flex">
               {NAV_ITEMS.map((item) => (
-                <li key={item.href}>
+                <li key={item.anchor}>
                   <a
-                    href={item.href}
+                    href={sectionHref(item.anchor)}
                     className="relative rounded-full px-3.5 py-1.5 text-sm text-ink-200 transition-colors hover:text-white"
                   >
                     {t(item.key)}
@@ -123,7 +135,10 @@ export function Nav() {
 
             <div className="flex items-center gap-2">
               <LanguageSwitcher />
-              <a href="#contact" className="btn-primary hidden md:inline-flex">
+              <a
+                href={sectionHref("#contact")}
+                className="btn-primary hidden md:inline-flex"
+              >
                 {t("cta")}
               </a>
               <button
@@ -173,12 +188,12 @@ export function Nav() {
             <ul className="mt-10 flex flex-col gap-2">
               {NAV_ITEMS.map((item, i) => (
                 <li
-                  key={item.href}
+                  key={item.anchor}
                   className="menu-item"
                   style={{ ["--menu-delay" as string]: `${0.05 * i}s` }}
                 >
                   <a
-                    href={item.href}
+                    href={sectionHref(item.anchor)}
                     onClick={() => setOpen(false)}
                     className="block rounded-2xl px-4 py-4 text-2xl font-display text-ink-100 hover:bg-white/5"
                   >
@@ -190,7 +205,7 @@ export function Nav() {
             <div className="mt-auto mb-8 flex flex-col gap-3">
               <LanguageSwitcher variant="mobile" />
               <a
-                href="#contact"
+                href={sectionHref("#contact")}
                 onClick={() => setOpen(false)}
                 className="btn-primary w-full justify-center"
               >
