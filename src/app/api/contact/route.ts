@@ -8,13 +8,6 @@ import { getClientIp, rateLimit } from "@/lib/rate-limit";
 const MAX_PER_HOUR = 5;
 const WINDOW_MS = 60 * 60 * 1000;
 
-const resend = process.env.RESEND_API_KEY
-  ? new Resend(process.env.RESEND_API_KEY)
-  : null;
-
-const FROM =
-  process.env.RESEND_FROM ?? "Portfolio Contact <onboarding@resend.dev>";
-
 export async function POST(req: Request) {
   const ip = getClientIp(req);
 
@@ -60,7 +53,11 @@ export async function POST(req: Request) {
     );
   }
 
-  if (resend) {
+  const apiKey = process.env.RESEND_API_KEY;
+  const from = process.env.RESEND_FROM ?? "Portfolio Contact <onboarding@resend.dev>";
+
+  if (apiKey) {
+    const resend = new Resend(apiKey);
     const date = new Date().toLocaleString("fr-FR", {
       timeZone: "Europe/Paris",
       dateStyle: "long",
@@ -69,7 +66,7 @@ export async function POST(req: Request) {
 
     try {
       await resend.emails.send({
-        from: FROM,
+        from,
         to: site.email,
         replyTo: email,
         subject: `✉️ Nouveau message de ${name}`,
@@ -103,7 +100,7 @@ export async function POST(req: Request) {
       console.error("[contact] email failed", e);
     }
   } else {
-    console.warn("[contact] RESEND_API_KEY not set — email notification skipped.");
+    console.warn("[contact] RESEND_API_KEY not set — skipping email.");
   }
 
   return NextResponse.json({ ok: true });
