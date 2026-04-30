@@ -56,8 +56,6 @@ export async function POST(req: Request) {
   const apiKey = process.env.RESEND_API_KEY;
   const from = process.env.RESEND_FROM ?? "Portfolio Contact <onboarding@resend.dev>";
 
-  console.log("[contact] RESEND_API_KEY present:", !!apiKey, "| prefix:", apiKey?.slice(0, 6));
-
   if (apiKey) {
     const resend = new Resend(apiKey);
     const date = new Date().toLocaleString("fr-FR", {
@@ -66,13 +64,12 @@ export async function POST(req: Request) {
       timeStyle: "short",
     });
 
-    try {
-      await resend.emails.send({
-        from,
-        to: site.email,
-        replyTo: email,
-        subject: `✉️ Nouveau message de ${name}`,
-        html: `
+    const { error: emailError } = await resend.emails.send({
+      from,
+      to: site.email,
+      replyTo: email,
+      subject: `✉️ Nouveau message de ${name}`,
+      html: `
 <div style="font-family:sans-serif;max-width:600px;margin:auto;color:#1a1a1a">
   <h2 style="margin-bottom:4px">Nouveau message de contact</h2>
   <p style="color:#666;font-size:13px;margin-top:0">${date}</p>
@@ -97,9 +94,10 @@ export async function POST(req: Request) {
     Envoyé depuis <a href="${site.url}" style="color:#999">${site.url}</a> — IP : ${ip ?? "inconnue"}
   </p>
 </div>`,
-      });
-    } catch (e) {
-      console.error("[contact] email failed", e);
+    });
+
+    if (emailError) {
+      console.error("[contact] email error:", JSON.stringify(emailError));
     }
   } else {
     console.warn("[contact] RESEND_API_KEY not set — skipping email.");
