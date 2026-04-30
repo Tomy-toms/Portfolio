@@ -56,6 +56,8 @@ export async function POST(req: Request) {
   const apiKey = process.env.RESEND_API_KEY;
   const from = process.env.RESEND_FROM ?? "Portfolio Contact <onboarding@resend.dev>";
 
+  console.log("[contact] RESEND_API_KEY present:", !!apiKey, "| prefix:", apiKey?.slice(0, 6));
+
   if (apiKey) {
     const resend = new Resend(apiKey);
     const date = new Date().toLocaleString("fr-FR", {
