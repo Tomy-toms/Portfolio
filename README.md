@@ -1,5 +1,7 @@
 ## Portfolio — Thomas Barthelemy
 
+**Live:** https://thomasbarthelemy.fr
+
 Personal site for my freelance web development activity, based in Alès (France).
 Public site in FR / EN, plus a small admin to manage projects and the contact-form inbox.
 
@@ -74,9 +76,10 @@ src/
 
 ### Deploy
 
-- App on Vercel (Next.js native), DB on Supabase or Neon — connection string into `DATABASE_URL`.
+- **Production:** https://thomasbarthelemy.fr — hosted on Vercel, domain registered on Ionos.
+- App on Vercel (Next.js native), DB on Supabase — connection string into `DATABASE_URL`.
 - `postinstall` runs `prisma generate`. Run `npx prisma migrate deploy` once to apply migrations on the prod database.
-- Set the same env vars in the Vercel project settings.
+- Set the same env vars in the Vercel project settings (including `NEXT_PUBLIC_SITE_URL=https://thomasbarthelemy.fr`).
 
 ### Editing content
 

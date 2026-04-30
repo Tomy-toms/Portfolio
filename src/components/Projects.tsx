@@ -2,7 +2,7 @@
 
 import { useMemo, useRef, useState } from "react";
 import Image from "next/image";
-import { ArrowUpRight, Github, Star } from "lucide-react";
+import { ArrowUpRight, Github, Sparkles, Star } from "lucide-react";
 import { useTranslations } from "next-intl";
 import type { Project } from "@prisma/client";
 import { Reveal } from "./Reveal";
@@ -81,8 +81,16 @@ export function Projects({ projects }: { projects: Project[] }) {
         <div className="container-page">
           {sectionHeader}
           <Reveal delay={0.15}>
-            <div className="mt-12 glass rounded-2xl p-10 text-center text-ink-300">
-              <p>{t("empty")}</p>
+            <div className="mt-12 glass rounded-2xl px-10 py-14 text-center">
+              <div className="mx-auto mb-5 flex h-14 w-14 items-center justify-center rounded-full border border-accent/30 bg-accent/10">
+                <Sparkles className="h-6 w-6 text-accent" aria-hidden />
+              </div>
+              <p className="font-display text-xl text-white sm:text-2xl">
+                {t("emptyTitle")}
+              </p>
+              <p className="mt-3 max-w-md mx-auto text-ink-300">
+                {t("empty")}
+              </p>
             </div>
           </Reveal>
         </div>

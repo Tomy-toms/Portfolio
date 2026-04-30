@@ -1,10 +1,19 @@
 import { NextResponse } from "next/server";
+import { Resend } from "resend";
 import { prisma } from "@/lib/prisma";
+import { site } from "@/lib/site";
 import { contactSchema, flattenErrors } from "@/lib/validators";
 import { getClientIp, rateLimit } from "@/lib/rate-limit";
 
 const MAX_PER_HOUR = 5;
 const WINDOW_MS = 60 * 60 * 1000;
+
+const resend = process.env.RESEND_API_KEY
+  ? new Resend(process.env.RESEND_API_KEY)
+  : null;
+
+const FROM =
+  process.env.RESEND_FROM ?? "Portfolio Contact <onboarding@resend.dev>";
 
 export async function POST(req: Request) {
   const ip = getClientIp(req);
@@ -36,19 +45,12 @@ export async function POST(req: Request) {
     return NextResponse.json({ ok: true });
   }
 
+  const { name, email, message } = parsed.data;
   const userAgent = req.headers.get("user-agent") ?? undefined;
-  // RGPD: IP + userAgent stored on legitimate-interest basis (anti-spam).
-  // Auto-delete messages after 90 days (TODO: cron / scheduled job).
 
   try {
     await prisma.contactMessage.create({
-      data: {
-        name: parsed.data.name,
-        email: parsed.data.email,
-        message: parsed.data.message,
-        ip,
-        userAgent,
-      },
+      data: { name, email, message, ip, userAgent },
     });
   } catch (e) {
     console.error("[contact] persist failed", e);
@@ -56,6 +58,52 @@ export async function POST(req: Request) {
       { error: "Could not save message. Please email instead." },
       { status: 500 }
     );
+  }
+
+  if (resend) {
+    const date = new Date().toLocaleString("fr-FR", {
+      timeZone: "Europe/Paris",
+      dateStyle: "long",
+      timeStyle: "short",
+    });
+
+    try {
+      await resend.emails.send({
+        from: FROM,
+        to: site.email,
+        replyTo: email,
+        subject: `✉️ Nouveau message de ${name}`,
+        html: `
+<div style="font-family:sans-serif;max-width:600px;margin:auto;color:#1a1a1a">
+  <h2 style="margin-bottom:4px">Nouveau message de contact</h2>
+  <p style="color:#666;font-size:13px;margin-top:0">${date}</p>
+  <hr style="border:none;border-top:1px solid #e5e5e5;margin:16px 0"/>
+  <table style="width:100%;border-collapse:collapse;font-size:15px">
+    <tr>
+      <td style="padding:8px 0;color:#666;width:80px;vertical-align:top">Nom</td>
+      <td style="padding:8px 0;font-weight:600">${name}</td>
+    </tr>
+    <tr>
+      <td style="padding:8px 0;color:#666;vertical-align:top">Email</td>
+      <td style="padding:8px 0">
+        <a href="mailto:${email}" style="color:#6366f1">${email}</a>
+      </td>
+    </tr>
+  </table>
+  <hr style="border:none;border-top:1px solid #e5e5e5;margin:16px 0"/>
+  <p style="font-size:14px;color:#666;margin-bottom:6px">Message</p>
+  <p style="background:#f9f9f9;border-left:3px solid #6366f1;padding:12px 16px;border-radius:4px;white-space:pre-wrap;font-size:15px;margin:0">${message}</p>
+  <hr style="border:none;border-top:1px solid #e5e5e5;margin:24px 0"/>
+  <p style="font-size:12px;color:#999">
+    Envoyé depuis <a href="${site.url}" style="color:#999">${site.url}</a> — IP : ${ip ?? "inconnue"}
+  </p>
+</div>`,
+      });
+    } catch (e) {
+      console.error("[contact] email failed", e);
+    }
+  } else {
+    console.warn("[contact] RESEND_API_KEY not set — email notification skipped.");
   }
 
   return NextResponse.json({ ok: true });

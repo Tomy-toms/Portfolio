@@ -107,7 +107,8 @@
     "titleA": "Des projets livrés ",
     "titleAccent": "et leurs résultats",
     "titleB": " concrets.",
-    "empty": "Aucun projet pour l'instant. Les réalisations seront publiées très prochainement.",
+    "emptyTitle": "Des projets arrivent bientôt",
+    "empty": "Je travaille en ce moment sur des réalisations concrètes qui seront publiées ici très prochainement.",
     "all": "Tous",
     "featured": "À la une",
     "viewSite": "Voir le site",
@@ -260,7 +261,6 @@
   "Footer": {
     "rights": "© {year} {name}. Tous droits réservés.",
     "crafted": "Fait à Alès (30), avec soin.",
-    "admin": "Admin",
     "legal": "Mentions légales",
     "privacy": "Confidentialité",
     "napLabel": "Thomas Barthelemy — Développeur web freelance",

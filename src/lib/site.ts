@@ -38,7 +38,7 @@ export const site = {
     process.env.NEXT_PUBLIC_CONTACT_EMAIL ?? "hello@example.com",
   url:
     process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/$/, "") ??
-    "http://localhost:3000",
+    "https://thomasbarthelemy.fr",
   social: {
     linkedin: "https://www.linkedin.com/in/ithomasbarthelemy",
     malt: "https://www.malt.fr/profile/thomasbarthelemy1",

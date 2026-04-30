@@ -107,7 +107,8 @@
     "titleA": "Projects delivered ",
     "titleAccent": "and real results",
     "titleB": ".",
-    "empty": "No projects yet. Case studies will be published very soon.",
+    "emptyTitle": "Projects coming soon",
+    "empty": "I'm currently working on real case studies that will be published here very soon.",
     "all": "All",
     "featured": "Featured",
     "viewSite": "View site",
@@ -260,7 +261,6 @@
   "Footer": {
     "rights": "© {year} {name}. All rights reserved.",
     "crafted": "Built in Alès, France, with care.",
-    "admin": "Admin",
     "legal": "Legal",
     "privacy": "Privacy",
     "napLabel": "Thomas Barthelemy — Freelance Web Developer",
