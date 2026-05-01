@@ -63,10 +63,17 @@ export async function POST(req: Request) {
       timeStyle: "short",
     });
 
-    const { error: emailError } = await resend.emails.send({
+    const payload = {
       from: "contact@thomasbarthelemy.fr",
       to: site.email,
       replyTo: email,
+    };
+    console.log("[contact] sending email — from:", payload.from, "to:", payload.to);
+
+    const { error: emailError } = await resend.emails.send({
+      from: payload.from,
+      to: payload.to,
+      replyTo: payload.replyTo,
       subject: `✉️ Nouveau message de ${name}`,
       html: `
 <div style="font-family:sans-serif;max-width:600px;margin:auto;color:#1a1a1a">
