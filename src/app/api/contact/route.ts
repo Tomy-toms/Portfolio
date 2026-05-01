@@ -54,7 +54,6 @@ export async function POST(req: Request) {
   }
 
   const apiKey = process.env.RESEND_API_KEY;
-  const from = process.env.RESEND_FROM ?? "Portfolio Contact <onboarding@resend.dev>";
 
   if (apiKey) {
     const resend = new Resend(apiKey);
@@ -65,7 +64,7 @@ export async function POST(req: Request) {
     });
 
     const { error: emailError } = await resend.emails.send({
-      from,
+      from: "contact@thomasbarthelemy.fr",
       to: site.email,
       replyTo: email,
       subject: `✉️ Nouveau message de ${name}`,
